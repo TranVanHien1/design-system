@@ -54,10 +54,12 @@ by what the component is, not by eye:
 
 | Token | dp | Job (pick by component) |
 |---|---|---|
-| `sm` | 8 | icon ↔ label inside buttons, chips, badges, tabs; between chips; badge inset from a card corner; vertical padding of pills and list rows; inset of small tiles (≤110dp wide) |
-| `md` | 12 | between sibling tiles and cards (grid gutters, rails, sheet choice tiles, quick tiles); between buttons in one row; section title → its content; inner padding of small cards and pills' long side |
-| `lg` | 16 | screen side margin (compact); card, banner and list-row padding; bottom bar; search field; leading icon → text in a list row; button side with an icon |
-| `xl` | 24 | dialog and sheet title insets; empty / success block insets; button text side; between major groups; screen margin (medium+) |
+| `sm` | 8 | icon ↔ label inside buttons, chips, badges, tabs; between chips; **between cards in a horizontal rail**; **between side-by-side buttons in a sheet**; small glyph (24) inset from a card corner; banner → pager dots; vertical padding of pills, tabs and list rows; inset of small tiles (≤110dp wide) |
+| `md` | 12 | **grid gutters** (2-column wallpaper/theme grids); section title → its content; header icon ↔ title; badge (28) inset from a card corner; inner padding of small cards, pills' long side, caption strips; header → first block |
+| `lg` | 16 | screen side margin; between blocks of a feed (banner, search, sections); card, banner text and list-row padding; dialog and floating-sheet padding; floating sheet inset from the screen edges; between stacked buttons in a dialog; bottom bar; leading icon → text in a list row; button side with an icon; between the icons and the CTA in a detail action row |
+| `xl` | 24 | between blocks of a detail / preview screen (header → pager → actions) and between pager cards; between blocks inside a dialog (art → text → buttons); empty / success block insets; screen margin (medium+) |
+
+Measured on the team's Figma (2026-11-05 padding pass, [components.md](components.md) §15): the files use 16 for the margin and feed gaps, 8 for rails, 12–15 for grid gutters, 12 for header and badge insets, 24 for detail columns, 16 for dialog/sheet padding; their odd values (4 title→subtitle, 13, 14, 15, 20) map to the steps above. Title → subtitle stacks use no gap: the line height carries it.
 
 Nothing else: no 2, 4, 6, 10, 14, 20, 28, 32. Larger air comes from stacking steps (24 + 24) or from
 centring short content in its space, never from a one-off 40 or 56. Combined spacing must still land on

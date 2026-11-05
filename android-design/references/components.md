@@ -158,6 +158,30 @@ Shared anatomy: full-width **#FAFAFA** block (no radius) · media **full-bleed**
 
 Placement in the base flow: Language and every OB page carry Media_Big at y607–617 (RT uses Item 296 at y621; SC uses no ad on Language and Colab_Left on OB; PS and RI templates draw none); native full after OB1 and OB3 (master: after OB1, OB2, OB3); interstitial after splash; adaptive banner variant on splash.
 
+## 15. Measured spacing (2026-11-05 padding pass)
+
+`get_design_context` on TM 1262:28912 (Home), CV 86:10378 (Home), RI 7042:19085 (wallpaper detail), CV 72:1838 (detail pager), TM 1262:31723 (apply flow, sheets), RT 28:6750 (category grid), CV 83:3601 (result), RT 43:8909 (unlock dialog). Values in dp of the 375 frame (RI 412); "→ scale" is what the flow and code use ([layout.md](layout.md)).
+
+| Component | Figma | → scale |
+|---|---|---|
+| Screen margin | 16 everywhere | 16 |
+| Header (title bar) | 56 tall, px16 py12, back 24 ↔ title 12 (CV, RT); RI/TM 66 tall, gap 8; title 20/28 SemiBold (24/32 RI) | 56, px16, gap 12 |
+| Feed body (Home) | TM body p16, blocks gap 16; CV header → banner 12, sections 12 apart | 16 between blocks, 12 header → banner |
+| Hero banner | 343×193 r8 (TM) / 343×157 (CV); text inset 16 (TM) / 12–16 (CV); CTA pill 28 tall, px12 py6, icon gap 4; pager 8 below (18×4 + 4×4, gap 4) | text 16, CTA 28 (px12), pager 8 |
+| Section head | title row py8 px16 (RT) or icon 24 + gap 8 + title 16/20 (TM); → content 8 (RT) / 12 (TM); CV header block 48 tall | py8 px16, → content 12 |
+| Horizontal rail | cards 120×212 r8 gap 8 (TM), 140×249 gap 8 (CV) | gap 8 |
+| 2-column grid | 164×292 gap 15×12 (TM), 165×221 gap 12 (RT), 167×297 gap 8 (CV result), icon cards gap 16 (TM) | gap 12 (one value per app) |
+| Card overlays | heart / VIP 28 circles rgba(28,28,28,.5–.6) at 12 inset; type glyph 24 at 8 inset bottom-right (CV); caption strip px12 py4 gap12 (RT) | 28 @12, 24 @8 |
+| Search field | 38 tall, px12, icon ↔ text 8, 1dp outline, pill (TM) | 40 visual / 48 hit, px12, gap 8 |
+| Chip tabs | px12 py3 r8, selected = tint fill + brand text, no gap (TM) | px12, gap 8 |
+| Detail / preview | column gap 24, top 24 (CV); pager centre 231×479 r16, sides 154×320, gap 24; RI single card 340×605 | 24 between blocks and cards |
+| Detail action row | width 343, px8, gap 16: icon 24 · CTA (48 tall, px16, icon ↔ text 8, r40; RI 52 r24) · icon 24 | px8 gap16, CTA 48 |
+| Floating bottom sheet | inset 16 from sides and bottom; header 56 (title px16, close 24 at 16); rows 311×56 (px16, trailing button 32 tall); button area p16; two buttons gap 8 (TM) | inset 16, header 56, rows 56, gap 8 |
+| Dialog | p16, r24, blocks gap 20, stacked buttons 48 tall gap 16, close 24 at 16 (RT) | p16, blocks 24, buttons gap 16 |
+| Result | illustration → text 16; title → body 4; divider; "Similars" head px16 py12; grid gap 8 (CV) | 16, 0 (line height), section py12 |
+| Info tiles | 80×92, p12, icon ↔ label 12, r16, row gap 8 (RT) | p12, gap 8 |
+| Bottom nav | TM line nav 64 tall, icon ↔ label 4; RT pill nav active pill px20 py10 gap6, items px16 py12, top radius 24 | icon-only 64 (team rule) |
+
 ## 14. What the earlier skill had wrong (fixed in templates and kit)
 
 - Language: selected row got a border/tint → **only the radio changes**; confirm was a 40 filled circle → **plain 24 tick at x364 y75**, or a 72×32 "Next" pill (RI/CV), or a 48 round check (SC); rows r12 Medium 15 → **r8 Regular 16/20**, flag gap 16.
