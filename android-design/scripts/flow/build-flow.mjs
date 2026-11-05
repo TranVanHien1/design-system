@@ -196,7 +196,9 @@ const MEASURE = `(() => {
     const r = el.getBoundingClientRect(); if (r.width < 1 || r.height < 1 || r.bottom < 0 || r.top > H || r.right < 0 || r.left > W) continue;
     const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || cs.display === 'none' || +cs.opacity === 0) continue;
     const autoX = px(cs.marginLeft) === px(cs.marginRight) && px(cs.marginLeft) > 24; // margin: 0 auto centring, not spacing
-    for (const p of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft']) { if (autoX && /margin(Left|Right)/.test(p)) continue; const v = px(cs[p]); if (v > 0) cnt(spacing, v); }
+    const sm = el.computedStyleMap ? el.computedStyleMap() : null; // keeps 'auto' (getComputedStyle gives the used px)
+    const isAuto = (p) => { try { return sm && String(sm.get(p.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase()))) === 'auto'; } catch (e) { return false; } };
+    for (const p of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft']) { if ((autoX && /margin(Left|Right)/.test(p)) || (/^margin/.test(p) && isAuto(p))) continue; const v = px(cs[p]); if (v > 0) cnt(spacing, v); }
     if (/flex|grid/.test(cs.display) && el.children.length > 1) for (const p of ['rowGap', 'columnGap']) { const v = px(cs[p]); if (v > 0) cnt(spacing, v); }
     const cls = (el.getAttribute('class') || '').split(/\\s+/).filter(Boolean); cls.forEach((c) => cnt(classes, c));
     const first = cls.find((c) => !/^(on|fill|grow|row|col|between|center|when-on|s\\d+|ms|tnum|wide|tall|free|pro|c|l|r|t|h|s|d|nm|art|ic|end)$/.test(c));
