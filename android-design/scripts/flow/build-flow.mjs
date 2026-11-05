@@ -269,7 +269,7 @@ if (HANDOFF) {
   const pascal = (s) => s.split('-').map((w) => (w ? w[0].toUpperCase() + w.slice(1) : '')).join('');
   const tokName = (k) => (k.startsWith('md-') ? 'Md' + pascal(k.slice(3)) : k.startsWith('x-') ? pascal(k.slice(2)) : pascal(k));
   const hexMap = (body, suffix) => { const o = {}; for (const m of body.matchAll(/--([\w-]+)\s*:\s*(#[0-9a-fA-F]{6})\b/g)) if (!/^t-/.test(m[1])) (o[m[2].toUpperCase()] ||= tokName(m[1]) + suffix); return o; };
-  const tokensFor = (theme) => ({ ...hexMap(blockOf(appCss, ':root'), ''), ...(theme === 'dark' ? hexMap(blockOf(tokCss, ':root[data-theme="dark"]'), 'Dark') : {}), ...hexMap(blockOf(tokCss, ':root'), '') });
+  const tokensFor = (theme) => ({ ...hexMap(blockOf(appCss, ':root'), ''), ...hexMap(blockOf(tokCss, ':root'), ''), ...(theme === 'dark' ? hexMap(blockOf(tokCss, ':root[data-theme="dark"]'), 'Dark') : {}), ...hexMap(blockOf(appCss, ':root'), '') }); // the screen's own scheme wins; app colours win over both
   const WK = { 800: 'EB', 900: 'EB', 700: 'B', 600: 'SB', 500: 'M', 400: 'R', 300: 'R' };
   const SC = new Set([0, 8, 12, 16, 24]);
   const rows = [];
