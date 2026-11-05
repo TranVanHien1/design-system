@@ -39,7 +39,7 @@ def pick_serial():
     sys.exit(f"set ANDROID_SERIAL (attached: {devs or 'none'})")
 
 
-SERIAL = pick_serial()
+SERIAL = pick_serial() if not (len(sys.argv) > 1 and sys.argv[1] == 'montage') else ''  # montage needs no device
 PKG = os.environ.get("QA_PKG", "")
 SHOTS = os.environ.get("QA_SHOTS", os.path.join(os.getcwd(), "qa", "shots", "run1"))
 

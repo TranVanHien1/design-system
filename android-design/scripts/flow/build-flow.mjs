@@ -123,10 +123,12 @@ function screenView(src) {
   });
   body = body.replace(/(\s(?:src|href)=")([^"]+)"/g, (all, pre, u) => (isLocal(u) ? `${pre}${path.relative(outDir, path.resolve(sdir, u)).split(path.sep).join('/')}"` : all));
   const rebase = (css) => css.replace(/url\((['"]?)([^'")]+)\1\)/g, (all, qt, u) => (isLocal(u) ? `url(${qt}${path.relative(outDir, path.resolve(sdir, u)).split(path.sep).join('/')}${qt})` : all));
-  return { attrs, css: scopeCss(rebase(styles)), body: body.trim() };
+  const used = new Set([...body.matchAll(/\sclass="([^"]+)"/g)].flatMap((m) => m[1].split(/\s+/)).filter(Boolean));
+  return { attrs, css: scopeCss(rebase(styles)), body: body.trim(), used, ownCss: styles };
 }
 
 let viewsHtml = '', headLinks = '';
+const undefinedWarnings = [];
 if (!IMAGES) {
   const built = views.map((v) => ({ ...v, ...screenView(v.src) }));
   let shared = '';
@@ -136,6 +138,15 @@ if (!IMAGES) {
     css = css.replace(/@import\s+url\((['"]?)[^)]*?\1\)[^;]*;/g, '').replace(/@import\s+(['"])[^'"]*\1[^;]*;/g, '').replace(/url\((['"]?)([^'")]+)\1\)/g, (all, qt, u) => (isLocal(u) ? `url(${qt}${path.relative(outDir, path.resolve(path.dirname(f), u)).split(path.sep).join('/')}${qt})` : all));
     shared += `/* ${path.relative(dir, f)} */\n${scopeCss(css)}\n`;
   }
+  // lint: classes used in a screen but defined in no stylesheet it loads (typo or a class from another project)
+  const defined = new Set([...shared.matchAll(/\.([A-Za-z_][\w-]*)/g)].map((m) => m[1]));
+  const IGNORE = new Set(['when-on', 'fill', 'on', 'grow', 'row', 'col']);
+  const undef = new Map();
+  for (const v of built) {
+    const own = new Set([...v.ownCss.matchAll(/\.([A-Za-z_][\w-]*)/g)].map((m) => m[1]));
+    for (const c of v.used) if (!defined.has(c) && !own.has(c) && !IGNORE.has(c)) { if (!undef.has(c)) undef.set(c, []); undef.get(c).push(v.key); }
+  }
+  for (const [c, keys] of undef) undefinedWarnings.push(`class .${c} is not defined in any loaded CSS (${[...new Set(keys.map((k) => k.split('-')[0]))].slice(0, 4).join(', ')}${keys.length > 4 ? ', …' : ''})`);
   const esc = (s) => s.replace(/&/g, '&amp;').replace(/'/g, '&#39;');
   viewsHtml = `\n<!-- Shared screen CSS (tokens + kit + app), scoped for shadow roots. -->\n<template id="screen-css"><style>\n${shared}</style></template>\n` +
     built.map((v) => `\n<!-- view: ${v.key} · ${v.src} -->\n<template id="v-${v.key}" data-attrs='${esc(JSON.stringify(v.attrs))}'>\n${v.css.trim() ? `<style>\n${v.css}</style>\n` : ''}${v.body}\n</template>`).join('\n') + '\n';
@@ -211,4 +222,5 @@ const html = tpl.replace('__FLOW_JSON__', () => JSON.stringify(outFlow, null, IM
 fs.writeFileSync(out, html);
 const nStates = outFlow.screens.reduce((a, s) => a + s.states.length, 0);
 console.log(`flow (${IMAGES ? 'images' : 'live HTML'}): ${outFlow.screens.length} screens, ${nStates} states, ${outFlow.links.length} links → ${out} (${(fs.statSync(out).size / 1e3).toFixed(0)} kB)${SHOTS ? `; rendered ${rendered} shots in ${path.join(dir, 'shots')}` : ''}`);
+warnings.push(...undefinedWarnings);
 if (warnings.length) { console.log('warnings:'); for (const w of warnings) console.log(`  - ${w}`); }
