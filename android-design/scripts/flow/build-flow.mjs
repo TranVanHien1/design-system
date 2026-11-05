@@ -147,6 +147,22 @@ if (!IMAGES) {
     for (const c of v.used) if (!defined.has(c) && !own.has(c) && !IGNORE.has(c)) { if (!undef.has(c)) undef.set(c, []); undef.get(c).push(v.key); }
   }
   for (const [c, keys] of undef) undefinedWarnings.push(`class .${c} is not defined in any loaded CSS (${[...new Set(keys.map((k) => k.split('-')[0]))].slice(0, 4).join(', ')}${keys.length > 4 ? ', …' : ''})`);
+  // lint: padding / margin / gap only on the 8 · 12 · 16 · 24 dp scale (0 and auto allowed). Ad units (SDK-rendered)
+  // and template screens marked <html data-spacing="template"> (base flow, paywall) are exempt.
+  const SCALE = new Set([0, 8, 12, 16, 24]);
+  const SPACING = /(?<![\w-])(padding(?:-(?:top|right|bottom|left|inline|block))?|margin(?:-(?:top|right|bottom|left|inline|block))?|gap|row-gap|column-gap)\s*:\s*([^;}"]+)/g;
+  const AD = /(^|[\s,>+~])\.(ad|native)(\b|-)|\.ad-|\.native-|\.pw-/;
+  const offScale = (decls) => [...decls.matchAll(SPACING)].flatMap((m) => [...m[2].matchAll(/(-?\d+(?:\.\d+)?)px/g)].filter((n) => !SCALE.has(Math.abs(+n[1]))).map((n) => `${m[1]} ${n[1]}px`));
+  const lintCss = (css) => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}@]+)\{([^{}]*)\}/g)]
+    .filter((r) => !AD.test(r[1])).flatMap((r) => offScale(r[2]).map((x) => `${r[1].trim().split(/\s*,\s*/)[0]} ${x}`));
+  const spacing = new Map();
+  const note = (where, list) => { if (list.length) spacing.set(where, [...(spacing.get(where) || []), ...list]); };
+  for (const f of cssFiles) note(path.relative(dir, f), lintCss(fs.readFileSync(f, 'utf8')));
+  for (const v of built) {
+    if (v.attrs['data-spacing'] === 'template') continue;
+    note(v.src.split('?')[0], [...new Set([...lintCss(v.ownCss), ...[...v.body.matchAll(/\sstyle="([^"]*)"/g)].flatMap((m) => offScale(m[1]).map((x) => `style="… ${x}"`))])]);
+  }
+  for (const [where, list] of spacing) { const u = [...new Set(list)]; undefinedWarnings.push(`spacing off the 8/12/16/24 scale in ${where}: ${u.slice(0, 6).join('; ')}${u.length > 6 ? ` (+${u.length - 6} more)` : ''}`); }
   const esc = (s) => s.replace(/&/g, '&amp;').replace(/'/g, '&#39;');
   viewsHtml = `\n<!-- Shared screen CSS (tokens + kit + app), scoped for shadow roots. -->\n<template id="screen-css"><style>\n${shared}</style></template>\n` +
     built.map((v) => `\n<!-- view: ${v.key} · ${v.src} -->\n<template id="v-${v.key}" data-attrs='${esc(JSON.stringify(v.attrs))}'>\n${v.css.trim() ? `<style>\n${v.css}</style>\n` : ''}${v.body}\n</template>`).join('\n') + '\n';

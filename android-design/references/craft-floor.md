@@ -22,8 +22,11 @@ Each line is a check on the built result, not an intention. Run them together in
 - **Type.** Every size is `sp` from `MaterialTheme.typography`. At `font_scale 2.0` the real copy
   never clips or overlaps; text containers use `heightIn(min = …)`, not `height`. Numbers that line
   up or update carry `fontFeatureSettings = "tnum"`.
-- **Spacing.** A 4dp grid, 16dp side margins on compact. Tight groups, generous separation, more
-  space above a section title than below it.
+- **Spacing.** Padding, margin and gap only 8 · 12 · 16 · 24dp, picked by component type
+  ([layout.md](layout.md) table): 8 icon↔label, chip gaps, badge insets; 12 between sibling tiles/cards
+  and buttons, title → content; 16 screen margin, card/banner/row padding, bottom bar; 24 dialog/sheet
+  and empty-block insets, between big groups. No 4/6/10/14/20/32. More space above a section title
+  than below it.
 - **Motion.** Feedback everywhere, one authored moment per flow at most, M3 motion tokens; with
   Remove animations on, a cut or a crossfade.
 - **Insets.** `enableEdgeToEdge()` on; content clears status bar, navigation bar, cutout (rotate to

@@ -33,7 +33,7 @@ Run these separately (a sub-agent for one when available), then synthesize befor
 2. **Mechanical scan.** Grep for spacing off the scale and inset mistakes:
 
 ```bash
-rg -n '[0-9]+(\.[0-9]+)?\.dp' --glob '*.kt' <target> | rg -v '\b(0|2|4|8|12|16|24|32|48|64)\.dp'
+rg -n '[0-9]+(\.[0-9]+)?\.dp' --glob '*.kt' <target> | rg -v '\b(0|8|12|16|24)\.dp'
 rg -n 'statusBarsPadding|navigationBarsPadding|systemBarsPadding|WindowInsets|imePadding|contentPadding' --glob '*.kt' <target>
 rg -n 'Card\s*\(' --glob '*.kt' <target>
 ```
@@ -49,21 +49,26 @@ font scale and content extremes. Choose the simplest structural model that expre
 
 ## The spacing scale
 
-Use a 4dp grid with named steps, and nothing between them:
+**Team rule: padding, margin and gap use only 8 · 12 · 16 · 24 dp** (0 allowed), and the step is chosen
+by what the component is, not by eye:
 
-| Token | dp | Typical job |
+| Token | dp | Job (pick by component) |
 |---|---|---|
-| `xs` | 4 | icon-to-label, stacked metadata lines |
-| `sm` | 8 | items inside a group, chip gaps |
-| `md` | 12 | list row internal padding, related controls |
-| `lg` | 16 | screen margin (compact), card padding |
-| `xl` | 24 | between groups; screen margin (medium+) |
-| `xxl` | 32 | between sections |
-| `xxxl` | 48–64 | before a new major region, empty-state air |
+| `sm` | 8 | icon ↔ label inside buttons, chips, badges, tabs; between chips; badge inset from a card corner; vertical padding of pills and list rows; inset of small tiles (≤110dp wide) |
+| `md` | 12 | between sibling tiles and cards (grid gutters, rails, sheet choice tiles, quick tiles); between buttons in one row; section title → its content; inner padding of small cards and pills' long side |
+| `lg` | 16 | screen side margin (compact); card, banner and list-row padding; bottom bar; search field; leading icon → text in a list row; button side with an icon |
+| `xl` | 24 | dialog and sheet title insets; empty / success block insets; button text side; between major groups; screen margin (medium+) |
 
-2dp is allowed only for optical nudges. Expose the scale as an object or a `CompositionLocal` in
-`ui/theme/Spacing.kt` so screens never type raw values twice. A 4-unit base gives the 12dp step an 8-only scale
-misses; use it for rhythm, not as noise.
+Nothing else: no 2, 4, 6, 10, 14, 20, 28, 32. Larger air comes from stacking steps (24 + 24) or from
+centring short content in its space, never from a one-off 40 or 56. Combined spacing must still land on
+the scale (a 12dp `gap` plus a 12dp margin = 24, not 12 + 8 = 20). Component dimensions (a 48dp target, a
+56dp FAB, a 40dp icon button's fill) and positions of overlays are not spacing, but overlay insets
+(badge at 8, card content at 12/16) follow the same steps. A 40dp control inside a 48dp target is drawn
+inside the target, not offset with a 4dp margin.
+
+Expose the scale as an object or a `CompositionLocal` in `ui/theme/Spacing.kt` so screens never type raw
+values. In the HTML flow, `build-flow.mjs` warns on every off-scale value (ad units and template screens
+marked `data-spacing="template"` are exempt).
 
 ## Compose primitives by relationship
 

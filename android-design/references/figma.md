@@ -20,7 +20,7 @@ Turn a designed flow (HTML screens from [html-flow.md](html-flow.md)), a documen
 
 ## Build order
 
-1. **Foundations once per file.** Variables from `tokens.css` (`--md-*` roles as a "Color" collection with Light/Dark modes, `--x-*` extended colours, radii, spacing 4/8/12/16/24/32), text styles for the 15 M3 type roles with the direction's fonts, effect styles only for floating elements. Search the file and its libraries first; reuse before creating.
+1. **Foundations once per file.** Variables from `tokens.css` (`--md-*` roles as a "Color" collection with Light/Dark modes, `--x-*` extended colours, radii, spacing 8/12/16/24 (the only steps)), text styles for the 15 M3 type roles with the direction's fonts, effect styles only for floating elements. Search the file and its libraries first; reuse before creating.
 2. **Components** for everything the kit repeats: status bar, gesture bar, app bar, navigation bar (with item variants), list item (1/2/3-line), buttons (filled/tonal/outlined/text × sizes), chips, switch, radio, search bar, card, native ad (medium/small/full), banner ad, dialog, bottom sheet, page dots, snackbar. Variants for states (selected, disabled).
 3. **Screens** as 360×800 frames named `<group>/<screen-id>` (states `<screen-id>--<state>`), auto-layout vertical, built from component instances and variables, text as real text in the product fonts. Icons: import SVGs (Material Symbols Rounded) with `createNodeFromSvg`, never redraw them from primitives.
 4. **Images:** upload the flow's `img/` assets with `upload_assets` (raster) and set them as fills on the intended frames; a flattened screenshot of a whole screen is never part of the deliverable. Missing illustrations stay as named placeholder frames listed for the user.

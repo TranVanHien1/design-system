@@ -105,10 +105,10 @@ rounded:
   medium: "12dp"
   large: "16dp"
 spacing:
-  xs: "4dp"
   sm: "8dp"
-  md: "16dp"
-  lg: "24dp"
+  md: "12dp"
+  lg: "16dp"
+  xl: "24dp"
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
