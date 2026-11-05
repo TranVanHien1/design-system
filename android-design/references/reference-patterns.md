@@ -95,6 +95,11 @@ Ad rules seen everywhere: the native **CTA and "Ad" badge take the app's primary
 - Santa has no bottom nav: one hero home with a mode switch.
 
 ### 3.2 Home layouts
+**Team preference: open Home with the Figma hero banner.** Unless the brief says otherwise, Home starts
+header → hero banner (`.t-hero`, 343 wide, ~176–193 high, its own gradient + the app's core object as
+art, a short title, one s-pill CTA bottom-left) → `.t-pager` dashes 8dp below → filter chips/tabs →
+section rails. Further banners in the carousel each get their own gradient. The banner is part of the
+scroll content, a skeleton block while loading, and absent on the error state.
 - **Content feed** (TM 1262:28912): hero banner 343x~190 (radius 12, "Try now" pill, pager dash) → outlined search pill → section header (icon + bold 16 + primary "See all ›") → horizontal tall phone-ratio cards (~120x212) → chip tabs (active = tint fill + primary text).
 - **Hub + shortcuts** (TA 1052:18556, RI 7014:12797): hero card with "Start/Try Now" pill, then 3–4 feature tiles (3D render top, name, one-line description), then a "Trending" grid.
 - **Section stack** (CV 86:10378): carousel banners each with its own gradient, then 4 horizontal rails with "More ›"; cards 140x249 r16 gap 8 bleeding right, heart top-left and VIP top-right as 28 circles at 12dp inset, type glyph 24 bottom-right.

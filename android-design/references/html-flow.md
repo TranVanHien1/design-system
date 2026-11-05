@@ -71,6 +71,7 @@ Start one with `node <skill>/scripts/flow/new-flow.mjs --app "<Name>" --out <flo
 - **Every screen answers one question** ([operate.md](operate.md)) and shows its primary action in the first screenful.
 - **Consistency inside the app:** same app bar pattern, same card shape, same CTA style on every screen; a second CTA style needs a reason.
 - **States are cards' thumbnails, not afterthoughts.** A screen card without its loading/empty/error/locked states is unfinished.
+- **Banner-first Home (team Figma setup):** Home opens with a `.t-hero` banner + `.t-pager`, the way the team's Figma files do ([reference-patterns.md](reference-patterns.md) §3.2); skin it with the app's gradient, radius and core object, keep the anatomy.
 - **Flow realism:** first-run paths (lần đầu) and returning paths are both drawn; dialogs and sheets are states of the screen they cover, not separate cards, unless they lead elsewhere.
 
 ## Flow review checklist (lessons from the first reviewed app)
