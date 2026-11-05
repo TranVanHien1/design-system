@@ -29,7 +29,7 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .overlay-bars .statusbar { top: 0; }
 
 /* ---------- icons (Material Symbols Rounded, ligatures) ---------- */
-.ms { font-family: 'Material Symbols Rounded'; font-weight: 400; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; user-select: none; }
+.ms { font-family: 'Material Symbols Rounded' !important; font-weight: 400; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; user-select: none; }
 .ms.fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 .ms.s16 { font-size: 16px; } .ms.s18 { font-size: 18px; } .ms.s20 { font-size: 20px; } .ms.s32 { font-size: 32px; } .ms.s40 { font-size: 40px; }
 

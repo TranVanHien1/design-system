@@ -41,6 +41,19 @@ Each line is a check on the built result, not an intention. Run them together in
 - **Copy and content.** The product's own words; controls name their action, errors name the
   problem and the recovery. Real data at true magnitude, long names and zeros tried; every brief
   requirement findable within seconds.
+- **Icon first, words only when needed.** Visible text is kept for what an icon cannot say: screen
+  and section titles, item names, user content (hashtags, names), the primary action's verb, form
+  labels and errors. Everything else becomes a familiar Material Symbol with a `contentDescription`:
+  "see all" is an arrow button, type/quality marks are icon badges, secondary filters and tabs are
+  icon chips (the selected one may show a short label), nav bars may go icon-only with labels in
+  `contentDescription`. Cut explanatory sentences under titles, in sheets, dialogs and empty states
+  to one short line or none; a sheet option is icon + 1–3 words, not title + subtitle.
+- **Vertical balance.** Read each screen top to bottom as weights: no large hole under short
+  content and no crowding at the bottom. Short content (empty, error, success, a single form) is
+  centred in the space between the top bar and the bottom bar; a hero object (detail card, preview)
+  is centred between its top bar and its action row with equal gaps; lists and grids are sized to
+  end near the bottom bar (add a row, resize tiles, or let the last field grow) rather than stop
+  half-way; choices in sheets are equal tiles side by side, not stacked rows of unequal text.
 - **Vietnamese.** Run the app in `vi-VN`: stacked diacritics (Ấ, Ỗ, Ự) unclipped by tight
   `lineHeight` or fixed-height chips; the brand face covers Vietnamese, or glyphs fall back mid-word;
   buttons and tabs survive longer strings; `1.250.000 ₫` and `04/11/2026` come from locale formatters.

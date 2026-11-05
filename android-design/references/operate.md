@@ -313,6 +313,9 @@ Look at the captures from [verify.md](verify.md) and answer in writing:
    value like a dash?
 5. Does every `UiState` variant render, in both schemes, at font scale 2.0, in Vietnamese?
 6. Is the main job one tap away?
+7. Which words could be an icon, or go? Is every remaining line something an icon cannot say?
+8. Is the screen vertically balanced: short content centred, the hero centred between its bars,
+   lists reaching the bottom bar, no hole and no pile-up?
 
 Fix the worst three and look again; three rounds at most. If a problem shows in a capture, it is real,
 whatever the code says. Then [craft-floor.md](craft-floor.md) and [tells.md](tells.md).
