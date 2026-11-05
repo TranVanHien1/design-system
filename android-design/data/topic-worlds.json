@@ -1,0 +1,441 @@
+[
+ {
+  "id": "theme-mix-flow",
+  "name": "Theme Mix / Theme Flow",
+  "topic": "Home-screen themes, icon packs, control center, widgets, DIY themes",
+  "figmaFile": "kGqbd8A2V3p9NCU3wzLvPm",
+  "sourceNodes": [
+   "1:7",
+   "1262:22069",
+   "1262:22161",
+   "1262:22173",
+   "1262:22273",
+   "1262:22070",
+   "1262:28911",
+   "1262:28912",
+   "1262:31723",
+   "1262:22054",
+   "3:1145",
+   "3:778"
+  ],
+  "theme": "light",
+  "palette": {
+   "bg": "#FFFFFF",
+   "surface": "#F6F6F7",
+   "primary": "#FF321F",
+   "accent": "#FC3040",
+   "ink": "#272538",
+   "muted": "#8E8E93 approx",
+   "extra": [
+    "#FE4F3C (CTA gradient start)",
+    "#FD4747 (CTA gradient end)",
+    "#FF5A88 (logo pink)",
+    "#F488F4 (logo violet)",
+    "#FFDCD9 (primary tint)",
+    "#14C96F (success)",
+    "pool from style guide: #FFC743 #2684FF #FF843E #3CDB83 #FF58A8 #A875FC #00BECA"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "White with a faint pink-cream wash at the top of screens; splash is a pastel iridescent (white/mint/pink) gradient",
+  "typeCharacter": "Momo Trust Sans (T28..T11 scale, Regular/Medium/Bold) for UI; wordmarks ('Theme Mix', 'Theme Flow', 'Icons', 'Settings') in a pink/red brush script",
+  "radius": {
+   "card": 12,
+   "button": 999,
+   "chip": 6
+  },
+  "iconStyle": "Filled red glyphs in bottom nav (5 tabs), red crown for premium, 3D emoji in dialogs",
+  "illustrationStyle": "Clay/kawaii 3D theme packs (bears, cherries, bows) shown in phone mock-ups; 3D empty-state props",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "0-471 of 917 (51%), phone mock-ups of app screens, bottom 100px fade",
+   "indicator": "left, active pill 18x4 + 4x4 dots, ink",
+   "cta": "Text 'Next' bold 18 in primary red, bottom-right; 'Get Started' on page 4",
+   "skip": false
+  },
+  "splash": "App icon (pink clay control-center icon) centred ~34%, pink script name below, pink ring spinner ~83%, 320x50 banner ad at bottom",
+  "language": "Title 'Choose Language' top-left, grey #F6F6F7 56dp rows with circular flags and radio, tick icon top-right after selection, Native Media_Big bottom 300/917",
+  "signature": "Script wordmark + red crown header; red-orange gradient CTAs; apply flow with 'Watch Ad to Save' and progress pill",
+  "adSlots": [
+   "Splash: adaptive banner 320x50 bottom",
+   "Language + OB1-4: Native Media_Big 412x300 bottom, red CTA",
+   "Native full_Onbroading after OB1 and after OB3",
+   "Apply flow: 'Watch Ad to Save/Apply/Download' rewarded, native Media_Big under preview",
+   "Unlock all icons (rewarded)"
+  ]
+ },
+ {
+  "id": "theme-art",
+  "name": "Theme Art (057)",
+  "topic": "Themes, widgets, icon packs, unique controls (rebrand of Theme Mix)",
+  "figmaFile": "kGqbd8A2V3p9NCU3wzLvPm",
+  "sourceNodes": [
+   "1:6",
+   "1057:22699",
+   "1134:21682",
+   "1162:8586"
+  ],
+  "theme": "light",
+  "palette": {
+   "bg": "#FCF4FC",
+   "surface": "#FFFFFF",
+   "primary": "#A874FC",
+   "accent": "#B084FC",
+   "ink": "#101018",
+   "muted": "#8C9098 approx",
+   "extra": [
+    "#F4ECFC (tint)",
+    "#D0B0FC (card border)",
+    "#FF6414 (orange placeholder skin of the wireframe master 1162:8586)"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "Flat lavender-white across all screens; onboarding images are lavender kawaii 3D collages fading to white",
+  "typeCharacter": "Heavy chunky slab/rounded display for screen titles ('Theme Widgets', 'Icon Setup', 'Unique Control') approx; clean sans body",
+  "radius": {
+   "card": 14,
+   "button": 999,
+   "chip": 8
+  },
+  "iconStyle": "Glossy 3D purple icons (gear, crown, collection tiles); outline nav with purple active",
+  "illustrationStyle": "Kawaii 3D purple cat and plush widgets, pastel",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "412x574 master frame (63%), text sits over the fade",
+   "indicator": "left, active pill + dots",
+   "cta": "Text 'Next' in lavender bottom-right; 'Get Started' page 4",
+   "skip": false
+  },
+  "splash": "Wireframe master: icon placeholder + 'Name App', purple spinner, banner ad",
+  "language": "Same geometry as Theme Mix; hand-cursor hint on first radio; native ad CTA lavender",
+  "signature": "Lavender world with 3D purple header icons and slab display titles; 5 tabs Home/Theme/Icon/Control/Widget",
+  "adSlots": [
+   "Language + OB: Native Media_Big bottom (lavender CTA)",
+   "Wireframe master: Native full after OB1, OB2, OB3",
+   "No-ad OB variants OBD2.1/OBD3.1 with swipe glyph"
+  ]
+ },
+ {
+  "id": "rolling-icon",
+  "name": "Rolling Icon 3D Wallpaper",
+  "topic": "Animated rolling/floating/snake app icons, icon changer, live/LED/broken-screen wallpapers",
+  "figmaFile": "iI1PL2mCd7h0fBpdHShU7I",
+  "sourceNodes": [
+   "7011:12459",
+   "7014:12797",
+   "7042:18350",
+   "7042:19868",
+   "5002:13751",
+   "5002:58488",
+   "5004:21054"
+  ],
+  "theme": "light",
+  "palette": {
+   "bg": "#FFFFFF",
+   "surface": "#F4F0FC",
+   "primary": "#A874FC",
+   "accent": "#9C68F8",
+   "ink": "#10101C",
+   "muted": "#8C8C99 approx",
+   "extra": [
+    "#FCE498 (BEST DEAL ribbon)",
+    "neon LED rainbow and electric violet content"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "White screens; purple gradient hero banners; dark-mode variant of the base flow on #000000",
+  "typeCharacter": "Chunky black display wordmark ('Rolling Icon'), geometric sans body",
+  "radius": {
+   "card": 12,
+   "button": 999,
+   "chip": 999
+  },
+  "iconStyle": "Outline lavender nav (5 tabs Home/Icon/Wallpaper/Library/Setting), crown in lavender rounded square, glossy 3D app-icon renders",
+  "illustrationStyle": "3D renders of app icons (flying, heart, Rubik cube, snake), 3D chibi monster heads for snake skins",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "~0-50% image placeholder fading to bg",
+   "indicator": "left, active pill + dots",
+   "cta": "Text 'Next' purple bottom-right; 'Get Started' page 4",
+   "skip": false
+  },
+  "splash": "Template: icon (lavender outline square) + 'App name', 'Loading 40%', spinner, 'This action can contain ads'; light and dark variants",
+  "language": "Rows with flag + radio; after selection a filled purple 'Next' pill appears top-right; light and dark",
+  "signature": "Flying 3D app icons on a purple hero; Customize Snake editor with segmented tabs and sliders",
+  "adSlots": [
+   "Ad areas left blank in the Design Common template",
+   "Paywall 'App Name Pro' with 50% OFF sticker and countdown or Premium crown",
+   "Wallpaper detail -> Set Wallpaper dialog (Home/Lock/Both)"
+  ]
+ },
+ {
+  "id": "pet-shimeji",
+  "name": "Pet Shimeji: Pet on Screen",
+  "topic": "Desktop-pet overlay (pets/stickers walking on screen), custom status bar, battery troll",
+  "figmaFile": "kSBL9MEyTxB9Cin4jyurNg",
+  "sourceNodes": [
+   "1:5",
+   "2317:17456",
+   "2317:17531",
+   "2317:17748",
+   "2317:24527",
+   "2041:10922",
+   "2041:10982",
+   "2041:13318",
+   "2061:20067"
+  ],
+  "theme": "light",
+  "palette": {
+   "bg": "#FFF8F2",
+   "surface": "#FFE9DC",
+   "primary": "#FF6414",
+   "accent": "#FFB014",
+   "ink": "#1E1E1E approx",
+   "muted": "#6B6B6B approx",
+   "extra": [
+    "#FF8448 (OB title)",
+    "#FFB884 (dashed slot border)",
+    "#E050D0 (language checkbox magenta)",
+    "#30CC7C (success check, sliders)",
+    "splash gradient #FCE8D8 -> #FCB8AC -> #FCD09C"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "Cream #FFF8F2; splash is a peach-pink-orange gradient with swooshes and sparkles",
+  "typeCharacter": "Pixel / 8-bit monospace for headers and section titles ('Pet Shimeji', 'Choose Pet', 'Pet on Screen'); plain sans body",
+  "radius": {
+   "card": 8,
+   "button": 8,
+   "chip": 6
+  },
+  "iconStyle": "Pixel-art glyphs (lock, paw, home, settings hexagon); 3D mascot in dialogs",
+  "illustrationStyle": "Chibi anime girls and pets, 2D sticker art with soft shading",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "412x468 (51%), phone mock-up of the app with pets around, fading",
+   "indicator": "left, dots + orange active dash",
+   "cta": "Text 'Next' orange bottom-right",
+   "skip": false
+  },
+  "splash": "Peach gradient, app icon (chibi girl holding phone), full store name, 'Loading 40%', dotted spinner, 'This action can contain ads'",
+  "language": "White rows with a pink 3px bottom edge, magenta rounded checkboxes, green check top-right after selection",
+  "signature": "Pixel font headers + dashed-border slot grid (Remove/Choose/Unlock) + expanding orange gradient nav pill",
+  "adSlots": [
+   "OB bottom third drawn blank (ad slot)",
+   "Video Reward dialog with 3D robot + 'Watch Video'",
+   "Unlock pills on locked pets/stickers (rewarded)"
+  ]
+ },
+ {
+  "id": "ringtone-music",
+  "name": "Ringtone for music (MV-022)",
+  "topic": "Ringtones by category, trim and set as call/message/notification/alarm, call-screen themes, wallpapers, live images",
+  "figmaFile": "IW48r9U6LiYel3vXp1TRdL",
+  "sourceNodes": [
+   "0:1",
+   "9:6565",
+   "28:6750",
+   "35:6961",
+   "43:8909",
+   "98:11811",
+   "111:12162",
+   "6:7171"
+  ],
+  "theme": "dark",
+  "palette": {
+   "bg": "#000000",
+   "surface": "#18181C",
+   "primary": "#FC5098",
+   "accent": "#E0306C",
+   "ink": "#FFFFFF",
+   "muted": "#8C8C8C",
+   "extra": [
+    "#101820 (bottom bar)",
+    "#F4C03C (VIP diamond/crown gold)",
+    "paywall stays white"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "Pure black; content imagery is photo-real seasonal scenes (Autumn, Halloween, Christmas, Valentine, World Cup)",
+  "typeCharacter": "Neutral grotesk (Inter/SF-like), bold 18-20 titles, regular 12-14 body",
+  "radius": {
+   "card": 10,
+   "button": 999,
+   "chip": 10
+  },
+  "iconStyle": "Filled white glyphs; pink gradient squircle app glyph (note + bars); diamond VIP badges",
+  "illustrationStyle": "Photo-real seasonal art; glossy pink 3D icons for result/permission",
+  "onboarding": {
+   "pages": 0,
+   "illustrationArea": "not in file",
+   "indicator": "not in file",
+   "cta": "not in file",
+   "skip": false
+  },
+  "splash": "Not in file",
+  "language": "Not in file",
+  "signature": "Waveform trimmer with pink playhead + pink gradient on black; 4 'Set as' function chips",
+  "adSlots": [
+   "Reward dialog 'Free Unlock With Ads' (outline) / 'Remove Ads' (filled)",
+   "'Cool ringtones ahead! View a quick ad' Accept",
+   "SDK Admob (Light) catalogue incl. 13 Native full variants"
+  ]
+ },
+ {
+  "id": "charge-visuals",
+  "name": "Charge Visuals - Live Charge Animation",
+  "topic": "Charging animations, 3D/motion-view wallpapers, DIY animation/wallpaper, battery specs",
+  "figmaFile": "7gbr1V8NZ0Osxc0Z8rjB8q",
+  "sourceNodes": [
+   "0:1",
+   "107:20492",
+   "107:20569",
+   "107:20616",
+   "86:10378",
+   "72:1837",
+   "107:20844",
+   "107:21268"
+  ],
+  "theme": "light",
+  "palette": {
+   "bg": "#FFFFFF",
+   "surface": "#FCF0F4",
+   "primary": "#FF6078",
+   "accent": "#A874FC approx",
+   "ink": "#1A1A1A approx",
+   "muted": "#8C8C8C approx",
+   "extra": [
+    "splash gradient #FCECFC -> #ECD4FC -> #BCDCFC",
+    "#2EC46A approx (Applied Successfully green)",
+    "banner gradients pink, blue, lilac"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "White with a pink header wash; splash lilac-pink-sky gradient; OB hero images are dark neon night-sakura scenes",
+  "typeCharacter": "Neutral sans, medium weight titles (16-18), small 12 'More ›' links in primary",
+  "radius": {
+   "card": 10,
+   "button": 999,
+   "chip": 999
+  },
+  "iconStyle": "Outline nav (4 tabs Charging/Wallpaper/Gallery/Setting), colourful flat setting icons, corner badges (heart, diamond, type glyph)",
+  "illustrationStyle": "Cute seasonal 2D/3D characters (Halloween cat, ghosts, Snoopy), neon pink charging ring",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "412x468 (51%) with fade",
+   "indicator": "left, ink pill + dots",
+   "cta": "Text 'Next' coral bottom-right; 'Get Started' page 4",
+   "skip": false
+  },
+  "splash": "Lilac-sky gradient, app icon + name (reused 'ThemeArt: Themes Widgets Icons' by mistake), 'Loading 40%', spinner, 'This action can contain ads'",
+  "language": "Radio rows; coral 'Next' pill top-right after selection; native ad coral CTA",
+  "signature": "Multi-gradient hero carousel + horizontal rails with heart/diamond corner badges; layer editor (Bottom/Middle/Top)",
+  "adSlots": [
+   "Language + OB: Native Media_Big bottom (coral CTA)",
+   "Native full variants with countdown/sponsor/progress",
+   "Preview 'Unlock' (rewarded)",
+   "Paywall 'Unlock All Premium'"
+  ]
+ },
+ {
+  "id": "santa-call-red",
+  "name": "Santa Call (red version)",
+  "topic": "Fake video/voice call and chat with Santa and Christmas characters",
+  "figmaFile": "6swCWvfRgSWqISz6DAu4HU",
+  "sourceNodes": [
+   "160:9975",
+   "160:10015",
+   "137:9386",
+   "137:11120",
+   "158:16502"
+  ],
+  "theme": "dark",
+  "palette": {
+   "bg": "#B8081C",
+   "surface": "#FFFFFF",
+   "primary": "#E00000",
+   "accent": "#F4C03C",
+   "ink": "#FFFFFF",
+   "muted": "#F8BCBC approx",
+   "extra": [
+    "#3C9A3C approx (green striped Call/Allow)",
+    "#FDE9C0 approx (scroll-paper dialog)",
+    "#6B1A1A approx (call ended bg)"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "Full-bleed deep red with snow particles and snowflakes",
+  "typeCharacter": "Wide extra-bold display ('Santa Call', 'Video Calls with Santa'), hand-lettered 'Merry Christmas', quirky rounded body",
+  "radius": {
+   "card": 999,
+   "button": 999,
+   "chip": 999
+  },
+  "iconStyle": "3D Christmas props (gifts, sleigh, stockings), circular call buttons, characters in holly wreath frames",
+  "illustrationStyle": "Plush 3D Santa and Christmas characters + photo-real Santa video frames",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "~0-50% 3D mascot + phone call composite",
+   "indicator": "left, gold active dash + dots",
+   "cta": "Small filled red pill 'Next' with light outline, bottom-right",
+   "skip": false
+  },
+  "splash": "Red bg, Santa app icon, 'Santa Call', 'Loading 40%', 'This action can contain ads', 320x50 banner",
+  "language": "White pill rows on red, red circular check top-right after selection",
+  "signature": "Candy-cane striped CTAs, wreath avatars, scroll-paper dialogs, segmented Video call/Audio call/Message on a single hero home",
+  "adSlots": [
+   "Splash banner 320x50",
+   "Language + OB: native ad with media first, red CTA",
+   "No Native full page in this file"
+  ]
+ },
+ {
+  "id": "santa-call-green",
+  "name": "Santa Call (green version)",
+  "topic": "Same flow as red version, alternate seasonal colourway",
+  "figmaFile": "6swCWvfRgSWqISz6DAu4HU",
+  "sourceNodes": [
+   "124:8929",
+   "124:9033",
+   "110:7367",
+   "127:14302"
+  ],
+  "theme": "dark",
+  "palette": {
+   "bg": "#1A704C",
+   "surface": "#0F5A38 approx",
+   "primary": "#E00000",
+   "accent": "#F4C03C",
+   "ink": "#FFFFFF",
+   "muted": "#A8D4BC approx",
+   "extra": [
+    "#2E6B10 approx (dark-green language rows)",
+    "#FDE9C0 approx (scroll-paper dialog)"
+   ],
+   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+  },
+  "background": "Full-bleed Christmas green with holly, baubles, snowy house and gifts illustration on splash",
+  "typeCharacter": "Same as red version",
+  "radius": {
+   "card": 999,
+   "button": 999,
+   "chip": 999
+  },
+  "iconStyle": "Same as red version",
+  "illustrationStyle": "Same as red version; OB placeholders show stars and snowflakes only",
+  "onboarding": {
+   "pages": 4,
+   "illustrationArea": "~0-50% (placeholder draft copy 'Learn to Draw Step by Step')",
+   "indicator": "left, dots",
+   "cta": "Small filled red pill 'Next'",
+   "skip": false
+  },
+  "splash": "Illustrated Christmas village, Santa icon, 'Santa Call', loading text, 320x50 banner",
+  "language": "Dark-green pill rows with radio, red check badge after selection",
+  "signature": "Red-on-green complementary scheme; home uses a carousel with arrows instead of the segmented control",
+  "adSlots": [
+   "Splash banner 320x50",
+   "Language + OB: native ad, red CTA"
+  ]
+ }
+]

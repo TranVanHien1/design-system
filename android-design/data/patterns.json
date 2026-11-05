@@ -1,0 +1,387 @@
+[
+ {
+  "id": "kpi-strip-chart-rail",
+  "name": "KPI strip, main chart and a side rail",
+  "screen": "overview",
+  "kinds": [
+   "creator",
+   "smb-admin",
+   "community",
+   "analytics"
+  ],
+  "phone": "The rail moves below the main column; the KPI container becomes a 2-column grid; tabs scroll inside their own row.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "kpi-tabs-chart",
+  "name": "KPIs as the chart's tabs",
+  "screen": "overview",
+  "kinds": [
+   "finance",
+   "commerce"
+  ],
+  "phone": "KPI tabs become a 2-up grid above the chart, with the selected cell marked by a fill (never an underline floating inside the grid) or a row of tabs that scrolls sideways; the chart is full width, 160-200px tall, with 4 x labels; the comparison table keeps its two right-aligned columns.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "chart-pairs",
+  "name": "Per-period and running-total pairs",
+  "screen": "analytics",
+  "kinds": [
+   "community",
+   "smb-admin",
+   "analytics"
+  ],
+  "phone": "Pairs stack, the cumulative chart directly under its per-period chart; KPI cards become a single column of label-value rows.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "insights-share-tables",
+  "name": "Insights with share tables",
+  "screen": "analytics",
+  "kinds": [
+   "analytics",
+   "devtools",
+   "builder"
+  ],
+  "phone": "KPIs become a 2 x 3 grid; the chart is full width; the share tables stack in one column and keep their row bars.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "table-filter-bar",
+  "name": "Table with tabs and a filter bar",
+  "screen": "list",
+  "kinds": [
+   "community",
+   "devtools",
+   "commerce",
+   "support",
+   "smb-admin"
+  ],
+  "phone": "Rows become two-line items: identity and the key number on line 1, the secondary fields in 13px grey on line 2, the kebab at the right. Tabs scroll in their own row; the search becomes a full-width field.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "count-cards-filter",
+  "name": "Count cards that filter",
+  "screen": "list",
+  "kinds": [
+   "community",
+   "commerce",
+   "support"
+  ],
+  "phone": "The count cards become a horizontally scrolling row of chips with the count inside each, or a select above the list.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "settings-two-column",
+  "name": "Settings in two columns",
+  "screen": "settings",
+  "kinds": [
+   "devtools",
+   "smb-admin",
+   "support",
+   "workspace",
+   "commerce",
+   "analytics",
+   "finance",
+   "wallet",
+   "creator",
+   "community",
+   "builder",
+   "markets",
+   "report"
+  ],
+  "phone": "Each section stacks: title and description, then the panel at full width. Inside, label, 8-10px, field, 16-26px to the next pair; toggles stay on the right of their title.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "settings-with-usage",
+  "name": "Settings with usage on top",
+  "screen": "settings",
+  "kinds": [
+   "devtools",
+   "smb-admin",
+   "support"
+  ],
+  "phone": "The usage row becomes a 2-column grid of label-value pairs; settings rows stack.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "wallet-balance-actions-assets",
+  "name": "Balance, actions and assets",
+  "screen": "wallet",
+  "kinds": [
+   "wallet",
+   "finance"
+  ],
+  "phone": "This pattern is phone-first: the same column at full width with 16px margins, the 4 tiles in one row, the table as two-line rows with the value right-aligned.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "finance-home-pinned-rail",
+  "name": "Finance home with a pinned accounts column",
+  "screen": "overview",
+  "kinds": [
+   "finance",
+   "wallet"
+  ],
+  "phone": "Net worth becomes the first card; the account tree collapses to its groups with totals; the month cards stack.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "builder-canvas",
+  "name": "Builder canvas",
+  "screen": "builder",
+  "kinds": [
+   "builder"
+  ],
+  "phone": "Editing a graph on a phone is rarely the job: show the flow read-only as a vertical list of nodes with their metrics, and the palette as a bottom sheet if editing is kept.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "inbox-triage",
+  "name": "Inbox triage",
+  "screen": "inbox",
+  "kinds": [
+   "support",
+   "workspace"
+  ],
+  "phone": "One region at a time: the list fills the screen; choosing a row pushes the conversation; the details open from a button in its header; back returns to the list at the same scroll position.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "workspace-home-greeting",
+  "name": "Workspace home with a greeting",
+  "screen": "home",
+  "kinds": [
+   "workspace",
+   "creator"
+  ],
+  "phone": "Greeting at 24-28px; tiles in a 2 x 2 grid; panels stack in reading order.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "object-detail-header-grid",
+  "name": "Object header and a six-column grid",
+  "screen": "detail",
+  "kinds": [
+   "community",
+   "commerce",
+   "analytics"
+  ],
+  "phone": "The header card keeps cover, name and meta, with actions in a kebab; every grid item takes the full width in the same order.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "generated-report",
+  "name": "Generated report",
+  "screen": "report",
+  "kinds": [
+   "report",
+   "analytics"
+  ],
+  "phone": "Stats in a 2 x 2 grid; charts stacked; the table as two-line rows, or scrolling inside its own frame with the first column fixed.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "tabbed-object-detail",
+  "name": "Tabbed object detail in a sheet",
+  "screen": "detail",
+  "kinds": [
+   "analytics",
+   "smb-admin",
+   "builder",
+   "support"
+  ],
+  "phone": "Breadcrumb shortens to a back link and the h1; tabs scroll; KPI cards stack as label-value rows; charts full width.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "report-card-legend-table",
+  "name": "Report card with a legend table",
+  "screen": "analytics",
+  "kinds": [
+   "analytics",
+   "smb-admin"
+  ],
+  "phone": "The legend table goes above the chart; the detail table becomes two-line rows.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "research-lists-table",
+  "name": "Research lists and a long table",
+  "screen": "analytics",
+  "kinds": [
+   "markets",
+   "devtools"
+  ],
+  "phone": "Cards stack; the range selector stays as text under the chart; the table becomes two-line rows with the total on the right.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "platform-overview-tray",
+  "name": "Platform overview with a usage tray",
+  "screen": "overview",
+  "kinds": [
+   "devtools",
+   "analytics"
+  ],
+  "phone": "The getting-started strip becomes a 2 x 2 grid or a list; the table becomes two-line rows; the KPI strip a 2-column grid.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "bar-list-ranking",
+  "name": "Bar list and ranking",
+  "screen": "analytics",
+  "kinds": [
+   "analytics",
+   "smb-admin"
+  ],
+  "phone": "KPIs in a 2 x 2 grid; panels stack; the bar list keeps its bars at full width.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "deploy-health-lead",
+  "name": "Current deploy and health lead",
+  "screen": "overview",
+  "kinds": [
+   "devtools"
+  ],
+  "phone": "The live deployment card becomes a stack of label-value rows; the KPIs a 2x2 grid; the chart full width with its markers; the explanation under it; deployments as two-line rows with region and duration on line 2.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "power-flow",
+  "name": "Power flow summary",
+  "screen": "signature",
+  "kinds": [],
+  "phone": "The four nodes become a 2x2 grid in the same order (Sun, House / Battery, Grid) with the flow sentence under it (\"Sun 2.4 kW: house 0.7, battery 1.7\"), no connectors.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "leave-timeline",
+  "name": "Team timeline with kind encoding",
+  "screen": "signature",
+  "kinds": [],
+  "phone": "One week at a time, with the week switch in the same control row as any office filter; names shorten to first name and initial; the legend sits in a 2-column grid.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "cover-matrix",
+  "name": "Cover against the minimum",
+  "screen": "signature",
+  "kinds": [],
+  "phone": "The lowest slack per team for each week (four columns), with the days behind a tap; or one team at a time.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "sell-out-strip",
+  "name": "Sell-out time strip",
+  "screen": "signature",
+  "kinds": [],
+  "phone": "The rows keep the full width with axis labels every two hours; the gap moves under the line's name.",
+  "source": "taste-skill"
+ },
+ {
+  "id": "tool-hero-action",
+  "name": "One hero action with live status",
+  "screen": "home",
+  "kinds": [
+   "utility"
+  ],
+  "phone": "The screen answers \"what state is my device/file in and what do I do\": a tonal hero card with the one figure (free space, battery health, scan count) and a full-width primary button for the tool's main job; below, a short list of recent results as ListItems with trailing values; secondary tools as a 2-column grid of labelled icon tiles, never more than 6.",
+  "source": "android-design"
+ },
+ {
+  "id": "media-grid-viewer",
+  "name": "Grid and full-screen viewer",
+  "screen": "browse",
+  "kinds": [
+   "photo-video",
+   "wallpaper",
+   "media"
+  ],
+  "phone": "LazyVerticalGrid with 3 columns at compact (4 at medium), 2dp gutters, square or 9:16 cells by content; date or album headers as sticky labelSmall; tap opens a full-screen pager with controls on a scrim that hide on tap; long-press enters multi-select with a contextual top app bar.",
+  "source": "android-design"
+ },
+ {
+  "id": "editor-canvas-tools",
+  "name": "Canvas with tool row and sheet",
+  "screen": "editor",
+  "kinds": [
+   "photo-video"
+  ],
+  "phone": "The canvas fills the space between a slim top app bar (back, undo, redo, Export as the one filled action) and a bottom row of tools that scrolls horizontally (icon + labelSmall, active tool in the accent); choosing a tool raises a ModalBottomSheet or an inline panel with its sliders; compare-with-original on press-and-hold.",
+  "source": "android-design"
+ },
+ {
+  "id": "feed-cards",
+  "name": "Content feed",
+  "screen": "feed",
+  "kinds": [
+   "social",
+   "reading",
+   "creator",
+   "community"
+  ],
+  "phone": "One column of items whose anatomy repeats (author row, content, action row); media keeps its real ratio; no card border around each item, separation by 8-12dp space or a divider; a pull-to-refresh and a \"new items\" chip instead of auto-jumping.",
+  "source": "android-design"
+ },
+ {
+  "id": "onboarding-paywall",
+  "name": "Onboarding to honest paywall",
+  "screen": "onboarding",
+  "kinds": [
+   "utility",
+   "photo-video",
+   "learning",
+   "health-fitness",
+   "wallpaper"
+  ],
+  "phone": "Two or three screens that each show the product doing its job on the user's data or a real example, not feature icons; the paywall names the price per period, the trial length and when billing starts above the button, offers a close affordance from the first second, and restores purchases; no fake countdowns.",
+  "source": "android-design"
+ },
+ {
+  "id": "progress-path",
+  "name": "Today and the path",
+  "screen": "home",
+  "kinds": [
+   "learning",
+   "health-fitness",
+   "productivity",
+   "kids"
+  ],
+  "phone": "Today's one goal as the hero (a figure against its target, e.g. \"3 of 5 lessons\"), then the path or streak as a horizontal or vertical sequence of real steps with the next one actionable; history in a secondary screen; rewards only on real completion.",
+  "source": "android-design"
+ },
+ {
+  "id": "now-playing",
+  "name": "Now playing",
+  "screen": "player",
+  "kinds": [
+   "media"
+  ],
+  "phone": "Artwork at full width with its real ratio, title and artist in titleLarge/bodyMedium, a scrubber with elapsed and remaining in tabular figures, transport controls with play/pause as the largest target; queue and lyrics behind tabs or a sheet; a mini-player bar above the NavigationBar elsewhere.",
+  "source": "android-design"
+ },
+ {
+  "id": "settings-list",
+  "name": "Settings list",
+  "screen": "settings",
+  "kinds": [
+   "utility",
+   "productivity",
+   "photo-video",
+   "media",
+   "health-fitness",
+   "learning",
+   "wallpaper",
+   "social",
+   "finance",
+   "wallet"
+  ],
+  "phone": "Grouped ListItems with a group title in labelLarge/primary; each row: leading icon optional, headline, supporting text with the current value, trailing Switch or chevron; destructive actions at the end in error colour; no cards around groups unless the style asks for tonal panels.",
+  "source": "android-design"
+ }
+]

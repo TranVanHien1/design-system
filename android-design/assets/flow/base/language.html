@@ -1,0 +1,37 @@
+<!doctype html><html lang="{{LANG}}" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><script src="../state.js"></script>
+<!-- BASE · Language, first run (fixed). Keep: title top-left, confirm action top-right ONLY after a choice (?state=selected),
+     56dp rows with round flag + native name + radio, hand hint on the first row before a choice, (with ads) Native Big on the
+     bottom third. Change per app: row fill/shape, selected style, confirm style (tick / check badge / "Tiếp" pill), hint colour, background. -->
+<style>
+  .head { height: 64px; display: flex; align-items: center; padding: 0 12px 0 17px; flex: none; }
+  .head .t { flex: 1; font: var(--w-display, 700) 20px/28px var(--font-display); }
+  .ok { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--md-primary); color: var(--md-on-primary); }
+  .list { flex: 1; min-height: 0; overflow: hidden; padding: 4px 17px 0; display: flex; flex-direction: column; gap: 10px; }
+  .lang { height: 56px; flex: none; border-radius: var(--r-m); background: var(--x-lang-row, var(--md-surface-container)); display: flex; align-items: center; gap: 14px; padding: 0 16px; position: relative; border: 1.5px solid transparent; }
+  .lang .flag { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; background: var(--md-surface-container-highest); flex: none; }
+  .lang .n { flex: 1; font: 500 15px/20px var(--font-text); }
+  .lang.on { border-color: var(--md-primary); background: var(--x-lang-row-on, var(--md-surface-container-high)); }
+  .hint { position: absolute; right: 30px; top: 20px; color: var(--md-primary); transform: rotate(-18deg); filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
+</style></head><body>
+<div class="screen">
+  <div class="statusbar"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <div class="head"><div class="t">Chọn ngôn ngữ</div><div class="ok" data-when="selected"><span class="ms">check</span></div></div>
+  <div class="list">
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/gb.png" alt=""><span class="n">English</span><span class="hint ms fill s32" data-when="default">touch_app</span><span class="radio"></span></div>
+    <div class="lang" data-when="!selected"><img class="flag" src="https://flagcdn.com/w80/vn.png" alt=""><span class="n">Tiếng Việt</span><span class="radio"></span></div>
+    <div class="lang on" data-when="selected"><img class="flag" src="https://flagcdn.com/w80/vn.png" alt=""><span class="n">Tiếng Việt</span><span class="radio on"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/es.png" alt=""><span class="n">Español</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/br.png" alt=""><span class="n">Português (Brasil)</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/fr.png" alt=""><span class="n">Français</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/in.png" alt=""><span class="n">हिन्दी</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/id.png" alt=""><span class="n">Bahasa Indonesia</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/jp.png" alt=""><span class="n">日本語</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/kr.png" alt=""><span class="n">한국어</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/th.png" alt=""><span class="n">ไทย</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/sa.png" alt=""><span class="n">العربية</span><span class="radio"></span></div>
+    <div class="lang"><img class="flag" src="https://flagcdn.com/w80/ru.png" alt=""><span class="n">Русский</span><span class="radio"></span></div>
+  </div>
+  <div class="native-big ad-only"><span class="ad-choices">i</span><div class="ad-head"><div class="ad-icon"></div><div class="grow"><div class="row gap-8"><span class="ad-tag">Ad</span><span class="ad-title ellipsis">Tên ứng dụng quảng cáo</span></div><div class="ad-body clamp-2">Nội dung native ad do SDK cung cấp, tối đa hai dòng.</div></div></div><div class="ad-media"></div><div class="ad-cta">Learn More</div></div>
+  <div class="gesturebar"></div>
+</div>
+</body></html>

@@ -1,0 +1,2324 @@
+[
+ {
+  "id": "switzer-semibold",
+  "name": "Switzer",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Switzer",
+   "source": "fontshare",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.04em · leading 0.95 · sentence case; charcoal rather than pure black",
+   "slug": "switzer",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Switzer",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking -0.005em",
+   "slug": "switzer",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Suisse Intl",
+   "Neue Haas Grotesk"
+  ],
+  "note": "One neo-grotesk doing everything: semibold headings pulled tight, small regular text, no capitals and no second voice. Suits software, hardware and studio pages that want to look exact and unshowy.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "general-sans-bold",
+  "name": "General Sans",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "General Sans",
+   "source": "fontshare",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.02em · leading 0.9 · sentence case; sizes jump straight from 16px text to 10vw and larger",
+   "slug": "general-sans",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "General Sans",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body and lists, 500 for emphasis · leading 1.45 · tracking 0",
+   "slug": "general-sans",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "PP Neue Montreal",
+   "Aeonik"
+  ],
+  "note": "A grotesk with slightly geometric bowls, set bold and very large against plain 16px text with nothing in between. Suits studios, type and product launches, and finance or tech brands that lead with the name.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "schibsted-heavy",
+  "name": "Schibsted Grotesk",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Schibsted Grotesk",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.05em · leading 0.88 · sentence case or all lowercase",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Schibsted Grotesk",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for paragraphs, 600 for navigation and other functional text · leading 1.4 · tracking -0.01em",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "ABC Diatype",
+   "Khteka"
+  ],
+  "note": "A compact, warm grotesk set heavy with letters almost touching; small text stays in the same family at semibold. Suits music, events and culture pages where the type is the image.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "hanken-medium",
+  "name": "Hanken Grotesk",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Hanken Grotesk",
+   "source": "google",
+   "weights": [
+    500
+   ],
+   "italic": false,
+   "settings": "weight 500 · tracking -0.05em · leading 0.9 · sentence case; one statement size (about 6vw) used for every heading",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Hanken Grotesk",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.45 · tracking -0.005em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Akzidenz Grotesk",
+   "LayGrotesk"
+  ],
+  "note": "Medium-weight grotesk statements at one large size against caption-size text: a two-size system with no bold. Suits portfolios, agencies and tools that speak in short declarative lines.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "bricolage-contrast",
+  "name": "Bricolage Grotesque",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Bricolage Grotesque",
+   "source": "google",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.04em · leading 0.92 · sentence case; leave optical sizing on so large sizes tighten and gain contrast",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wdth",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Bricolage Grotesque",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wdth",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Beausite Classic",
+   "F37 Analog"
+  ],
+  "note": "A grotesk with visible stroke contrast and slightly irregular curves, so headings look drawn rather than engineered. Suits reports, consultancies and design-led software that want warmth without a serif.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "franklin-source",
+  "name": "Libre Franklin / Source Serif 4",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Libre Franklin",
+   "source": "google",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.035em · leading 0.92 · uppercase for the title, sentence case for section headings",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Source Serif 4",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": true,
+   "settings": "400 for body, 600 for emphasis, italic for quotations · leading 1.55 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Founders Grotesk",
+   "Die Grotesk",
+   "NON Natural Grotesk"
+  ],
+  "note": "An American gothic for headings over a sober transitional serif for reading, the pairing of a newspaper front page. Suits essays, annual reports, archives and finance pages that have real paragraphs.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "switzer-roman",
+  "name": "Switzer",
+  "class": "grotesk-light",
+  "display": {
+   "family": "Switzer",
+   "source": "fontshare",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 · tracking -0.03em · leading 1.1 · sentence case; headings stay small (28–40px) and at most one line jumps to 5vw",
+   "slug": "switzer",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Switzer",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for everything, 500 only for names and links · leading 1.45 · tracking -0.01em; hierarchy by ink against mid-grey",
+   "slug": "switzer",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Neue Haas Grotesk 55 Roman",
+   "Helvetica Now"
+  ],
+  "note": "A single roman weight of a Swiss neo-grotesk at two or three modest sizes; position and grey value do the work that size and bold usually do. Suits architects, galleries, studios and any quiet page where photographs carry the scale.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "archivo-regular",
+  "name": "Archivo",
+  "class": "grotesk-light",
+  "display": {
+   "family": "Archivo",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 · tracking -0.02em · leading 1.0 · sentence case; never bold, inactive items fade to grey",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Archivo",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for buttons and short emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Scto Grotesk A",
+   "Cash Sans"
+  ],
+  "note": "A sturdy grotesque kept at regular weight even at 88px, so the page reads as composed rather than loud. Suits finance, infrastructure and research pages that need to look sober and current.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "clash-grotesk-regular",
+  "name": "Clash Grotesk",
+  "class": "grotesk-light",
+  "display": {
+   "family": "Clash Grotesk",
+   "source": "fontshare",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 · tracking -0.03em · leading 0.95 · sentence case, or uppercase for one statement",
+   "slug": "clash-grotesk",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Clash Grotesk",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.4 · tracking 0",
+   "slug": "clash-grotesk",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Sneak",
+   "ABC Monument Grotesk"
+  ],
+  "note": "A slightly narrow neo-grotesk with closed apertures, used at regular weight from marquee size down to paragraphs. Suits agencies and digital studios that want large type without heaviness.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "work-sans-light",
+  "name": "Work Sans",
+  "class": "grotesk-light",
+  "display": {
+   "family": "Work Sans",
+   "source": "google",
+   "weights": [
+    300
+   ],
+   "italic": false,
+   "settings": "weight 300 · tracking -0.035em · leading 1.0 · sentence case",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Work Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.55 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "ABC Favorit",
+   "Clarkson Light",
+   "PP Mori"
+  ],
+  "note": "A light grotesque with open, slightly old-fashioned shapes; large headings look airy and the text weight beneath stays easy to read. Suits AI and research products, fashion houses and calm brand sites.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "anton-work",
+  "name": "Anton / Work Sans",
+  "class": "condensed-heavy",
+  "display": {
+   "family": "Anton",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 (single heavy cut) · tracking -0.01em · leading 0.86 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "Work Sans",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for links and short emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Druk",
+   "Thunder",
+   "Acme Gothic"
+  ],
+  "note": "Compressed heavy capitals stacked tight, with a neutral grotesque kept small beneath. Suits fashion drops, sport, nightlife and any page built as a poster.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "big-shoulders-public",
+  "name": "Big Shoulders / Public Sans",
+  "class": "condensed-heavy",
+  "display": {
+   "family": "Big Shoulders",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.005em · leading 0.88 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Public Sans",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Founders Grotesk Condensed",
+   "PP Neue York",
+   "Knockout"
+  ],
+  "note": "A tall American gothic taken from city signage, blunt and civic, over a plain public-service sans. Suits culture indexes, community projects, bars, sport clubs and local campaigns.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "archivo-compressed",
+  "name": "Archivo",
+  "class": "condensed-heavy",
+  "display": {
+   "family": "Archivo",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 at font-stretch 62% (load the wdth axis and use its narrowest setting) · tracking -0.01em · leading 0.86 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Archivo",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "normal width · 400 for body, 500 for buttons and emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Helvetica Now Display Condensed"
+  ],
+  "note": "One variable family pushed to its narrowest, heaviest setting for headlines and relaxed to normal width for text, so display and body share a skeleton. Suits sportswear, campaigns and fintech pages that speak in capitals.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "bebas-garamond",
+  "name": "Bebas Neue / EB Garamond",
+  "class": "condensed-heavy",
+  "display": {
+   "family": "Bebas Neue",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 (single cut, capitals only) · tracking -0.02em, tightening to -0.06em above 15vw · leading 0.85 · uppercase",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "EB Garamond",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "leading 1.45 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Founders Grotesk Condensed",
+   "Cardinal Classic Long",
+   "Signifier"
+  ],
+  "note": "Huge condensed capitals against a light old-style serif with italics: an industrial voice and a literary one, with a twenty-fold size gap between them. Suits crafted physical products, spirits, outdoor goods and hospitality.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "barlow-condensed",
+  "name": "Barlow Condensed / Barlow",
+  "class": "condensed-heavy",
+  "display": {
+   "family": "Barlow Condensed",
+   "source": "google",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.02em · leading 0.9 · uppercase for statements, mixed case for item titles",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "Barlow",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "standsInFor": [
+   "FF DIN Condensed",
+   "Helvetica Now Display Condensed"
+  ],
+  "note": "Road-sign condensed type with squared curves, bold but not compressed into a wall, with its normal-width sibling for text. Suits logistics, motorsport, hardware and directories with many short titles.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "panchang-switzer",
+  "name": "Panchang / Switzer",
+  "class": "extended-heavy",
+  "display": {
+   "family": "Panchang",
+   "source": "fontshare",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.02em · leading 1.0 · uppercase; four words or fewer per line because the face is very wide",
+   "slug": "panchang",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Switzer",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "slug": "switzer",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Monument Extended",
+   "Owners Wide",
+   "Nimbus Sans Extended"
+  ],
+  "note": "A flat-sided extended grotesk in heavy capitals, wide enough that two words fill the screen, with a neutral sans kept small. Suits portfolios, real estate, travel and brand sites that want a broad, confident wordmark.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "tiktok-sans-wide",
+  "name": "TikTok Sans",
+  "class": "extended-heavy",
+  "display": {
+   "family": "TikTok Sans",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 at font-stretch 150% (load the wdth axis and use its widest setting) · tracking -0.01em · leading 1.0 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "slnt",
+    "wdth",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "TikTok Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "normal width · 400 for body, 500 for emphasis · leading 1.45 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "slnt",
+    "wdth",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Herokid Wide",
+   "At Aero",
+   "Wintyr"
+  ],
+  "note": "One variable grotesk stretched wide and bold for the headline and the closing statement, then returned to normal width for reading. Suits personal portfolios, apps and tech brands that want width without a second family.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "unbounded-onest",
+  "name": "Unbounded / Onest",
+  "class": "extended-heavy",
+  "display": {
+   "family": "Unbounded",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.03em · leading 1.0 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Onest",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "IntraNet",
+   "Nekst",
+   "Owners Wide"
+  ],
+  "note": "A wide display sans built from rounded squares, heavy and a little architectural, beside a clean text grotesk. Suits architecture indexes, watches, mobility and events that want a title with a constructed feel.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "chivo-black",
+  "name": "Chivo",
+  "class": "heavy-black",
+  "display": {
+   "family": "Chivo",
+   "source": "google",
+   "weights": [
+    900
+   ],
+   "italic": false,
+   "settings": "weight 900 · tracking -0.05em · leading 0.88 · uppercase",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Chivo",
+   "source": "google",
+   "weights": [
+    400,
+    700
+   ],
+   "italic": false,
+   "settings": "400 for paragraphs, 700 for navigation, tags and links · leading 1.35 · tracking -0.01em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Elza",
+   "ABC Diatype Heavy",
+   "Suisse Intl Black"
+  ],
+  "note": "A black grotesque in capitals with letters nearly colliding, and only two sizes on the page: enormous and small. Suits agencies, city and culture projects and musicians who want the type to land like a headline.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "cabinet-grotesk-black",
+  "name": "Cabinet Grotesk",
+  "class": "heavy-black",
+  "display": {
+   "family": "Cabinet Grotesk",
+   "source": "fontshare",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.035em · leading 0.9 · lowercase or sentence case, one or two words per line",
+   "slug": "cabinet-grotesk",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Cabinet Grotesk",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "slug": "cabinet-grotesk",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Champ",
+   "Uncut Sans"
+  ],
+  "note": "A heavy sans with tight joins and an eccentric lowercase, friendly but loud. Suits bookshops, food, consumer subscriptions and marketing studios.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "epilogue-black",
+  "name": "Epilogue",
+  "class": "heavy-black",
+  "display": {
+   "family": "Epilogue",
+   "source": "google",
+   "weights": [
+    900
+   ],
+   "italic": false,
+   "settings": "weight 900 · tracking -0.04em · leading 0.9 · sentence case or title case",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Epilogue",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Die Grotesk D",
+   "Acme Gothic",
+   "FH Oscar"
+  ],
+  "note": "A broad black grotesque with a slightly uneven rhythm, at its best as a name set very large in mixed case. Suits entertainers, podcasts, consumer apps and blunt SaaS pages; emphasis comes from colour, not from a change of weight.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "red-hat-black",
+  "name": "Red Hat Display / Red Hat Text",
+  "class": "heavy-black",
+  "display": {
+   "family": "Red Hat Display",
+   "source": "google",
+   "weights": [
+    900
+   ],
+   "italic": false,
+   "settings": "weight 900 · tracking -0.03em · leading 0.92 · uppercase; centred three-line stacks work well",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Red Hat Text",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "FH Oscar",
+   "Futura Bold"
+  ],
+  "note": "A geometric black with round bowls and flat terminals, cleaner and more even than a grotesque at the same weight. Suits fintech, apps and portfolios that want heavy type with a tidy, technical finish.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "jost-caps",
+  "name": "Jost",
+  "class": "geometric",
+  "display": {
+   "family": "Jost",
+   "source": "google",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.03em · leading 0.9 · uppercase",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Jost",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Futura Std Bold",
+   "Futura PT"
+  ],
+  "note": "The pointed, circular geometry of the 1920s in bold capitals, with the same family at reading size. Suits space, science, museums, architecture and anything that should feel like a mid-century poster.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "stack-sans-light",
+  "name": "Stack Sans Headline / Stack Sans Text",
+  "class": "geometric",
+  "display": {
+   "family": "Stack Sans Headline",
+   "source": "google",
+   "weights": [
+    300
+   ],
+   "italic": false,
+   "settings": "weight 300 · tracking -0.022em · leading 1.05 · sentence case; a heading may be two-tone, grey then full ink",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Stack Sans Text",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Mluvka",
+   "Roobert"
+  ],
+  "note": "A geometric sans in a light weight at large size, soft and exact at once, with its text cut underneath. Suits consumer apps, utilities and developer tools that want to feel calm and modern.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "albert-sans-semibold",
+  "name": "Albert Sans",
+  "class": "geometric",
+  "display": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.035em · leading 1.0 · sentence case",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "BT Steinhart",
+   "TT Norms Pro",
+   "Objektiv"
+  ],
+  "note": "A geometric grotesque with Scandinavian restraint: round letters, even colour, nothing decorative. Suits logistics, health, property and corporate sites that need to look clear and dependable.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "spartan-figtree",
+  "name": "League Spartan / Figtree",
+  "class": "geometric",
+  "display": {
+   "family": "League Spartan",
+   "source": "google",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.04em · leading 0.88 · lowercase or sentence case",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Figtree",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Degular",
+   "Roobert"
+  ],
+  "note": "A compact bold geometric with a low waist, punchy in short lowercase lines, over a friendly open text sans. Suits newsletters, consumer products, creators and small shops.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "pilcrow-rounded",
+  "name": "Pilcrow Rounded",
+  "class": "rounded-friendly",
+  "display": {
+   "family": "Pilcrow Rounded",
+   "source": "fontshare",
+   "weights": [
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.05em · leading 0.9 · all lowercase, one or two words per line",
+   "slug": "pilcrow-rounded",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Pilcrow Rounded",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0; lowercase throughout is fine",
+   "slug": "pilcrow-rounded",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Milling Triplex",
+   "Ease"
+  ],
+  "note": "A sturdy sans with fully rounded stroke ends, set bold and tight in lowercase with one small size for everything else. Suits toys, gadgets, cosmetics and other objects with soft moulded edges.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "roundo-soft",
+  "name": "Roundo",
+  "class": "rounded-friendly",
+  "display": {
+   "family": "Roundo",
+   "source": "fontshare",
+   "weights": [
+    500
+   ],
+   "italic": false,
+   "settings": "weight 500 · tracking -0.025em · leading 1.05 · sentence case; colour the type to its section instead of black",
+   "slug": "roundo",
+   "vi": false,
+   "android": "bundle",
+   "license": "sil_ofl"
+  },
+  "text": {
+   "family": "Roundo",
+   "source": "fontshare",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for emphasis · leading 1.5 · tracking 0",
+   "slug": "roundo",
+   "vi": false,
+   "android": "bundle",
+   "license": "sil_ofl"
+  },
+  "standsInFor": [
+   "Ease",
+   "Open Runde"
+  ],
+  "note": "A rounded geometric sans at medium weight and a generous text size, gentle without looking childish. Suits wellness, home goods, family apps and everyday money tools.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "chillax-semibold",
+  "name": "Chillax",
+  "class": "rounded-friendly",
+  "display": {
+   "family": "Chillax",
+   "source": "fontshare",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.03em · leading 1.0 · sentence case",
+   "slug": "chillax",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Chillax",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "slug": "chillax",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "SF Pro Rounded",
+   "Open Runde"
+  ],
+  "note": "A soft geometric sans with wide round letters and relaxed joins, warm at semibold and easy at text size. Suits consumer apps, community products, cafes and small friendly brands.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "gambarino-general",
+  "name": "Gambarino / General Sans",
+  "class": "serif-display",
+  "display": {
+   "family": "Gambarino",
+   "source": "fontshare",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 (single cut) · tracking -0.02em · leading 0.92 · sentence case",
+   "slug": "gambarino",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "General Sans",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, navigation and buttons, 500 for emphasis · leading 1.5",
+   "slug": "general-sans",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "PP Editorial New",
+   "Migra"
+  ],
+  "note": "A narrow, sharp display serif for headlines against a small plain sans: a five-to-one jump with nothing between. Suits agencies, bakeries and restaurants, fashion and editorial brands.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "bodoni-jost",
+  "name": "Bodoni Moda / Jost",
+  "class": "serif-display",
+  "display": {
+   "family": "Bodoni Moda",
+   "source": "google",
+   "weights": [
+    500
+   ],
+   "italic": true,
+   "settings": "weight 500 with optical sizing on · tracking -0.02em · leading 0.95 · uppercase or sentence case; italic for a whole line, never for one word",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Jost",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.6 · tracking 0.01em",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "TT Ramillas",
+   "Freight Big"
+  ],
+  "note": "A true didone with hairline serifs and vertical stress over a light geometric sans, the classic fashion-magazine pairing. Suits luxury property, jewellery, fragrance and fashion.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "imbue-albert",
+  "name": "Imbue / Albert Sans",
+  "class": "serif-display",
+  "display": {
+   "family": "Imbue",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 with optical sizing on · tracking -0.01em · leading 0.9 · uppercase, sized so one short word fills its column (6–12vw)",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.55 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Ambroise Francois"
+  ],
+  "note": "A tall, condensed high-contrast serif whose capitals read like a masthead or a shop fascia. Suits residences, hotels, restaurants and wine, where a short name can stand floor to ceiling.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "erode-sharp",
+  "name": "Erode",
+  "class": "serif-display",
+  "display": {
+   "family": "Erode",
+   "source": "fontshare",
+   "weights": [
+    500
+   ],
+   "italic": false,
+   "settings": "weight 500 · tracking -0.025em · leading 0.95 · sentence case, or tight capitals at 32–40px for a single statement",
+   "slug": "erode",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Erode",
+   "source": "fontshare",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": true,
+   "settings": "400 for body, 600 for emphasis, italic for titles of works · leading 1.5 · tracking 0",
+   "slug": "erode",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Noe Text",
+   "Reckless",
+   "Migra"
+  ],
+  "note": "A serif with chiselled, angular curves and wedge serifs, sharp at display size and firm in text. Suits studios, galleries, advisory firms and written guides.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "boska-roman-italic",
+  "name": "Boska",
+  "class": "serif-display",
+  "display": {
+   "family": "Boska",
+   "source": "fontshare",
+   "weights": [
+    400
+   ],
+   "italic": true,
+   "settings": "weight 400 · tracking -0.02em · leading 0.95 · roman capitals for the main words with lowercase italic for the connecting words at the same size, or sentence case throughout; centred lines work",
+   "slug": "boska",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Boska",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0.005em",
+   "slug": "boska",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Louize Display",
+   "PP Pangaia"
+  ],
+  "note": "A high-contrast serif with pointed serifs and a lively italic, used roman and italic together at one size. Suits perfume, jewellery, lodges, weddings and other occasions for ceremony.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "newsreader-light",
+  "name": "Newsreader",
+  "class": "serif-light-large",
+  "display": {
+   "family": "Newsreader",
+   "source": "google",
+   "weights": [
+    300
+   ],
+   "italic": false,
+   "settings": "weight 300 with optical sizing on · tracking -0.05em · leading 0.9 · sentence case at 12–14vw; chapter headings drop to the text weight at about 30px",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Newsreader",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "400 for body, 500 for emphasis, italic for titles · leading 1.6 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Self Modern",
+   "PP Editorial New Light"
+  ],
+  "note": "One news serif with optical sizes: light and very tight when huge, open and bookish at 18px. Suits long-form stories, culture pieces, journals and research write-ups.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "zodiak-hairline",
+  "name": "Zodiak / Hanken Grotesk",
+  "class": "serif-light-large",
+  "display": {
+   "family": "Zodiak",
+   "source": "fontshare",
+   "weights": [
+    100,
+    300
+   ],
+   "italic": false,
+   "settings": "weight 100 above 96px, 300 for 28–36px statements · tracking -0.01em · leading 1.0 · capitals for the headline, sentence case for statements; never bold",
+   "slug": "zodiak",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Hanken Grotesk",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "PP Fragment",
+   "PP Editorial New Ultralight",
+   "Cardinal Classic Long"
+  ],
+  "note": "Hairline serif capitals set large enough that the thin strokes read as drawing, with a small neutral sans for everything practical. Suits lodges, spas, architecture and interiors; keep it on flat pale or dark fields where the strokes have full contrast.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "sentient-light",
+  "name": "Sentient",
+  "class": "serif-light-large",
+  "display": {
+   "family": "Sentient",
+   "source": "fontshare",
+   "weights": [
+    300
+   ],
+   "italic": false,
+   "settings": "weight 300 · tracking -0.015em · leading 1.0 · sentence case; about 8vw for the headline, 40px for statements",
+   "slug": "sentient",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "text": {
+   "family": "Sentient",
+   "source": "fontshare",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "400 for body, 500 for emphasis · leading 1.55 · tracking 0",
+   "slug": "sentient",
+   "vi": true,
+   "android": "bundle",
+   "license": "itf_ffl"
+  },
+  "standsInFor": [
+   "Season Mix",
+   "Exposure",
+   "Self Modern"
+  ],
+  "note": "A soft, low-contrast serif in a light weight, more book than fashion magazine, large and calm in sentence case. Suits outdoor and craft products, restaurants, cameras and slow consumer goods.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "eb-garamond-quiet",
+  "name": "EB Garamond",
+  "class": "serif-text",
+  "display": {
+   "family": "EB Garamond",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": true,
+   "settings": "weight 400, italic for the title · tracking -0.01em · leading 1.1 · sentence case or all lowercase; the largest size stays near 40px",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "EB Garamond",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Edict",
+   "Louize"
+  ],
+  "note": "A humanist Garamond in roman and italic at two modest sizes, with no capitals and no bold. Suits set designers, antique dealers, wine, publishers and portfolios that whisper.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "literata-book",
+  "name": "Literata",
+  "class": "serif-text",
+  "display": {
+   "family": "Literata",
+   "source": "google",
+   "weights": [
+    500
+   ],
+   "italic": false,
+   "settings": "weight 500 with optical sizing on · tracking -0.02em · leading 1.05 · sentence case",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Literata",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": true,
+   "settings": "400 for body, 600 for emphasis, italic for titles · leading 1.6 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Albra Book",
+   "Signifier",
+   "Domaine Text"
+  ],
+  "note": "A sturdy screen-reading serif with a large x-height; headings are simply the text face at medium weight and a larger size. Suits essays, reports, newsletters and knowledge products.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "stix-plain-roman",
+  "name": "STIX Two Text",
+  "class": "serif-text",
+  "display": {
+   "family": "STIX Two Text",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": true,
+   "settings": "weight 400 · tracking -0.026em · leading 1.1 · sentence case at 2.6–3.6vw; one running line may be set in italic capitals",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "STIX Two Text",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for emphasis · leading 1.45 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Untitled Serif",
+   "Times New Roman",
+   "FK Roman Standard"
+  ],
+  "note": "The plain Times-style roman of a typed document, slightly tightened and never larger than a few vw. Suits vehicles and tools presented dryly, artists' pages, investment memos and anything meant to look undesigned on purpose.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "young-source",
+  "name": "Young Serif / Source Serif 4",
+  "class": "serif-text",
+  "display": {
+   "family": "Young Serif",
+   "source": "google",
+   "weights": [
+    400
+   ],
+   "italic": false,
+   "settings": "weight 400 (single heavy cut) · tracking -0.02em · leading 0.95 · sentence case",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "Source Serif 4",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": true,
+   "settings": "400 for body, 600 for emphasis, italic for quotations · leading 1.55 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "FS Kim",
+   "Recoleta",
+   "Gelica"
+  ],
+  "note": "A heavy, round old-style headline face with soft bracketed serifs over a clear transitional text serif. Suits essays, food, independent publishers and personal sites that want warmth with weight.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "zilla-slab-even",
+  "name": "Zilla Slab",
+  "class": "slab",
+  "display": {
+   "family": "Zilla Slab",
+   "source": "google",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.025em · leading 1.0 · sentence case",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "Zilla Slab",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": true,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "standsInFor": [
+   "Museo Slab"
+  ],
+  "note": "A contemporary slab with smooth curves and unbracketed serifs, even enough to carry headings and paragraphs alike. Suits developer tools, personal sites, open-source and nonprofit projects.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "besley-franklin",
+  "name": "Besley / Libre Franklin",
+  "class": "slab",
+  "display": {
+   "family": "Besley",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.02em · leading 0.95 · sentence case or uppercase",
+   "vi": false,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Libre Franklin",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "400 for body, 600 for emphasis · leading 1.5 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "FS Kim",
+   "Museo Slab"
+  ],
+  "note": "A fat Clarendon with ball terminals and bracketed slabs over a plain gothic, the look of a nineteenth-century bill poster. Suits breweries, barbers, markets, fairs and heritage goods.",
+  "source": "taste-skill",
+  "vi": false
+ },
+ {
+  "id": "rokkitt-literata",
+  "name": "Rokkitt / Literata",
+  "class": "slab",
+  "display": {
+   "family": "Rokkitt",
+   "source": "google",
+   "weights": [
+    800
+   ],
+   "italic": false,
+   "settings": "weight 800 · tracking -0.01em · leading 0.85 · uppercase, sized by cap height (about 14vw)",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Literata",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": true,
+   "settings": "400 for body, 600 for emphasis · leading 1.6 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "standsInFor": [
+   "Albra Book"
+  ],
+  "note": "Narrow geometric slab capitals as a tall title block, then a bookish serif for a long essay beneath. Suits manufacturing, trades, manifestos and industrial history.",
+  "source": "taste-skill",
+  "vi": true
+ },
+ {
+  "id": "be-vietnam-pro",
+  "name": "Be Vietnam Pro",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Be Vietnam Pro",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.02em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "text": {
+   "family": "Be Vietnam Pro",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": []
+  },
+  "note": "Drawn in Vietnam for Vietnamese first: stacked diacritics sit cleanly at small sizes. The safe neutral for a Vietnamese-first app that still wants a decided voice.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "inter-only",
+  "name": "Inter",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Inter",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.02em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Inter",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400 · tnum for figures",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "note": "One neutral grotesk with optical sizes and excellent figures. Works for dense tools; give the product a face elsewhere (colour, signature element).",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "manrope-only",
+  "name": "Manrope",
+  "class": "geometric",
+  "display": {
+   "family": "Manrope",
+   "source": "google",
+   "weights": [
+    600,
+    700,
+    800
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.02em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Manrope",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 500",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "note": "Open geometric with strong figures; balances and counts read as the face of the product.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "jakarta-only",
+  "name": "Plus Jakarta Sans",
+  "class": "geometric",
+  "display": {
+   "family": "Plus Jakarta Sans",
+   "source": "google",
+   "weights": [
+    600,
+    700,
+    800
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking -0.02em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Plus Jakarta Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "note": "Friendly geometric for consumer apps; rounder than Inter, calmer than a rounded face.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "lexend-nunito",
+  "name": "Lexend + Nunito",
+  "class": "rounded-friendly",
+  "display": {
+   "family": "Lexend",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 600",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Nunito",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "note": "Readable and warm: learning, kids, health. Lexend headings, Nunito text.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "quicksand-nunito",
+  "name": "Quicksand + Nunito",
+  "class": "rounded-friendly",
+  "display": {
+   "family": "Quicksand",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 700",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Nunito",
+   "source": "google",
+   "weights": [
+    400,
+    600
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "note": "Soft rounded display for playful, low-stakes apps; keep body in Nunito for legibility.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "fraunces-inter",
+  "name": "Fraunces + Inter",
+  "class": "serif-display",
+  "display": {
+   "family": "Fraunces",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 600 · opsz auto · SOFT 50",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "SOFT",
+    "WONK",
+    "opsz",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Inter",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "note": "A soft, characterful serif for headlines over a neutral text face: food, travel, reading, journaling.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "lora-roboto",
+  "name": "Lora + Roboto",
+  "class": "serif-text",
+  "display": {
+   "family": "Lora",
+   "source": "google",
+   "weights": [
+    500,
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Roboto",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "note": "Literary headings on the platform text face: reading and editorial apps that must feel at home on Android.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "space-grotesk-plex",
+  "name": "Space Grotesk + IBM Plex Sans",
+  "class": "grotesk-light",
+  "display": {
+   "family": "Space Grotesk",
+   "source": "google",
+   "weights": [
+    500,
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.01em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "IBM Plex Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "note": "Technical character without costume: tools, monitors, developer utilities.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "jetbrains-inter",
+  "name": "JetBrains Mono figures + Inter",
+  "class": "mono-data",
+  "display": {
+   "family": "JetBrains Mono",
+   "source": "google",
+   "weights": [
+    500,
+    600
+   ],
+   "italic": false,
+   "settings": "weight 500 · figures and IDs only",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Inter",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "opsz",
+    "wght"
+   ]
+  },
+  "note": "Monospace for figures, prices, times and IDs only (digits that stack); Inter for every word.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
+  "id": "roboto-flex",
+  "name": "Roboto Flex",
+  "class": "system-tuned",
+  "display": {
+   "family": "Roboto Flex",
+   "source": "google",
+   "weights": [
+    600,
+    700
+   ],
+   "italic": false,
+   "settings": "weight 650 · wdth 90 · tracking -0.01em",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "GRAD",
+    "XOPQ",
+    "XTRA",
+    "YOPQ",
+    "YTAS",
+    "YTDE",
+    "YTFI",
+    "YTLC",
+    "YTUC",
+    "opsz",
+    "slnt",
+    "wdth",
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Roboto",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wdth",
+    "wght"
+   ]
+  },
+  "note": "The platform voice, tuned: a narrower, heavier Roboto Flex for display roles. For apps that should read as pure Android but not as the baseline template.",
+  "source": "android-design",
+  "vi": true
+ }
+]

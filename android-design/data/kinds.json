@@ -1,0 +1,517 @@
+[
+ {
+  "id": "finance",
+  "styles": [
+   "achromatic-ledger",
+   "pastel-consumer",
+   "tonal-material"
+  ],
+  "keywords": [
+   "finance",
+   "budget",
+   "expense",
+   "bank",
+   "accounting",
+   "invoice",
+   "tai chinh",
+   "chi tieu",
+   "ngan sach",
+   "ngan hang",
+   "ke toan",
+   "hoa don",
+   "thu chi"
+  ],
+  "note": "money homes, budgeting, accounting"
+ },
+ {
+  "id": "wallet",
+  "styles": [
+   "pastel-consumer",
+   "achromatic-ledger",
+   "tonal-material"
+  ],
+  "keywords": [
+   "wallet",
+   "crypto",
+   "payment",
+   "pay",
+   "transfer",
+   "vi dien tu",
+   "thanh toan",
+   "chuyen tien",
+   "vi "
+  ],
+  "note": "consumer wallets, payments, crypto"
+ },
+ {
+  "id": "commerce",
+  "styles": [
+   "achromatic-ledger",
+   "accent-ladder",
+   "editorial-greeting"
+  ],
+  "keywords": [
+   "shop",
+   "store",
+   "seller",
+   "order",
+   "ecommerce",
+   "cart",
+   "cua hang",
+   "ban hang",
+   "don hang",
+   "mua sam",
+   "gio hang"
+  ],
+  "note": "shops and sellers"
+ },
+ {
+  "id": "analytics",
+  "styles": [
+   "framed-sheet",
+   "achromatic-ledger",
+   "accent-ladder"
+  ],
+  "keywords": [
+   "analytics",
+   "dashboard",
+   "stats",
+   "report",
+   "metric",
+   "phan tich",
+   "thong ke",
+   "bao cao",
+   "chi so"
+  ],
+  "note": "analytics and reports"
+ },
+ {
+  "id": "devtools",
+  "styles": [
+   "data-terminal",
+   "framed-sheet",
+   "achromatic-ledger"
+  ],
+  "keywords": [
+   "developer",
+   "api",
+   "deploy",
+   "server",
+   "log",
+   "monitor",
+   "uptime",
+   "terminal",
+   "ssh"
+  ],
+  "note": "developer and monitoring tools"
+ },
+ {
+  "id": "creator",
+  "styles": [
+   "accent-ladder",
+   "editorial-greeting",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "creator",
+   "newsletter",
+   "blog",
+   "channel",
+   "sang tao",
+   "kenh"
+  ],
+  "note": "creators and publishing"
+ },
+ {
+  "id": "smb-admin",
+  "styles": [
+   "accent-ladder",
+   "framed-sheet",
+   "tonal-material"
+  ],
+  "keywords": [
+   "admin",
+   "crm",
+   "pos",
+   "staff",
+   "booking",
+   "appointment",
+   "quan ly",
+   "nhan vien",
+   "dat lich",
+   "lich hen"
+  ],
+  "note": "small-business admin"
+ },
+ {
+  "id": "workspace",
+  "styles": [
+   "editorial-greeting",
+   "achromatic-ledger",
+   "tonal-material"
+  ],
+  "keywords": [
+   "team",
+   "workspace",
+   "project",
+   "nhom",
+   "du an"
+  ],
+  "note": "team homes and projects"
+ },
+ {
+  "id": "community",
+  "styles": [
+   "true-black-flat",
+   "accent-ladder"
+  ],
+  "keywords": [
+   "community",
+   "forum",
+   "club",
+   "event",
+   "cong dong",
+   "su kien",
+   "cau lac bo"
+  ],
+  "note": "communities and events"
+ },
+ {
+  "id": "support",
+  "styles": [
+   "achromatic-ledger",
+   "framed-sheet"
+  ],
+  "keywords": [
+   "support",
+   "ticket",
+   "helpdesk",
+   "ho tro",
+   "phieu"
+  ],
+  "note": "support and ticketing"
+ },
+ {
+  "id": "markets",
+  "styles": [
+   "data-terminal",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "stock",
+   "trading",
+   "market",
+   "exchange",
+   "chung khoan",
+   "giao dich",
+   "co phieu",
+   "coin"
+  ],
+  "note": "markets and trading"
+ },
+ {
+  "id": "utility",
+  "styles": [
+   "tonal-material",
+   "achromatic-ledger",
+   "framed-sheet"
+  ],
+  "keywords": [
+   "tool",
+   "utility",
+   "scanner",
+   "cleaner",
+   "battery",
+   "vpn",
+   "flashlight",
+   "qr",
+   "converter",
+   "calculator",
+   "file",
+   "cleaner",
+   "booster",
+   "tien ich",
+   "quet",
+   "don dep",
+   "pin",
+   "cong cu",
+   "may tinh",
+   "chuyen doi",
+   "tap tin",
+   "den pin"
+  ],
+  "note": "tools and utilities"
+ },
+ {
+  "id": "photo-video",
+  "styles": [
+   "media-canvas",
+   "true-black-flat",
+   "tonal-material"
+  ],
+  "keywords": [
+   "photo",
+   "editor",
+   "camera",
+   "video",
+   "collage",
+   "filter",
+   "ai art",
+   "sticker",
+   "anh",
+   "chinh sua",
+   "may anh",
+   "ghep anh",
+   "bo loc",
+   "cat ghep"
+  ],
+  "note": "photo and video creation"
+ },
+ {
+  "id": "media",
+  "styles": [
+   "media-canvas",
+   "true-black-flat",
+   "editorial-greeting"
+  ],
+  "keywords": [
+   "music",
+   "player",
+   "podcast",
+   "stream",
+   "movie",
+   "radio",
+   "ringtone",
+   "nhac",
+   "phim",
+   "nghe",
+   "nhac chuong"
+  ],
+  "note": "listening and watching"
+ },
+ {
+  "id": "call-screen",
+  "styles": [
+   "media-canvas",
+   "true-black-flat",
+   "playful-rounded"
+  ],
+  "keywords": [
+   "call screen",
+   "caller",
+   "incoming call",
+   "color phone",
+   "call theme",
+   "call flash",
+   "flash alert",
+   "dialer",
+   "cuoc goi",
+   "man hinh cuoc goi",
+   "nguoi goi",
+   "goi den",
+   "nhac chuong",
+   "den flash",
+   "nhay den"
+  ],
+  "note": "call screen themes, caller looks, flash alerts"
+ },
+ {
+  "id": "wallpaper",
+  "styles": [
+   "media-canvas",
+   "playful-rounded",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "wallpaper",
+   "theme",
+   "icon pack",
+   "launcher",
+   "live wallpaper",
+   "hinh nen",
+   "chu de",
+   "giao dien"
+  ],
+  "note": "personalisation"
+ },
+ {
+  "id": "health-fitness",
+  "styles": [
+   "tonal-material",
+   "pastel-consumer",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "health",
+   "fitness",
+   "workout",
+   "step",
+   "sleep",
+   "diet",
+   "water",
+   "period",
+   "meditation",
+   "suc khoe",
+   "tap luyen",
+   "giac ngu",
+   "uong nuoc",
+   "calo",
+   "thien",
+   "buoc chan"
+  ],
+  "note": "health and fitness"
+ },
+ {
+  "id": "learning",
+  "styles": [
+   "playful-rounded",
+   "tonal-material",
+   "editorial-greeting"
+  ],
+  "keywords": [
+   "learn",
+   "course",
+   "language",
+   "quiz",
+   "study",
+   "flashcard",
+   "vocabulary",
+   "exam",
+   "hoc",
+   "khoa hoc",
+   "tu vung",
+   "on thi",
+   "ngoai ngu",
+   "bai tap"
+  ],
+  "note": "learning"
+ },
+ {
+  "id": "social",
+  "styles": [
+   "accent-ladder",
+   "tonal-material",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "chat",
+   "messenger",
+   "social",
+   "dating",
+   "friends",
+   "tro chuyen",
+   "nhan tin",
+   "ban be",
+   "hen ho",
+   "mang xa hoi"
+  ],
+  "note": "social and messaging"
+ },
+ {
+  "id": "travel",
+  "styles": [
+   "editorial-greeting",
+   "tonal-material",
+   "pastel-consumer"
+  ],
+  "keywords": [
+   "travel",
+   "booking",
+   "hotel",
+   "flight",
+   "map",
+   "trip",
+   "du lich",
+   "dat phong",
+   "chuyen bay",
+   "ban do",
+   "khach san"
+  ],
+  "note": "travel"
+ },
+ {
+  "id": "food",
+  "styles": [
+   "editorial-greeting",
+   "pastel-consumer",
+   "accent-ladder"
+  ],
+  "keywords": [
+   "food",
+   "recipe",
+   "delivery",
+   "restaurant",
+   "cooking",
+   "do an",
+   "cong thuc",
+   "giao hang",
+   "nha hang",
+   "nau an",
+   "mon an"
+  ],
+  "note": "food and cooking"
+ },
+ {
+  "id": "productivity",
+  "styles": [
+   "achromatic-ledger",
+   "tonal-material",
+   "editorial-greeting"
+  ],
+  "keywords": [
+   "todo",
+   "notes",
+   "calendar",
+   "task",
+   "habit",
+   "reminder",
+   "planner",
+   "ghi chu",
+   "lich",
+   "cong viec",
+   "thoi quen",
+   "nhac nho",
+   "ke hoach"
+  ],
+  "note": "tasks, notes, habits"
+ },
+ {
+  "id": "kids",
+  "styles": [
+   "playful-rounded",
+   "pastel-consumer"
+  ],
+  "keywords": [
+   "kids",
+   "children",
+   "baby",
+   "toddler",
+   "tre em",
+   "be ",
+   "thieu nhi"
+  ],
+  "note": "children and families"
+ },
+ {
+  "id": "reading",
+  "styles": [
+   "editorial-greeting",
+   "achromatic-ledger",
+   "true-black-flat"
+  ],
+  "keywords": [
+   "news",
+   "reader",
+   "ebook",
+   "manga",
+   "comic",
+   "novel",
+   "bible",
+   "tin tuc",
+   "doc ",
+   "truyen",
+   "sach"
+  ],
+  "note": "reading"
+ }
+]

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__ · Luồng màn</title>
+<style>
+  :root {
+    --bg: #eceef1; --dot: #cfd3da; --card: #fff; --ink: #16181d; --muted: #5b6270;
+    --line: #3b6cf6; --line-dashed: #8a93a3; --label-bg: #fff; --radius: 14px; --shadow: 0 1px 3px rgba(0,0,0,.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #viewport { position: fixed; inset: 0; cursor: grab; touch-action: none;
+    background-image: radial-gradient(var(--dot) 1px, transparent 1px); background-size: 24px 24px; }
+  #viewport.dragging { cursor: grabbing; }
+  #world { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  svg#links { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+  .card { position: absolute; width: 260px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px; }
+  .card h2 { margin: 0 0 8px; font-size: 16px; }
+  .card .shot { -webkit-user-drag: none; width: 100%; border-radius: 10px; display: block; cursor: zoom-in; }
+  .card ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+  .states { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .states figure { margin: 0; width: 74px; text-align: center; font-size: 10px; color: var(--muted); }
+  .states img { width: 100%; border-radius: 6px; cursor: zoom-in; display: block; -webkit-user-drag: none; }
+  .label { font-size: 12px; fill: var(--ink); paint-order: stroke; stroke: var(--label-bg); stroke-width: 5px; stroke-linejoin: round; }
+  header { position: fixed; left: 12px; top: 12px; right: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; pointer-events: none; }
+  header > * { pointer-events: auto; }
+  header h1 { margin: 0 8px 0 0; font-size: 17px; background: var(--card); padding: 6px 12px; border-radius: 10px; box-shadow: var(--shadow); }
+  header button { font: inherit; border: 0; background: var(--card); padding: 6px 12px; border-radius: 10px; box-shadow: var(--shadow); cursor: pointer; }
+  .legend { background: var(--card); padding: 6px 12px; border-radius: 10px; box-shadow: var(--shadow); color: var(--muted); font-size: 12px; }
+  #lightbox { position: fixed; inset: 0; background: rgba(10,12,16,.86); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: #fff; }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-height: 88vh; max-width: 92vw; border-radius: 12px; }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="world"><svg id="links"></svg></div></div>
+<header>
+  <h1>__APP__</h1>
+  <button id="fit">Vừa màn hình</button><button id="zin">+</button><button id="zout">−</button>
+  <span class="legend">Kéo để di chuyển · cuộn/chụm để phóng to · chạm ảnh để xem lớn · nét liền = đi tới, nét đứt = quay lại/đổi tab</span>
+</header>
+<div id="lightbox"><img alt=""><div id="lbname"></div></div>
+<script>
+const FLOW = __FLOW_JSON__;
+const COL_W = 420, ROW_GAP = 48, PAD = 80;
+const world = document.getElementById('world'), svg = document.getElementById('links'), vp = document.getElementById('viewport');
+const cards = {};
+
+for (const s of FLOW.screens) {
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.innerHTML = `<h2></h2><img class="shot" alt=""><ul></ul><div class="states"></div>`;
+  el.querySelector('h2').textContent = s.name;
+  const shot = el.querySelector('.shot');
+  shot.src = s.img; shot.dataset.name = s.name;
+  for (const d of s.does || []) el.querySelector('ul').appendChild(Object.assign(document.createElement('li'), {textContent: d}));
+  for (const st of s.states) {
+    const f = document.createElement('figure');
+    f.innerHTML = `<img alt=""><figcaption></figcaption>`;
+    f.querySelector('img').src = st.img; f.querySelector('img').dataset.name = `${s.name} · ${st.name}`;
+    f.querySelector('figcaption').textContent = st.name;
+    el.querySelector('.states').appendChild(f);
+  }
+  world.appendChild(el);
+  cards[s.id] = {el, s};
+}
+
+function place() {
+  const colY = {};
+  const sorted = [...FLOW.screens].sort((a, b) => a.col - b.col || a.row - b.row);
+  let maxX = 0, maxY = 0;
+  for (const s of sorted) {
+    const c = cards[s.id], y = colY[s.col] ?? PAD, x = PAD + s.col * COL_W;
+    c.el.style.left = x + 'px'; c.el.style.top = y + 'px';
+    c.box = {x, y, w: c.el.offsetWidth, h: c.el.offsetHeight};
+    colY[s.col] = y + c.box.h + ROW_GAP;
+    maxX = Math.max(maxX, x + c.box.w); maxY = Math.max(maxY, y + c.box.h);
+  }
+  world.style.width = (maxX + PAD) + 'px'; world.style.height = (maxY + PAD) + 'px';
+  drawLinks();
+}
+
+function drawLinks() {
+  const ns = 'http://www.w3.org/2000/svg';
+  svg.innerHTML = `<defs>${['line', 'line-dashed'].map(k => `<marker id="m-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--${k})"/></marker>`).join('')}</defs>`;
+  const outCount = {}, inCount = {};
+  for (const l of FLOW.links) {
+    const a = cards[l.from].box, b = cards[l.to].box, dashed = l.dashed || l.tab, k = dashed ? 'line-dashed' : 'line';
+    const oi = outCount[l.from] = (outCount[l.from] || 0) + 1, ii = inCount[l.to] = (inCount[l.to] || 0) + 1;
+    let d, lx, ly;
+    if (b.x > a.x) {
+      const y1 = a.y + 40 + oi * 26, y2 = b.y + 40 + ii * 26, x1 = a.x + a.w, x2 = b.x, mx = (x1 + x2) / 2;
+      d = `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; lx = mx; ly = (y1 + y2) / 2 - 6;
+    } else if (b.x === a.x && b.y > a.y) {
+      const x = a.x + 24 + oi * 14;
+      d = `M${x},${a.y + a.h} L${x},${b.y}`; lx = x + 8; ly = (a.y + a.h + b.y) / 2 + 4;
+    } else {
+      const x1 = a.x + a.w / 2 + oi * 12, x2 = b.x + b.w / 2 - ii * 12, y1 = a.y + a.h, y2 = b.y + b.h, low = Math.max(y1, y2) + 40 + oi * 14;
+      d = `M${x1},${y1} C${x1},${low} ${x2},${low} ${x2},${y2}`; lx = (x1 + x2) / 2; ly = low - 4;
+    }
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', d); path.setAttribute('fill', 'none'); path.setAttribute('stroke', `var(--${k})`);
+    path.setAttribute('stroke-width', '2'); path.setAttribute('marker-end', `url(#m-${k})`);
+    if (dashed) path.setAttribute('stroke-dasharray', '6 5');
+    svg.appendChild(path);
+    if (l.label) {
+      const t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', lx); t.setAttribute('y', ly); t.setAttribute('text-anchor', b.x === a.x && b.y > a.y ? 'start' : 'middle'); t.setAttribute('class', 'label');
+      t.textContent = l.label;
+      svg.appendChild(t);
+    }
+  }
+}
+
+let view = {x: 0, y: 0, k: 1};
+const apply = () => world.style.transform = `translate(${view.x}px,${view.y}px) scale(${view.k})`;
+function zoomAt(f, cx, cy) {
+  const k = Math.min(3, Math.max(0.1, view.k * f));
+  view.x = cx - (cx - view.x) * k / view.k; view.y = cy - (cy - view.y) * k / view.k; view.k = k; apply();
+}
+function fit() {
+  const w = world.offsetWidth, h = world.offsetHeight, top = 56;
+  view.k = Math.min(innerWidth / w, (innerHeight - top) / h, 1);
+  view.x = (innerWidth - w * view.k) / 2; view.y = top + (innerHeight - top - h * view.k) / 2; apply();
+}
+vp.addEventListener('wheel', e => { e.preventDefault(); zoomAt(Math.exp(-e.deltaY * 0.0015), e.clientX, e.clientY); }, {passive: false});
+const pts = new Map(); let pinch = 0;
+vp.addEventListener('pointerdown', e => { pts.set(e.pointerId, e); vp.classList.add('dragging'); });
+addEventListener('pointermove', e => {
+  const prev = pts.get(e.pointerId); if (!prev) return;
+  if (pts.size === 1) { view.x += e.clientX - prev.clientX; view.y += e.clientY - prev.clientY; apply(); }
+  pts.set(e.pointerId, e);
+  if (pts.size === 2) {
+    const [p, q] = [...pts.values()], dist = Math.hypot(p.clientX - q.clientX, p.clientY - q.clientY);
+    if (pinch) zoomAt(dist / pinch, (p.clientX + q.clientX) / 2, (p.clientY + q.clientY) / 2);
+    pinch = dist;
+  }
+});
+const up = e => { pts.delete(e.pointerId); pinch = 0; if (!pts.size) vp.classList.remove('dragging'); };
+addEventListener('pointerup', up); addEventListener('pointercancel', up);
+
+let downAt = null;
+vp.addEventListener('pointerdown', e => downAt = [e.clientX, e.clientY], true);
+vp.addEventListener('click', e => {
+  if (!e.target.dataset.name || !downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
+  const lb = document.getElementById('lightbox');
+  lb.querySelector('img').src = e.target.src; document.getElementById('lbname').textContent = e.target.dataset.name; lb.classList.add('open');
+});
+document.getElementById('lightbox').onclick = e => e.currentTarget.classList.remove('open');
+document.getElementById('fit').onclick = fit;
+document.getElementById('zin').onclick = () => zoomAt(1.25, innerWidth / 2, innerHeight / 2);
+document.getElementById('zout').onclick = () => zoomAt(0.8, innerWidth / 2, innerHeight / 2);
+
+Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => i.onload = i.onerror = r))).then(() => { place(); fit(); });
+</script>
+</body>
+</html>
