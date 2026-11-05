@@ -2,6 +2,15 @@
 
 Every app the team ships opens with the same first-run structure. Its anatomy is fixed; each app changes only its skin. Templates: `<skill>/assets/flow/base/` (written into a project by `scripts/flow/new-flow.mjs`). Measured geometry and the per-app evidence: [reference-patterns.md](reference-patterns.md) §1.
 
+## How much to design here (team priority)
+
+The base flow is reused, not redesigned. Per app, deliver only:
+1. **App icon** for the splash (and launcher): one mark in the app's world, readable at 48dp and on the splash at 120dp; give the image prompt or the drawn asset.
+2. **4 onboarding illustrations**, one per page, each showing the app's own screens or its core object in context (never a stock hero), with an image prompt and the target size (412×468 area, important content above the 100dp fade).
+3. **Onboarding copy**: per page a title (3–5 words) and a subtitle (one sentence, ≤2 lines), in the app's languages.
+
+Everything else on splash, language and onboarding comes from the templates unchanged (colours follow the app tokens automatically). Spend the design effort on the functional screens from Home onward ([html-flow.md](html-flow.md)).
+
 ## Order
 
 **Splash → Language (first run) → Onboarding 1 → 2 → 3 → 4 → (paywall on first run, if the app sells premium) → Home.**

@@ -25,6 +25,12 @@ Core principles:
 
 Every app keeps the fixed base flow — Splash → Language → Onboarding ×4 — and changes only its skin ([base-flow.md](references/base-flow.md)); team screens are built from the team's measured components ([components.md](references/components.md), `assets/flow/team.css`, frames 412×917 / 375×812); [reference-patterns.md](references/reference-patterns.md) and `data/topic-worlds.json` hold the team's shipped worlds so a new app does not repeat them. Ads are off unless the user asks for them.
 
+## Where the design effort goes (team priority)
+
+- **Functional screens from Home onward get the real design work**: Home, browse/detail/preview, the core action and its result, create/edit, library, settings, and every state of them. This is where directions, components, flows and reviews are spent.
+- **Base flow (splash, language, onboarding) is template work.** Keep `assets/flow/base/` as is and deliver only: the **app icon** shown on the splash, **4 onboarding illustrations** (one per page: the app's own screens or core object in context, with an image prompt each), and the **onboarding title + subtitle copy** for the 4 pages. Do not restyle the language list, splash layout or onboarding anatomy.
+- **Secondary screens such as the paywall are skipped for now** (no design, no flow cards) unless the user asks; when a flow needs them for a link, use the untouched `assets/flow/common/` template or a labelled placeholder card.
+
 ## Setup (once per session)
 
 1. Run the discovery in [references/context.md](references/context.md) and keep its note: modules, Compose/Material versions, theme files, design system, architecture, locales, PRODUCT.md/DESIGN.md, devices.
