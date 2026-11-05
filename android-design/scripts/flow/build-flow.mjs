@@ -150,6 +150,18 @@ if (!IMAGES) {
     for (const c of v.used) if (!defined.has(c) && !own.has(c) && !IGNORE.has(c)) { if (!undef.has(c)) undef.set(c, []); undef.get(c).push(v.key); }
   }
   for (const [c, keys] of undef) undefinedWarnings.push(`class .${c} is not defined in any loaded CSS (${[...new Set(keys.map((k) => k.split('-')[0]))].slice(0, 4).join(', ')}${keys.length > 4 ? ', …' : ''})`);
+  // lint: an app stylesheet (app.css …) styling a class that a template screen (base flow, common) defines in its own
+  // <style>. Both rule sets apply to the template, e.g. an app banner `.hero::after { inset: 0 }` plus the onboarding
+  // `.hero::after { bottom: 0; height: 100px }` paints a band across the top of every onboarding page. Rename the app class.
+  const kitCss = cssFiles.filter((f) => /^(tokens|kit|team)\.css$/.test(path.basename(f))).map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+  const kitDefined = new Set([...kitCss.matchAll(/\.([A-Za-z_][\w-]*)/g)].map((m) => m[1]));
+  const lead = (css) => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}@]+)\{/g)].flatMap((r) => r[1].split(',').map((s) => (/^\s*\.([A-Za-z_][\w-]*)/.exec(s) || [])[1]).filter(Boolean));
+  const tplOwn = new Map();
+  for (const v of built) if (v.attrs['data-spacing'] === 'template') for (const c of lead(v.ownCss)) if (!kitDefined.has(c)) { if (!tplOwn.has(c)) tplOwn.set(c, new Set()); tplOwn.get(c).add(v.key.split('-')[0]); }
+  for (const f of cssFiles.filter((f) => !/^(tokens|kit|team)\.css$/.test(path.basename(f)))) {
+    const hits = [...new Set(lead(fs.readFileSync(f, 'utf8')))].filter((c) => tplOwn.has(c));
+    for (const c of hits) undefinedWarnings.push(`${path.basename(f)} styles .${c}, which template screens (${[...tplOwn.get(c)].slice(0, 3).join(', ')}) define in their own <style>; rename the app class`);
+  }
   // lint: padding / margin / gap only on the 8 · 12 · 16 · 24 dp scale (0 and auto allowed). Ad units (SDK-rendered)
   // and template screens marked <html data-spacing="template"> (base flow, paywall) are exempt.
   const SCALE = new Set([0, 8, 12, 16, 24]);
