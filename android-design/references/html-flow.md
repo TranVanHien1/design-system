@@ -11,6 +11,7 @@ Use it for a whole app from a document, a feature group, or a single feature. Wr
   flow.json          screens, positions, states, links (schema in scripts/flow/build-flow.mjs header)
   tokens.css         generated: node <skill>/scripts/theme.mjs … --css tokens.css   (never hand-edit)
   kit.css, state.js  copied from <skill>/assets/flow/ (phone frame + M3 components + ?state= switching)
+  team.css           the team's measured components (references/components.md): ads, nav, dialogs, paywall, buttons…
   img/               illustrations, icons, avatars (the user generates or supplies them; see "Images")
   screens/*.html     one file per screen; states inside the same file via data-when, or separate files
   shots/             optional JPEG renders (--shots) for a visual check or Figma uploads
@@ -18,7 +19,7 @@ Use it for a whole app from a document, a feature group, or a single feature. Wr
   brief.md           feature inventory, screen list, direction, image list
 ```
 
-Start one with `node <skill>/scripts/flow/new-flow.mjs --app "<Name>" --out <flow-dir> --direction "<style>+<palette>+<type>" [--brand "#hex"] [--dark-first] [--ads]`. It copies the kit, generates `tokens.css`, writes the base screens (splash, language, onboarding 1–4, plus full-screen native pages with `--ads`) from [base-flow.md](base-flow.md) and a starter `flow.json`. Ads are left out unless the user asks for them.
+Start one with `node <skill>/scripts/flow/new-flow.mjs --app "<Name>" --out <flow-dir> --direction "<style>+<palette>+<type>" [--brand "#hex"] [--dark-first] [--ads] [--confirm tick|pill|round] [--common]`. `--common` adds the team's shared screens (paywall, permissions, dialog gallery, ad-unit gallery). It copies the kit, generates `tokens.css`, writes the base screens (splash, language, onboarding 1–4, plus full-screen native pages with `--ads`) from [base-flow.md](base-flow.md) and a starter `flow.json`. Ads are left out unless the user asks for them.
 
 ## Workflow
 
@@ -30,6 +31,12 @@ Start one with `node <skill>/scripts/flow/new-flow.mjs --app "<Name>" --out <flo
 6. **Build as you go.** After each batch of screens run `node <skill>/scripts/flow/build-flow.mjs <flow-dir>` so `flow.html` is always current and the user can review while you continue. Later flows are appended: add screens/states/links to `flow.json` (and their HTML), rebuild; nothing else changes.
 7. **Look.** `build-flow.mjs <flow-dir> --shots [--only id,id]` also renders JPEGs to `shots/` (≈0.2 s each) and warns about overflow, broken images and failed fonts; fix every warning. Look at the shots in batches — `python3 ~/.claude/skills/android-adb-qa/scripts/ui.py montage strip.png shots/a.jpg shots/b.jpg … --w 240` — against [craft-floor.md](craft-floor.md), [tells.md](tells.md) and the base-flow rules. Fix, rebuild, look again. Once, also open `flow.html` itself (headless screenshot) to confirm the live views match the shots.
 8. **Deliver** the project's `flow.html` (live, agent-readable) plus the folder; `--images` only when a self-contained file must leave the project. Tell the user which images are placeholders, which states exist per screen, and the open decisions.
+
+## Frames and components
+
+- Use the team's frames: **412×917** for base-flow screens and **375×812** for core screens (`<html data-frame="375x812">`); 360×800 remains the default for generic Android work. Positions and sizes from Figma then apply 1:1.
+- Build team apps from `team.css` components (`.t-btn`, `.t-header`, `.t-search`, `.t-chip`, `.t-sec`, `.t-rail`, `.t-grid2`, `.t-nav`/`.t-navpill`, `.t-dialog`, `.t-sheet`, `.t-perm`, `.pw-*`, `.ad-*`) with the measured specs in [components.md](components.md); fall back to `kit.css` (M3) for anything the team has not designed.
+- Per-app skin goes in variables (`--x-brand`, `--t-grad`, `--t-font`, `--t-card`…) and the display face, not in new geometry.
 
 ## Screen template
 

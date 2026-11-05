@@ -3,7 +3,8 @@
 // screens (splash, language, onboarding 1–4, full-screen native ad) from assets/flow/base and a starter flow.json.
 //
 // node new-flow.mjs --app "<App name>" --out <dir> (--direction "<style>+<palette>+<type>" | --seed "#hex" [--type id])
-//                   [--brand "#hex"] [--lang vi] [--ads] [--dark-first] [--force]
+//                   [--brand "#hex"] [--lang vi] [--ads] [--dark-first] [--confirm tick|pill|round] [--common] [--force]
+// --common adds the team's shared screens (paywall, permissions, dialogs gallery, ad-unit gallery) from assets/flow/common.
 // Without --ads the base screens use their no-ad layout and the full-screen native pages are left out.
 // Then edit screens/*.html (backgrounds, illustrations, copy) and add the app's own screens to flow.json.
 import fs from 'node:fs';
@@ -23,7 +24,7 @@ if (fs.existsSync(path.join(out, 'flow.json')) && !flag('force')) die(`${out} al
 fs.mkdirSync(path.join(out, 'screens'), { recursive: true });
 fs.mkdirSync(path.join(out, 'img'), { recursive: true });
 
-for (const f of ['kit.css', 'state.js']) fs.copyFileSync(path.join(SKILL, 'assets', 'flow', f), path.join(out, f));
+for (const f of ['kit.css', 'team.css', 'state.js']) fs.copyFileSync(path.join(SKILL, 'assets', 'flow', f), path.join(out, f));
 
 const themeArgs = [path.join(SKILL, 'scripts', 'theme.mjs'), '--css', path.join(out, 'tokens.css')];
 if (opt('direction')) themeArgs.push('--direction', opt('direction'));
@@ -35,7 +36,9 @@ if (t.status !== 0) die(`theme.mjs failed:\n${t.stderr}`);
 fs.writeFileSync(path.join(out, 'theme-report.md'), t.stdout);
 
 const ads = flag('ads');
-const htmlAttr = `${flag('dark-first') ? 'data-theme="dark" ' : ''}class="${ads ? 'has-ads' : 'no-ads'}"`;
+const confirm = opt('confirm', 'tick');
+if (!['tick', 'pill', 'round'].includes(confirm)) die('--confirm must be tick, pill or round');
+const htmlAttr = `${flag('dark-first') ? 'data-theme="dark" ' : ''}data-confirm="${confirm}" class="${ads ? 'has-ads' : 'no-ads'}"`;
 const vars = { APP: app, APP_INITIAL: app.trim().charAt(0).toUpperCase(), LANG: opt('lang', 'vi'), HTML_ATTR: htmlAttr };
 const fill = (s) => s.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 const baseDir = path.join(SKILL, 'assets', 'flow', 'base');
@@ -47,6 +50,12 @@ for (const f of fs.readdirSync(baseDir).filter((f) => f.endsWith('.html'))) {
   written.push(f);
 }
 
+const commonDir = path.join(SKILL, 'assets', 'flow', 'common');
+const withCommon = flag('common');
+if (withCommon) for (const f of fs.readdirSync(commonDir).filter((f) => f.endsWith('.html'))) {
+  fs.writeFileSync(path.join(out, 'screens', f), fill(fs.readFileSync(path.join(commonDir, f), 'utf8')));
+  written.push(f);
+}
 const S = (id, name, col, does, states = [], src) => ({ id, name, src: src || `screens/${id}.html`, does, col, row: 0, states });
 const order = ['splash', 'language', 'onboarding-1', ...(withFull ? ['native-full-1'] : []), 'onboarding-2', 'onboarding-3', ...(withFull ? ['native-full-2'] : []), 'onboarding-4'];
 const meta = {
@@ -60,6 +69,16 @@ const meta = {
 const screens = order.map((id, i) => S(id, meta[id][0], i, meta[id][1], meta[id][2] || [], meta[id][3]));
 const L = (from, to, label, extra = {}) => ({ from, to, label, ...extra });
 const links = order.slice(1).map((to, i) => L(order[i], to, i === 0 ? 'lần đầu' : order[i] === 'language' ? 'Xác nhận' : order[i].startsWith('native') ? 'Đóng' : 'Tiếp'));
+if (withCommon) {
+  const st = (id, names) => names.map((n) => ({ name: `${id}-${n}`, src: `screens/${id}.html?state=${n}` }));
+  const col = order.length;
+  screens.push(
+    { id: 'paywall', name: 'Premium (mẫu chung của team)', src: 'screens/paywall.html', does: ['Hero + giảm giá + đếm ngược', '4 gói, gói năm dùng thử', 'CTA ghi rõ cam kết, pháp lý'], col, row: 0, states: st('paywall', ['premium']) },
+    { id: 'permissions', name: 'Quyền (mẫu chung)', src: 'screens/permissions.html', does: ['Danh sách quyền + lý do', 'CTA bật khi đủ quyền bắt buộc'], col, row: 1, states: st('permissions', ['all']) },
+    { id: 'dialogs', name: 'Dialog (mẫu chung)', src: 'screens/dialogs.html', does: ['Đánh giá, cập nhật, mở khóa', 'Xác nhận, đặt làm, thoát'], col: col + 1, row: 0, states: st('dialogs', ['rating', 'rating-low', 'update', 'reward', 'confirm', 'setas', 'exit']) },
+    { id: 'ads', name: 'Đơn vị quảng cáo (mẫu chung)', src: 'screens/ads.html', does: ['Big, Colab, Medium, Small, Item, Tiny, Popup, Banner'], col: col + 1, row: 1, states: st('ads', ['colab', 'medium', 'small', 'item', 'popup', 'banner']) });
+  links.push({ from: order[order.length - 1], to: 'paywall', label: 'lần đầu', dashed: true });
+}
 fs.writeFileSync(path.join(out, 'flow.json'), JSON.stringify({ app, start: 'splash', screens, links }, null, 1) + '\n');
 if (!fs.existsSync(path.join(out, 'brief.md'))) fs.writeFileSync(path.join(out, 'brief.md'), `# ${app}\n\n## Inventory\n\n## Screens\n\n## Direction\n\n## Images\n`);
 

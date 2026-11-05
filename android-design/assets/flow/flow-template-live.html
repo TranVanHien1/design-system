@@ -19,12 +19,12 @@
   svg#links { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
   .card { position: absolute; width: 260px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px; }
   .card h2 { margin: 0 0 8px; font-size: 16px; }
-  .card .shot { width: 236px; height: 524px; border-radius: 10px; overflow: hidden; cursor: zoom-in; position: relative; }
-  .card .shot > .frame, .states .thumb > .frame, #lbview > .frame { position: absolute; left: 0; top: 0; width: 360px; height: 800px; transform-origin: 0 0; pointer-events: none; }
+  .card .shot { width: 236px; border-radius: 10px; overflow: hidden; cursor: zoom-in; position: relative; }
+  .card .shot > .frame, .states .thumb > .frame, #lbview > .frame { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; }
   .card ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
   .states { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .states figure { margin: 0; width: 74px; text-align: center; font-size: 10px; color: var(--muted); }
-  .states .thumb { width: 74px; height: 164px; border-radius: 6px; overflow: hidden; cursor: zoom-in; position: relative; }
+  .states .thumb { width: 74px; border-radius: 6px; overflow: hidden; cursor: zoom-in; position: relative; }
   .label { font-size: 12px; fill: var(--ink); paint-order: stroke; stroke: var(--label-bg); stroke-width: 5px; stroke-linejoin: round; }
   header { position: fixed; left: 12px; top: 12px; right: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; pointer-events: none; }
   header > * { pointer-events: auto; }
@@ -55,13 +55,20 @@ const cards = {};
 // shadow root with the shared screen CSS from <template id="screen-css">.
 const screenSheet = new CSSStyleSheet();
 screenSheet.replaceSync(document.getElementById('screen-css').content.textContent);
-function mount(host, view, scale) {
+function frameOf(view) {
+  const a = JSON.parse(document.getElementById('v-' + view).dataset.attrs || '{}');
+  const m = /^(\d+)x(\d+)$/.exec(a['data-frame'] || '');
+  return m ? [Number(m[1]), Number(m[2])] : [360, 800];
+}
+function mount(host, view, width) {
   const tpl = document.getElementById('v-' + view);
+  const [fw, fh] = frameOf(view), scale = width / fw;
+  host.style.width = width + 'px'; host.style.height = Math.round(fh * scale) + 'px';
   const frame = document.createElement('div');
   frame.className = 'frame';
   for (const [k, v] of Object.entries(JSON.parse(tpl.dataset.attrs || '{}'))) frame.setAttribute(k, v);
   frame.classList.add('frame');
-  frame.style.transform = `scale(${scale})`;
+  frame.style.width = fw + 'px'; frame.style.height = fh + 'px'; frame.style.transform = `scale(${scale})`;
   const root = frame.attachShadow({mode: 'open'});
   root.adoptedStyleSheets = [screenSheet];
   root.appendChild(tpl.content.cloneNode(true));
@@ -74,12 +81,12 @@ for (const s of FLOW.screens) {
   el.innerHTML = `<h2></h2><div class="shot"></div><ul></ul><div class="states"></div>`;
   el.querySelector('h2').textContent = s.name;
   const shot = el.querySelector('.shot');
-  mount(shot, s.view, 236 / 360); shot.dataset.name = s.name; shot.dataset.view = s.view;
+  mount(shot, s.view, 236); shot.dataset.name = s.name; shot.dataset.view = s.view;
   for (const d of s.does || []) el.querySelector('ul').appendChild(Object.assign(document.createElement('li'), {textContent: d}));
   for (const st of s.states) {
     const f = document.createElement('figure');
     f.innerHTML = `<div class="thumb"></div><figcaption></figcaption>`;
-    const th = f.querySelector('.thumb'); mount(th, st.view, 74 / 360); th.dataset.name = `${s.name} · ${st.name}`; th.dataset.view = st.view;
+    const th = f.querySelector('.thumb'); mount(th, st.view, 74); th.dataset.name = `${s.name} · ${st.name}`; th.dataset.view = st.view;
     f.querySelector('figcaption').textContent = st.name;
     el.querySelector('.states').appendChild(f);
   }
@@ -167,8 +174,8 @@ vp.addEventListener('click', e => {
   const t = e.target.closest && e.target.closest('[data-view]');
   if (!t || !downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
   const lb = document.getElementById('lightbox'), v = document.getElementById('lbview');
-  const k = Math.min(innerHeight * 0.86 / 800, innerWidth * 0.92 / 360);
-  v.innerHTML = ''; v.style.width = 360 * k + 'px'; v.style.height = 800 * k + 'px'; mount(v, t.dataset.view, k);
+  const [fw, fh] = frameOf(t.dataset.view), k = Math.min(innerHeight * 0.86 / fh, innerWidth * 0.92 / fw);
+  v.innerHTML = ''; mount(v, t.dataset.view, fw * k);
   document.getElementById('lbname').textContent = t.dataset.name; lb.classList.add('open');
 });
 document.getElementById('lightbox').onclick = e => e.currentTarget.classList.remove('open');

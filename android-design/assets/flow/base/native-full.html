@@ -1,24 +1,24 @@
-<!doctype html><html lang="{{LANG}}" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><script src="../state.js"></script>
-<!-- BASE · Full-screen native ad inside onboarding (only when the app has ads; after OB1 and OB3). SDK-rendered; the frame reserves:
-     full-bleed creative, "Ad" badge + countdown then close X top-right, advertiser icon + headline + body, full-width CTA pill. -->
-<style>
-  .media { position: absolute; left: 0; right: 0; top: 0; height: 520px; background: linear-gradient(160deg, #2c2f36, #15161a); }
-  .media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(transparent, #101012); }
-  .top { position: absolute; top: 44px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; }
-  .cd { height: 28px; padding: 0 12px; border-radius: 14px; background: rgba(255,255,255,.16); font: 500 12px/28px var(--font-text); }
-  .x { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center; }
-  .info { position: absolute; left: 17px; right: 17px; top: 540px; display: flex; gap: 12px; align-items: center; }
-  .info .ic { width: 52px; height: 52px; border-radius: 12px; background: #3a3d44; flex: none; }
-  .info .t { font: 700 17px/22px var(--font-text); } .info .b { font: 400 13px/18px var(--font-text); opacity: .75; margin-top: 2px; }
-  .desc { position: absolute; left: 17px; right: 17px; top: 604px; font: 400 14px/20px var(--font-text); opacity: .85; }
-  .cta { position: absolute; left: 17px; right: 17px; top: 672px; height: 44px; border-radius: 22px; background: var(--x-brand, var(--md-primary)); color: var(--x-on-brand, var(--md-on-primary)); font: 700 15px/44px var(--font-text); text-align: center; }
-</style></head><body>
-<div class="screen overlay-bars on-dark"><div class="full-ad">
-  <div class="media"></div>
-  <div class="statusbar"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
-  <div class="top"><span class="ad-tag">Ad</span><span class="cd" data-when="default">Còn 2 giây</span><span class="x" data-when="closable"><span class="ms s20">close</span></span></div>
-  <div class="info"><div class="ic"></div><div><div class="t">Tên ứng dụng quảng cáo</div><div class="b">★ 4.6 · Miễn phí</div></div></div>
-  <div class="desc">Nội dung do SDK cung cấp; thiết kế giữ chỗ, vị trí nút đóng và CTA.</div>
-  <div class="cta">Cài đặt</div>
+<!doctype html><html lang="{{LANG}}" data-frame="412x917" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- BASE · Full-screen native ad (412x917; measured CV SDK 107:20844 — 8 immersive + 5 contained variants, TM 1262:22056).
+     immersive (default): creative from y33, top scrim 132 + bottom scrim 194, header at y781 (logo 44, tag + headline
+     Inter 600 12/14 white, body 10/12), CTA 372x52 at y841; top area = countdown pill (?state=default), X 36 at x356 y56
+     (?state=closable), or progress bar "Ad 1/2" (?state=progress). contained (?state=contained): blurred creative,
+     240 square media, 80 advertiser icon, white 372x124 text card with a 48 "Continue" CTA. Inserted after OB1 and OB3. -->
+<style>.screen { background: #101012; }</style></head><body>
+<div class="screen overlay-bars on-dark">
+  <div class="ad ad-full" data-when="!contained">
+    <div class="creative"></div><div class="scrim-t"></div><div class="scrim-b"></div>
+    <span class="timer" data-when="default">Còn 2 giây</span>
+    <span class="x" data-when="closable"><span class="ms s20">close</span></span>
+    <span class="progress" data-when="progress"><i></i></span>
+    <div class="bottom"><div class="logo"></div><div><span class="tag">Ad</span><span class="hl">Tên ứng dụng quảng cáo</span><div class="bd">Nội dung native do SDK cung cấp, hai dòng.</div></div></div>
+    <div class="cta">Cài đặt</div>
+  </div>
+  <div class="ad ad-full contained" data-when="contained">
+    <div class="creative" style="background:linear-gradient(160deg,#C9D6E8,#E9D7EF)"></div><div class="icon80"></div>
+    <span class="x" style="top:93px"><span class="ms s20">close</span></span><div class="sq"></div>
+    <div class="card"><div><span class="tag">Ad</span><span class="hl">Tên ứng dụng quảng cáo</span></div><div class="bd">Mô tả ngắn của quảng cáo.</div><div class="cta">Continue</div></div>
+  </div>
+  <div class="statusbar on-dark" style="height:52px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
   <div class="gesturebar"></div>
-</div></div></body></html>
+</div></body></html>

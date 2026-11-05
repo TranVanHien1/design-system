@@ -1,28 +1,28 @@
-<!doctype html><html lang="{{LANG}}" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><script src="../state.js"></script>
-<!-- BASE · Splash (fixed). Keep: icon ~92dp centred at 34% height, app name below at ~44% in the display face, loading line
-     at 85% (+ "có thể chứa quảng cáo" at 93% when the app has ads; with ads a spinner + 320x50 banner is the alternative,
-     ?state=banner). Change per app: background (img/splash-bg.jpg or --x-splash-bg), ink, icon, name face. The topic must show here. -->
+<!doctype html><html lang="{{LANG}}" data-frame="412x917" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- BASE · Splash (412x917, fixed anatomy; measured RI 5002:13751, TM master 1162:8586, CV 107:20569).
+     icon 120 r24 at x146 y239 (optional 3dp brand ring) · name Bold 20/28 at y375 · loading block from y743:
+     "Đang tải 40%" Bold 16/20 + spinner 32, with ads "Thao tác này có thể chứa quảng cáo" Medium 14/20 at y818,
+     or the banner variant (?state=banner: 412x52 adaptive banner at the bottom). Change: background, icon, name face. -->
 <style>
-  .screen { --x-splash-bg: linear-gradient(180deg, var(--md-surface-container-high), var(--md-surface) 75%); --x-splash-ink: var(--md-on-surface); background: var(--x-splash-bg); color: var(--x-splash-ink); }
+  .screen { background: var(--x-splash-bg, var(--md-surface)); color: var(--t-ink); }
   .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .icon { position: absolute; left: 134px; top: 226px; width: 92px; height: 92px; border-radius: 22px; background: var(--x-brand, var(--md-primary)); color: var(--x-on-brand, var(--md-on-primary)); display: flex; align-items: center; justify-content: center; font: 800 44px/1 var(--font-display); box-shadow: 0 10px 28px rgba(0,0,0,.22); overflow: hidden; }
+  .icon { position: absolute; left: 146px; top: 239px; width: 120px; height: 120px; border-radius: 24px; background: var(--t-grad); color: var(--t-on-brand); display: flex; align-items: center; justify-content: center; font: 800 52px/1 var(--font-display); overflow: hidden; box-shadow: var(--x-splash-ring, none); }
   .icon img { width: 100%; height: 100%; object-fit: cover; }
-  .name { position: absolute; left: 24px; right: 24px; top: 336px; text-align: center; font: var(--w-display, 700) 26px/32px var(--font-display); }
-  .loading { position: absolute; left: 0; right: 0; top: 668px; text-align: center; font: 700 16px/22px var(--font-text); }
-  .bar { position: absolute; left: 110px; width: 140px; top: 700px; }
-  .disc { position: absolute; left: 0; right: 0; top: 736px; text-align: center; font: 400 13px/18px var(--font-text); opacity: .75; }
-  .spin { position: absolute; left: 162px; top: 668px; width: 36px; height: 36px; --v: 72%; }
-  .banner { position: absolute; left: 0; right: 0; bottom: 26px; }
+  .name { position: absolute; left: 24px; right: 24px; top: 375px; text-align: center; font: 700 20px/28px var(--font-display); }
+  .ld { position: absolute; left: 0; right: 0; top: 743px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .ld .t { font: 700 16px/20px var(--t-font); color: var(--t-ink-2); }
+  .ld .spinner { width: 32px; height: 32px; --v: 70%; }
+  .disc { position: absolute; left: 0; right: 0; top: 818px; text-align: center; font: 500 14px/20px var(--t-font); color: var(--t-ink-3); }
+  .ban { position: absolute; left: 0; right: 0; bottom: 0; }
 </style></head><body>
 <div class="screen overlay-bars">
   <img class="bg" src="../img/splash-bg.jpg" alt="" onerror="this.remove()">
-  <div class="statusbar"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <div class="statusbar" style="height:52px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
   <div class="icon"><img src="../img/app-icon.png" alt="" onerror="this.replaceWith(document.createTextNode('{{APP_INITIAL}}'))"></div>
   <div class="name">{{APP}}</div>
-  <div class="loading tnum" data-when="default loading">Đang tải 40%</div>
-  <div class="progress-linear bar noad-only" data-when="default loading" style="--v:40%"></div>
-  <div class="disc ad-only" data-when="default loading">Thao tác này có thể chứa quảng cáo</div>
-  <div class="spinner spin ad-only" data-when="banner"></div>
-  <div class="banner ad-only" data-when="banner"><div class="banner-ad"><span class="ad-tag">Ad</span>Banner 320×50</div></div>
+  <div class="ld" data-when="!banner"><div class="t tnum">Đang tải 40%</div><div class="spinner"></div></div>
+  <div class="disc ad-only" data-when="!banner">Thao tác này có thể chứa quảng cáo</div>
+  <div class="ld" data-when="banner"><div class="spinner"></div></div>
+  <div class="ban ad-only" data-when="banner"><div class="ad ad-banner"><span class="tag">Ad</span>Adaptive banner 412×52</div></div>
   <div class="gesturebar"></div>
 </div></body></html>

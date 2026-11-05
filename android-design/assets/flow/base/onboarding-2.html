@@ -1,30 +1,32 @@
-<!doctype html><html lang="{{LANG}}" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><script src="../state.js"></script>
-<!-- BASE · Onboarding 2/4 (fixed anatomy: always 4 pages, no Skip). Keep: full-bleed illustration from the top fading into the
-     background, centred title in the title colour + centred 2-line body, indicator bottom-left (18x4 pill + 4x4 dots) and text
-     CTA "Tiếp"/"Bắt đầu" bottom-right. With ads (html.has-ads): hero 0–411, text block above a Native Big ad on the bottom third.
-     Without ads (html.no-ads): the SAME ad-ready geometry; the reserved bottom third shows only a quiet swipe hint, so adding ads later moves nothing.
-     Change per app: illustration (img/onb-2.jpg: the app's own screens or core object in context), backgrounds, title colour, copy. -->
+<!doctype html><html lang="{{LANG}}" data-frame="412x917" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- BASE · Onboarding 2/4 (412x917; measured TM master 1162:8586, RI 5002:13751, CV 107:20492, RT 158:17517).
+     always 4 pages, no Skip · illustration 0–468 full-bleed with a 100dp fade from y368 (the app's own screens or core object)
+     · text block x16 w380 from y480: title Bold 20/28 in the brand colour, gap 8, body Regular 16/20, both centred
+     · row at y572: indicator x16 (18x4 active + 4x4 dots, gap 4; active = ink by default, --x-onb-ind to recolour)
+       and a TEXT CTA SemiBold 20/24 brand, right-aligned at x396, no chevron ("Bắt đầu" on page 4)
+     · with ads: Native Media_Big at y607 (310) (or Colab_Left 300) · without ads: the same geometry, bottom third left calm. -->
 <style>
-  .hero { position: absolute; left: 0; right: 0; top: 0; height: 411px; background: var(--x-onb-panel, var(--md-surface-container-high)); overflow: hidden; }
+  .screen { background: var(--md-surface); }
+  .hero { position: absolute; left: 0; right: 0; top: 0; height: 468px; background: var(--x-onb-panel, var(--t-card)); overflow: hidden; }
   .hero img { width: 100%; height: 100%; object-fit: cover; }
-  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: linear-gradient(to bottom, transparent, var(--x-onb-bg, var(--md-surface))); }
-  .hero .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: var(--md-on-surface-variant); font: 500 13px/18px var(--font-text); }
-  .screen { background: var(--x-onb-bg, var(--md-surface)); }
-  .ttl { position: absolute; left: 24px; right: 24px; top: 424px; text-align: center; font: var(--w-display, 700) 22px/28px var(--font-display); color: var(--x-onb-title, var(--md-primary)); }
-  .body { position: absolute; left: 28px; right: 28px; top: 456px; text-align: center; font: 400 14px/20px var(--font-text); color: var(--md-on-surface-variant); }
-  .navrow { position: absolute; left: 17px; right: 9px; top: 500px; height: 48px; display: flex; align-items: center; justify-content: space-between; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--md-surface)); }
+  .hero .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 48px; color: var(--t-ink-3); font: 500 14px/20px var(--t-font); }
+  .txt { position: absolute; left: 16px; width: 380px; top: 480px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .txt .t { font: 700 20px/28px var(--font-display); color: var(--x-onb-title, var(--t-brand)); }
+  .txt .b { font: 400 16px/20px var(--t-font); color: var(--t-ink-2); }
+  .row { position: absolute; left: 16px; right: 16px; top: 572px; height: 24px; display: flex; align-items: center; justify-content: space-between; }
   .ind { display: flex; gap: 4px; align-items: center; }
-  .ind i { width: 4px; height: 4px; border-radius: 2px; background: var(--md-outline); }
-  .ind i.on { width: 18px; background: var(--x-onb-title, var(--md-primary)); }
-  .next { font: 700 17px/24px var(--font-text); color: var(--x-onb-title, var(--md-primary)); min-height: 48px; padding: 12px 8px; display: flex; align-items: center; gap: 2px; }
-  .adzone { position: absolute; left: 0; right: 0; bottom: 0; }
+  .ind i { width: 4px; height: 4px; border-radius: 2px; background: #7B7B7B; } .ind i.on { width: 18px; background: var(--x-onb-ind, var(--t-ink-2)); }
+  .next { position: relative; font: 600 20px/24px var(--t-font); color: var(--x-onb-title, var(--t-brand)); }
+  .next::before { content: ""; position: absolute; inset: -12px -12px; } /* 48dp target */
+  .swipe { position: absolute; left: 0; right: 0; top: 720px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--t-ink-3); font: 400 12px/16px var(--t-font); opacity: .8; }
 </style></head><body>
 <div class="screen overlay-bars">
   <div class="hero"><div class="ph">Minh họa 2: màn hình của app hoặc đối tượng chính trong bối cảnh (img/onb-2.jpg)</div><img src="../img/onb-2.jpg" alt="" onerror="this.remove()"></div>
-  <div class="statusbar"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
-  <div class="ttl">Tiêu đề lợi ích 2</div>
-  <div class="body">Một câu mô tả lợi ích, tối đa hai dòng trên màn hình 360dp.</div>
-  <div class="navrow"><div class="ind"><i></i><i class="on"></i><i></i><i></i></div><div class="next">Tiếp<span class="ms s20">chevron_right</span></div></div>
-  <div class="swipe noad-only" style="position:absolute;left:0;right:0;top:640px;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--md-on-surface-variant);font:400 12px/16px var(--font-text);opacity:.7"><span class="ms s32">swipe_left</span>Vuốt để xem tiếp</div>
-  <div class="adzone"><div class="native-big ad-only"><span class="ad-choices">i</span><div class="ad-head"><div class="ad-icon"></div><div class="grow"><div class="row gap-8"><span class="ad-tag">Ad</span><span class="ad-title ellipsis">Tên ứng dụng quảng cáo</span></div><div class="ad-body clamp-2">Nội dung native ad do SDK cung cấp, tối đa hai dòng.</div></div></div><div class="ad-media"></div><div class="ad-cta">Learn More</div></div><div class="gesturebar"></div></div>
+  <div class="statusbar" style="height:52px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <div class="txt"><div class="t">Tiêu đề lợi ích 2</div><div class="b">Một câu mô tả lợi ích, tối đa hai dòng.</div></div>
+  <div class="row"><div class="ind" aria-label="Trang 2/4"><i></i><i class="on"></i><i></i><i></i></div><div class="next">Tiếp</div></div>
+  <div class="swipe noad-only"><span class="ms s32">swipe_left</span>Vuốt để xem tiếp</div>
+  <div class="ad ad-big ad-only" style="position:absolute;left:0;right:0;top:607px;height:310px"><span class="choices">i</span><div class="hd"><div class="logo"></div><div><span class="tag">Ad</span><span class="hl">Tên ứng dụng quảng cáo</span><div class="bd">Mô tả ngắn của quảng cáo native, tối đa hai dòng.</div></div></div><div class="media"></div><div class="cta">Learn More</div></div>
+  <div class="gesturebar"></div>
 </div></body></html>

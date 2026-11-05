@@ -1,0 +1,40 @@
+<!doctype html><html lang="{{LANG}}" data-frame="375x812" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- COMMON · Paywall (375x812) — the team's shared template (RI 5004:21054, RT 111:12162, CV 107:21268); only hero art, colour
+     and copy change. close 36 rgba(11,10,10,.5) at x16 y50 · hero 0–199 (+83 fade) · discount sticker 152x80 at y116 + expiry
+     line y185 + countdown y213 (20x30 boxes r2) — or ?state=premium: badge, no countdown · title Bold 24/32 y248 · subtitle
+     14/20 y286 · benefits row y338 (36 high, scrolls) · 4 plan cards from y385, gap 12, r12, 1dp brand@20% / 2dp brand selected,
+     check 32, BEST DEAL gold pill on the first card · Continue 343x52 r100 at y726 · legal 3 columns Nunito 10 underlined y788.
+     Honest copy rules (references/html-flow.md checklist): CTA names the commitment of the selected plan, the line above it
+     states trial end, renewal and how to cancel. -->
+<style>
+  .screen { background: var(--md-surface); }
+  .hero-art { position: absolute; inset: 0; background: var(--x-pw-hero, linear-gradient(160deg, color-mix(in srgb, var(--t-brand) 35%, #fff), #fff)); }
+  .sticker { position: absolute; left: 124px; top: 104px; width: 128px; height: 68px; border-radius: 18px; background: var(--t-grad); color: var(--t-on-brand); display: flex; align-items: center; justify-content: center; font: 800 26px/30px var(--t-font); transform: rotate(-4deg); }
+  .badge { position: absolute; left: 88px; top: 105px; width: 200px; height: 94px; border-radius: 24px; background: linear-gradient(100deg,#FFCF4B,#FFF9D4 50%,#FFCF4B); display: flex; align-items: center; justify-content: center; gap: 8px; font: 800 24px/28px var(--t-font); color: #5A3D00; }
+  .exp { position: absolute; left: 0; right: 0; top: 185px; text-align: center; font: 400 14px/20px var(--t-font); color: #43434E; }
+  .cd { position: absolute; left: 0; right: 0; top: 213px; }
+  .t { position: absolute; left: 16px; right: 16px; top: 248px; } .s { position: absolute; left: 32px; right: 32px; top: 286px; }
+  .ben { position: absolute; left: 0; right: 0; top: 338px; }
+  .plans { position: absolute; left: 0; right: 0; top: 385px; }
+  .note { position: absolute; left: 16px; right: 16px; top: 703px; text-align: center; font: 400 10px/14px var(--t-font); color: #787878; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+</style></head><body>
+<div class="screen overlay-bars">
+  <div class="pw-hero"><div class="hero-art"></div></div>
+  <div class="statusbar" style="height:44px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <span class="pw-close" aria-label="Đóng"><span class="ms s20">close</span></span>
+  <div data-when="!premium"><div class="sticker">-50%</div><div class="exp">Ưu đãi kết thúc sau</div><div class="cd pw-count"><b>0</b><b>9</b><i>:</i><b>5</b><b>8</b></div></div>
+  <div class="badge" data-when="premium"><span class="ms fill">workspace_premium</span>Premium</div>
+  <div class="t pw-title">{{APP}} Premium</div>
+  <div class="s pw-sub">Mở toàn bộ nội dung Premium, không quảng cáo, cập nhật mỗi tuần.</div>
+  <div class="ben pw-benefits"><div><span class="ico"></span>Mọi nội dung Premium</div><div><span class="ico"></span>Không quảng cáo</div><div><span class="ico"></span>Tính năng nâng cao</div></div>
+  <div class="plans pw-plans">
+    <div class="pw-plan on"><span class="pw-best">Tiết kiệm nhất</span><div><div class="nm">Hằng năm</div><div class="sb">3 ngày miễn phí, rồi 399.000 ₫/năm</div></div><div class="pr">399.000 ₫<s>798.000 ₫</s></div><span class="ck"></span></div>
+    <div class="pw-plan"><div><div class="nm">Hằng tháng</div><div class="sb">Tự gia hạn mỗi tháng</div></div><div class="pr">99.000 ₫</div><span class="ck"></span></div>
+    <div class="pw-plan"><div><div class="nm">Hằng tuần</div><div class="sb">Tự gia hạn mỗi tuần</div></div><div class="pr">29.000 ₫</div><span class="ck"></span></div>
+    <div class="pw-plan"><div><div class="nm">Trọn đời</div><div class="sb">Thanh toán một lần</div></div><div class="pr">699.000 ₫</div><span class="ck"></span></div>
+  </div>
+  <div class="note">Tự gia hạn · hủy bất cứ lúc nào trên Google Play</div>
+  <div class="pw-cta"><div class="t-btn">Dùng thử miễn phí 3 ngày</div></div>
+  <div class="pw-legal"><span>Khôi phục giao dịch</span><span>Điều khoản</span><span>Quyền riêng tư</span></div>
+  <div class="gesturebar"></div>
+</div></body></html>

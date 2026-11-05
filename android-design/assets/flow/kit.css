@@ -3,13 +3,19 @@
    in a screen: add a token or an --x-* variable in the screen's <style> instead. */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 360px; height: 800px; overflow: hidden; }
+/* Frame size: 360x800 by default; the team's Figma frames are 412x917 (base flow) and 375x812 (core screens).
+   A screen picks its frame with <html data-frame="412x917">; values in a screen are in that frame's dp. */
+:root { --frame-w: 360px; --frame-h: 800px; }
+:root[data-frame="412x917"] { --frame-w: 412px; --frame-h: 917px; }
+:root[data-frame="375x812"] { --frame-w: 375px; --frame-h: 812px; }
+:root[data-frame="360x800"] { --frame-w: 360px; --frame-h: 800px; }
+html, body { width: var(--frame-w); height: var(--frame-h); overflow: hidden; }
 body { font-family: var(--font-text); color: var(--md-on-surface); background: var(--md-surface); -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; background: none; border: 0; }
 
 /* ---------- frame ---------- */
-.screen { position: relative; width: 360px; height: 800px; overflow: hidden; display: flex; flex-direction: column; background: var(--md-surface); padding-bottom: 24px; }
+.screen { position: relative; width: var(--frame-w); height: var(--frame-h); overflow: hidden; display: flex; flex-direction: column; background: var(--md-surface); padding-bottom: 24px; }
 .screen.overlay-bars { padding-bottom: 0; }
 .screen > .content { flex: 1; overflow: hidden; position: relative; }
 .statusbar { height: 32px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0 20px 0 24px; font: 500 14px/1 var(--font-text); color: var(--md-on-surface); position: relative; z-index: 5; }

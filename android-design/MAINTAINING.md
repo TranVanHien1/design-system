@@ -76,7 +76,8 @@ Where an upstream rule contradicts M3 structure, M3 wins and the rule is restate
 `references/base-flow.md`, `html-flow.md`, `figma.md`, `reference-patterns.md` (Figma study of the team's apps, 2026-11-04).
 `assets/flow/` — `kit.css` (360×800 frame + M3 components + ad slots), `state.js` (?state= / ?theme=), `flow-template.html` (the team's flow map viewer, picture mode, `__FLOW_JSON__`/`__TITLE__`/`__APP__`), `flow-template-live.html` (same viewer mounting `<template id="v-…">` views in shadow roots; adds `__HEAD_LINKS__`/`__VIEWS__`), `base/` (fixed base screens with `{{APP}}`, `{{APP_INITIAL}}`, `{{LANG}}`, `{{HTML_ATTR}}`).
 `scripts/flow/new-flow.mjs`, `scripts/flow/build-flow.mjs` (live HTML by default: resolves data-when per state, strips scripts, scopes document selectors to :host; Chrome over CDP only for --shots/--images, JPEG 480×1066).
-`data/topic-worlds.json` — the team's shipped visual worlds (anti-monotony input).
+`data/topic-worlds.json` — the team's shipped visual worlds (anti-monotony input; tokens corrected 2026-11-05).
+`references/components.md` + `data/components.json` + `assets/flow/team.css` + `assets/flow/common/*.html` — the team's components measured from Figma (deep study 2026-11-05: 177 components, 43 layouts, nodeIds per entry). Re-run the study per file with `scripts/maintain/figma-study-brief.md` (one agent per file group; get_metadata for geometry, get_design_context for style) when the team ships new templates.
 `scripts/deal.mjs` — deals three directions (style + palette + type + shape) for a brief.
 `scripts/theme.mjs` — turns a chosen direction or seed colors into Compose theme files (Color/Type/Shape/Theme.kt).
 `data/` — trimmed Taste library (palettes, type, app styles, app patterns) used by the scripts.

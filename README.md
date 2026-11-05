@@ -25,8 +25,8 @@ Cập nhật: `cd ~/design-system && git pull` (symlink nên không cần cài l
 
 ## Cấu trúc `android-design/`
 - `SKILL.md` — router, nguyên tắc, bảng lệnh.
-- `references/` — luật: base-flow, html-flow, figma, android-m3, craft-floor, tells, operate, reference-patterns (nghiên cứu Figma của team) và các playbook lệnh.
+- `references/` — luật: base-flow, html-flow, figma, android-m3, craft-floor, tells, operate, **components** (component của team đo từ Figma), reference-patterns (nghiên cứu Figma của team) và các playbook lệnh.
 - `scripts/` — `deal.mjs`, `theme.mjs`, `flow/new-flow.mjs`, `flow/build-flow.mjs`, `maintain/build-data.mjs`.
-- `assets/flow/` — `kit.css`, `state.js`, mẫu viewer `flow-template*.html`, mẫu base `base/*.html`.
-- `data/` — styles, palettes, type (đánh dấu hỗ trợ tiếng Việt), kinds, patterns, topic-worlds.
+- `assets/flow/` — `kit.css` (M3), **`team.css`** (component của team: ads, nav, dialog, paywall, nút…), `state.js`, viewer `flow-template*.html`, mẫu base `base/*.html` (khung 412×917), mẫu chung `common/*.html` (paywall, quyền, dialog, bảng ads).
+- `data/` — styles, palettes, type (đánh dấu hỗ trợ tiếng Việt; Momo Trust Sans là font mặc định của team), kinds, patterns, topic-worlds, **components.json** (177 component, 43 layout, có nodeId Figma).
 - `MAINTAINING.md` — cách bảo trì; `NOTICE.md` + `licenses/` — ghi công Impeccable (Apache-2.0), Taste Skill (MIT), material-color-utilities (Apache-2.0).

@@ -1,0 +1,25 @@
+<!doctype html><html lang="{{LANG}}" data-frame="375x812" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- COMMON · Permissions (375x812; RT 100:12541 / 98:11811 list style; SC 137:11121 shows a themed modal alternative).
+     back + title · art · "Để tiếp tục, hãy cấp các quyền sau" · cards 343x80, gap 12, r16, pad 12: icon, name + one-line reason,
+     "Cho phép" pill 32 r12 → becomes a check · bottom CTA 52 enabled once the required ones are granted (?state=all). -->
+<style>
+  .screen { background: var(--md-surface); }
+  .art { width: 120px; height: 120px; border-radius: 32px; margin: 12px auto 16px; background: color-mix(in srgb, var(--t-brand) 14%, transparent); display: flex; align-items: center; justify-content: center; color: var(--t-brand); }
+  .lead { font: 400 14px/20px var(--t-font); color: var(--t-ink-3); text-align: center; padding: 0 32px 16px; }
+  .list { display: flex; flex-direction: column; gap: 12px; padding: 0 16px; }
+  .opt { font: 500 11px/14px var(--t-font); color: var(--t-ink-3); margin-left: 6px; }
+  .foot { position: absolute; left: 16px; right: 16px; bottom: 40px; }
+</style></head><body>
+<div class="screen">
+  <div class="statusbar" style="height:44px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <div class="t-header"><span class="ic"><span class="ms">arrow_back</span></span><span class="ttl">Quyền truy cập</span></div>
+  <div class="art"><span class="ms fill" style="font-size:56px">verified_user</span></div>
+  <div class="lead">Để tiếp tục, hãy cấp các quyền sau. Bạn đổi lại được trong Cài đặt.</div>
+  <div class="list">
+    <div class="t-perm"><span class="ic"><span class="ms">notifications</span></span><div><div class="nm">Thông báo</div><div class="rs">Nhắc bạn khi có nội dung mới</div></div><span class="allow" data-when="!all">Cho phép</span><span class="done ms fill" data-when="all">check_circle</span></div>
+    <div class="t-perm"><span class="ic"><span class="ms">layers</span></span><div><div class="nm">Hiển thị trên ứng dụng khác</div><div class="rs">Cần để hiện nội dung lên trên màn hình</div></div><span class="allow" data-when="!all">Cho phép</span><span class="done ms fill" data-when="all">check_circle</span></div>
+    <div class="t-perm"><span class="ic"><span class="ms">settings</span></span><div><div class="nm">Thay đổi cài đặt hệ thống<span class="opt">Tùy chọn</span></div><div class="rs">Để đặt nhạc chuông, hình nền</div></div><span class="allow" data-when="!all">Cho phép</span><span class="done ms fill" data-when="all">check_circle</span></div>
+  </div>
+  <div class="foot"><div class="t-btn xxl block" data-when="all">Tiếp tục</div><div class="t-btn xxl block" style="opacity:.4" data-when="!all">Tiếp tục</div></div>
+  <div class="gesturebar"></div>
+</div></body></html>

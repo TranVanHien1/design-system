@@ -1,0 +1,37 @@
+<!doctype html><html lang="{{LANG}}" data-frame="375x812" {{HTML_ATTR}}><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="../kit.css"><link rel="stylesheet" href="../team.css"><script src="../state.js"></script>
+<!-- COMMON · Dialog gallery (375x812) — one state per team dialog, over a neutral host:
+     rating (RI 3023:24239 / TM 1283:46608: 362w r24, emoji 132, Bold 20/28 title, stars 44 gap 16, full-width 52 button; stars
+     never pre-filled, button disabled until a choice) · rating-low (≤3 stars: textarea 100 r12 + counter) · update (TM full-width
+     sheet top r16 / RI 375w r24) · reward (RT 42:8860: unlock with ad (outline) + Premium (filled), 48 r40, gap 16; PS 312w r20
+     single "Xem video") · confirm (TM 1283:45973: floating card r12 16 from edges, two 40 buttons, delete = danger) · setas
+     (RI 7042:19794: floating card, three stacked 52 brand buttons) · exit (dialog: consequence + Ở lại / Thoát). -->
+<style>
+  .screen { background: var(--md-surface); }
+  .host { padding: 0 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 15px; margin-top: 8px; }
+  .host i { display: block; aspect-ratio: 164/292; border-radius: 8px; background: var(--t-card); }
+  .icon64 { width: 64px; height: 64px; border-radius: 16px; background: var(--t-grad); }
+  .left { text-align: left; align-items: stretch; }
+</style></head><body>
+<div class="screen">
+  <div class="statusbar" style="height:44px;padding:0 24px"><span>9:41</span><span class="sys"><span class="ms fill">signal_cellular_alt</span><span class="ms fill">wifi</span><span class="ms fill">battery_full</span></span></div>
+  <div class="t-header"><span class="wm">{{APP}}</span><span class="ic"><span class="ms fill" style="color:var(--t-brand)">workspace_premium</span></span></div>
+  <div class="host"><i></i><i></i><i></i><i></i></div>
+  <div data-when="rating rating-low update reward exit" class="t-scrim"></div>
+  <div class="t-dialog w362" data-when="rating"><span class="ms fill art" style="font-size:120px;color:#FFB547;display:flex;align-items:center;justify-content:center">sentiment_very_satisfied</span>
+    <div class="ttl">Bạn thấy {{APP}} thế nào?</div><div class="sub">Chạm vào số sao để đánh giá</div>
+    <div class="t-stars"><i></i><i></i><i></i><i></i><i></i></div><div class="t-btn" style="opacity:.4">Gửi đánh giá</div></div>
+  <div class="t-dialog w362" data-when="rating-low"><div class="ttl">Tụi mình có thể làm tốt hơn ở đâu?</div>
+    <div class="t-stars"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><div class="t-textarea">Góp ý của bạn…</div><div class="t-btn">Gửi góp ý</div></div>
+  <div class="t-sheet-full" data-when="update"><div class="row between"><span style="font:700 20px/28px var(--t-font);color:var(--t-brand)">Đã có bản cập nhật</span><span class="ms">close</span></div>
+    <div class="row gap-12"><span class="icon64"></span><div><div style="font:700 16px/20px var(--t-font)">{{APP}}</div><div style="font:400 14px/20px var(--t-font);color:var(--t-ink-3)">Phiên bản 1.2 · sửa lỗi và thêm nội dung</div></div></div>
+    <div class="t-btn xxl block">Cập nhật</div></div>
+  <div class="t-dialog" data-when="reward" style="background:var(--md-surface)"><div class="ttl">Mở khóa nội dung này</div><div class="sub">Xem một quảng cáo ngắn để mở miễn phí, hoặc mở tất cả với Premium.</div>
+    <div class="t-btn outline xl block">Xem quảng cáo để mở khóa</div><div class="t-btn xl block" style="margin-top:-4px"><span class="ms fill">workspace_premium</span>Mở khóa với Premium</div></div>
+  <div class="t-scrim" data-when="confirm setas"></div>
+  <div class="t-sheet" data-when="confirm"><div class="hd">Xóa mục đã tạo?<span class="ms">close</span></div><div style="font:400 14px/20px var(--t-font);color:var(--t-ink-3);margin-bottom:16px">Mục này sẽ bị xóa khỏi máy và không khôi phục được.</div>
+    <div class="two"><span class="t-btn tint l">Hủy</span><span class="t-btn danger l">Xóa</span></div></div>
+  <div class="t-sheet" data-when="setas"><div class="hd">Đặt làm<span class="ms">close</span></div><div class="stack"><span class="t-btn xxl">Màn hình chính</span><span class="t-btn xxl">Màn hình khóa</span><span class="t-btn xxl">Cả hai</span></div></div>
+  <div class="t-dialog" data-when="exit"><div class="ttl">Thoát {{APP}}?</div><div class="sub">Nói rõ điều gì vẫn chạy sau khi thoát (nếu có).</div>
+    <div class="row gap-8" style="width:100%"><span class="t-btn tint l" style="flex:1">Ở lại</span><span class="t-btn l" style="flex:1">Thoát</span></div></div>
+  <div class="gesturebar"></div>
+</div></body></html>

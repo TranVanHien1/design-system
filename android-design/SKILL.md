@@ -23,7 +23,7 @@ Core principles:
 - **Figma:** editable frames built from the HTML screens or a document, at the scope asked (whole app, feature group, feature, single node) ([figma.md](references/figma.md)). Only when the user has a Figma file.
 - **Compose code:** theme files from `theme.mjs` and screens per the playbooks below.
 
-Every app keeps the fixed base flow — Splash → Language → Onboarding ×4 — and changes only its skin ([base-flow.md](references/base-flow.md)); [reference-patterns.md](references/reference-patterns.md) and `data/topic-worlds.json` hold the team's shipped worlds so a new app does not repeat them. Ads are off unless the user asks for them.
+Every app keeps the fixed base flow — Splash → Language → Onboarding ×4 — and changes only its skin ([base-flow.md](references/base-flow.md)); team screens are built from the team's measured components ([components.md](references/components.md), `assets/flow/team.css`, frames 412×917 / 375×812); [reference-patterns.md](references/reference-patterns.md) and `data/topic-worlds.json` hold the team's shipped worlds so a new app does not repeat them. Ads are off unless the user asks for them.
 
 ## Setup (once per session)
 

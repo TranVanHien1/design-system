@@ -104,6 +104,8 @@ function screenView(src) {
   if (q.get('theme')) attrs['data-theme'] = q.get('theme');
   if (q.get('lang')) attrs.lang = q.get('lang');
   attrs['data-state'] = state;
+  const fr = /^(\d+)x(\d+)$/.exec(attrs['data-frame'] || '');
+  attrs['data-frame'] = fr ? fr[0] : `${W}x${H}`;
   for (const m of html.matchAll(/<link[^>]+rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/gi)) {
     const href = m[1];
     if (!isLocal(href)) { fontImports.add(href); continue; }
@@ -172,16 +174,19 @@ if (SHOTS) {
       const shotFile = path.join(shotsDir, `${v.key}.jpg`);
       if (only && !only.has(v.key) && fs.existsSync(shotFile)) { imgs[v.key] = fs.readFileSync(shotFile).toString('base64'); continue; }
       const [file, query] = v.src.split('?');
+      const fm = /<html[^>]*data-frame="(\d+)x(\d+)"/i.exec(fs.readFileSync(path.join(dir, file), 'utf8'));
+      const vw = fm ? Number(fm[1]) : W, vh = fm ? Number(fm[2]) : H;
+      await S('Emulation.setDeviceMetricsOverride', { width: vw, height: vh, deviceScaleFactor: SCALE * W / vw, mobile: false });
       events.length = 0;
       await S('Page.navigate', { url: pathToFileURL(path.join(dir, file)).href + (query ? `?${query}` : '') });
       for (let i = 0; i < 200 && !events.some((e) => e.method === 'Page.loadEventFired'); i++) await new Promise((r) => setTimeout(r, 50));
       await S('Runtime.evaluate', { expression: 'Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 0 : new Promise(r => i.onload = i.onerror = r))]).then(() => new Promise(r => setTimeout(r, 250)))', awaitPromise: true });
       const { result } = await S('Runtime.evaluate', { expression: 'JSON.stringify({ w: document.documentElement.scrollWidth, broken: [...document.images].filter(i => !i.naturalWidth).map(i => i.getAttribute("src")).slice(0,5), fonts: [...document.fonts].filter(f => f.status === "error").map(f => f.family).slice(0,5) })', returnByValue: true });
       const info = JSON.parse(result.value);
-      const { data } = await S('Page.captureScreenshot', { format: 'jpeg', quality: Q, clip: { x: 0, y: 0, width: W, height: H, scale: 1 } });
+      const { data } = await S('Page.captureScreenshot', { format: 'jpeg', quality: Q, clip: { x: 0, y: 0, width: vw, height: vh, scale: 1 } });
       fs.writeFileSync(shotFile, Buffer.from(data, 'base64'));
       imgs[v.key] = data; rendered++;
-      if (info.w > W + 1) warnings.push(`${v.key}: content ${info.w}px wide overflows the ${W}dp frame`);
+      if (info.w > vw + 1) warnings.push(`${v.key}: content ${info.w}px wide overflows the ${vw}dp frame`);
       if (info.broken.length) warnings.push(`${v.key}: images failed: ${info.broken.join(', ')}`);
       if (info.fonts.length) warnings.push(`${v.key}: fonts failed: ${info.fonts.join(', ')}`);
     }

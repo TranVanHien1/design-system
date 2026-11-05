@@ -1,5 +1,46 @@
 [
  {
+  "id": "momo-trust",
+  "name": "Momo Trust Sans (team default)",
+  "class": "grotesk-tight",
+  "display": {
+   "family": "Momo Trust Sans",
+   "source": "google",
+   "weights": [
+    600,
+    700,
+    800
+   ],
+   "italic": false,
+   "settings": "weight 700 · tracking 0",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "text": {
+   "family": "Momo Trust Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "weight 400",
+   "vi": true,
+   "android": "downloadable-or-bundle",
+   "license": "OFL (Google Fonts)",
+   "axes": [
+    "wght"
+   ]
+  },
+  "note": "The team's own text face (style guide 032 Theme Mix, every base-flow template): Vietnamese-first, T28/36…T10/12 ramp. Default for team apps; pair a display face only for the wordmark.",
+  "source": "android-design",
+  "vi": true
+ },
+ {
   "id": "switzer-semibold",
   "name": "Switzer",
   "class": "grotesk-tight",

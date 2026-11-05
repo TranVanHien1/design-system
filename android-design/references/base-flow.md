@@ -12,14 +12,19 @@ Every app the team ships opens with the same first-run structure. Its anatomy is
 - An optional preference step after OB4 (e.g. "phong cách bạn thích") is allowed only with "Bỏ qua" and an always-enabled CTA, and its picks must show on the first Home.
 - Without ads the onboarding pages keep the ad-ready geometry (hero 0–411, title ~424, body ~456, indicator/CTA row ~500–512) with a quiet swipe hint in the reserved bottom third, so adding ads later moves nothing.
 
-## Fixed anatomy (do not change)
+## Fixed anatomy (do not change) — measured, frame 412×917
+
+Templates in `assets/flow/base/` implement exactly this; full anatomy and per-app variants in [components.md](components.md).
 
 | Screen | Fixed |
 |---|---|
-| Splash | App icon ~92dp centred at 34% height; app name below in the display face; loading line ("Đang tải 40%" + thin progress) near the bottom; with ads, "Thao tác này có thể chứa quảng cáo" under it (or spinner + 320×50 banner variant). |
-| Language | Title top-left ("Chọn ngôn ngữ"); confirm action top-right **only after a choice**; one list of 56dp rows: round flag, native language name, radio; hand hint on the first row before any choice; English first, then the device language. |
-| Onboarding 1–4 | Full-bleed illustration from the top fading into the background; centred title (3–5 words, title colour) + centred body (one sentence, ≤2 lines); indicator bottom-left (18×4 pill + 4×4 dots); text CTA "Tiếp ›" bottom-right, "Bắt đầu ›" on page 4. Never a full-width button, never Skip. |
-| Full-screen native (ads only) | Full-bleed creative, "Ad" badge + countdown then close X top-right, advertiser icon + headline + body, full-width CTA pill. |
+| Splash | App icon **120 r24 at x146 y239** (optional 3dp brand ring); app name Bold 20/28 at y375 in the display face; loading block from y743: "Đang tải 40%" Bold 16/20 + spinner 32; with ads "Thao tác này có thể chứa quảng cáo" Medium 14/20 at y818, or the spinner + 412×52 adaptive-banner variant. |
+| Language | Title Medium 20/24 at **x20 y75**; confirm top-right **only after a choice** — plain 24 tick at x364 y75 (default), or "Next" pill 72×32 r100 at x324 y71, or 48 round check (`new-flow --confirm tick|pill|round`); rows **372×56 at x20 from y123, step 68, r8**, padding 12/16, round flag 28, gap 16, label **Regular 16/20**, radio 24 right; **selecting changes only the radio** (no row border/tint); hand hint on the first row before a choice; English first, then the device language. |
+| Onboarding 1–4 | Illustration **0–468 full-bleed with a 100dp fade** (the app's own screens/core object); text block x16 w380 from **y480**: title **Bold 20/28 brand**, gap 8, body **Regular 16/20**, centred; row at **y572**: indicator x16 (**18×4 pill + 4×4 dots, gap 4**) and a **text-only CTA SemiBold 20/24 brand, right edge x396, no chevron** ("Bắt đầu" on page 4). Never Skip, never a full-width button. |
+| Ads (when on) | Language + each OB page: Native Media_Big 412×300–310 at **y607–617**; native full after OB1 and OB3; interstitial after splash. Some apps deviate deliberately (RT Item 296; SC no ad on Language, Colab_Left on OB) — follow the brief. |
+| Full-screen native | Immersive: creative + scrims, X 36 at x356 y56 / countdown pill 28 at y93 / progress bar, header y781, CTA 372×52 at y841; or the contained family (blurred bg, 240 media, white card). |
+
+**Vietnamese:** the files set "Next" and the language title in Poppins, which has no Vietnamese glyphs. Base templates use Momo Trust Sans (the team's text face, Vietnamese ✓); keep it for any Vietnamese copy.
 
 ## Per-app levers (change these)
 

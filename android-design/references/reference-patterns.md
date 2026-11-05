@@ -1,12 +1,14 @@
 # Reference patterns from the team's Figma files
 
+> Overview study (2026-11-04), corrected 2026-11-05 by the deep component study. For exact measurements, component anatomy and the HTML classes, [components.md](components.md) is authoritative; where the two disagree, follow components.md.
+
 Read-only study (2026-11-04) of six team Figma files. Use it to keep the first-run flow and ad anatomy fixed and to pick a visual world unlike the shipped ones. Machine-readable worlds: `data/topic-worlds.json`.
 
 Files (fileKey → name), cited below as **TM**, **TA**, **RI**, **PS**, **RT**, **CV**, **SC**:
 - `kGqbd8A2V3p9NCU3wzLvPm` "032 Theme Mix": **TM** = page "067 Theme Flow" (1:7), **TA** = page "057-Theme Art" (1:6), style guide page 1:2.
 - `iI1PL2mCd7h0fBpdHShU7I` "063 Rolling Icon 3D Wallpaper" (**RI**): Design 7011:12459, Design Common 1:3.
 - `kSBL9MEyTxB9Cin4jyurNg` "Pet Shimeji" (**PS**): 1:5.
-- `IW48r9U6LiYel3vXp1TRdL` "MV-022 Ringtone for music" (**RT**): 0:1 (no splash/language/onboarding in this file).
+- `IW48r9U6LiYel3vXp1TRdL` "MV-022 Ringtone for music" (**RT**): 0:1 (base flow in section 158:17517; its splash is a ThemeArt leftover).
 - `7gbr1V8NZ0Osxc0Z8rjB8q` "059 Charge Visuals" (**CV**): page Design 0:1.
 - `6swCWvfRgSWqISz6DAu4HU` "045 Santa Call" (**SC**): 0:1, two complete colour versions (red, green).
 
@@ -14,11 +16,11 @@ Frame size in all base-flow frames is **412 x 917** (core screens often 375 x 81
 
 ## 1. Base flow (fixed structure)
 
-Order seen in every file that has it: **Splash → Language list → Language selected → OB1 → (Native full) → OB2 → (Native full) → OB3 → (Native full) → OB4 "Get Started" → Home**. The paywall and permission screens attach later (on the first premium action or feature use), never inside onboarding in these files. Wireframe master with this exact order: TA "Language+OB" 1162:8586 (an orange `#FF6414` placeholder skin, image placeholders, "Title onboarding_1..4").
+Order seen in every file that has it: **Splash → Language list → Language selected → OB1 → (Native full) → OB2 → (Native full) → OB3 → (Native full) → OB4 "Get Started" → Home**. The paywall and permission screens attach later (on the first premium action or feature use), never inside onboarding in these files. Wireframe master with this exact order: TA "Language+OB" 1162:8586 (an orange `#FF6616` placeholder skin, image placeholders, "Title onboarding_1..4").
 
 ### 1.1 Splash
 Two variants:
-- **Brand splash + banner** (TM Splash 1262:22161, SC 124:9033/160:10028): app icon ~104dp (≈91 at 360w) centred at 34% height; app name directly below at ~44% in the app's display face (TM pink script "Theme Mix", SC wide bold "Santa Call"); spinner at ~83–89%; **adaptive banner 320x50 test ad pinned to the bottom** (~y 868/917).
+- **Brand splash + banner** (TM Splash 1262:22161, SC 124:9033/160:10028): app icon 100–120 r24 centred at 34% height; app name directly below at ~44% in the app's display face (TM pink script "Theme Mix", SC wide bold "Santa Call"); spinner at ~83–89%; **adaptive banner 320x50 test ad pinned to the bottom** (~y 868/917).
 - **Loading-text splash** (RI template 5002:13751, PS 2317:17531, CV 107:20569, SC): icon + full store name ("Pet Shimeji: Pet on Screen", "ThemeArt: Themes Widgets Icons") at 35–44%; `Loading 40%` (bold 16) at ~85%; dotted spinner; `This action can contain ads` (14 regular) at ~93%. This line is the disclosure for the interstitial that follows the splash.
 - Background carries the topic: pastel iridescent (TM), peach-pink gradient with sparkles (PS), lilac-sky gradient (CV), Christmas illustration (SC); plain white/black only in the RI template.
 
@@ -58,10 +60,10 @@ Zones (TM OBD1 1262:22070, measured):
 
 ### 1.5 Paywall (IAP)
 Shared template in RI 5004:21054, RT 111:12162, CV 107:21268 — only hero art, colour and copy change:
-- Close X (32, translucent grey circle) top-left at ~y55; hero art top ~28% (topic collage: phones with wallpapers, ringtone UI cards) fading to white.
+- Close X (36 circle rgba(11,10,10,.5)) top-left at x16 y50; hero art top ~28% (topic collage: phones with wallpapers, ringtone UI cards) fading to white.
 - Hero variants: **discount** (3D "50% OFF" sticker + "This offer will be expired in" + 4 primary-filled countdown digit boxes) or **premium** (3D crown + gold "Premium" ribbon).
-- Title "App Name Pro" / "Upgrade to Premium" / "Unlock All Premium" bold 22, subtitle 14; benefit row (3D icon + "All Premium Themes", "No ads anytime", horizontally scrolling).
-- Plans: 4 stacked cards (Yearly with **"BEST DEAL"** yellow ribbon, pre-selected, primary 1.5dp border, strike-through old price, "Free 3days then…"; Monthly; Weekly; Life time "Pay once purchase"), radius ~10, check circle at right.
+- Title "App Name Pro" / "Upgrade to Premium" / "Unlock All Premium" Bold 24/32 (RT/CV 28/36), subtitle 14; benefit row (3D icon + "All Premium Themes", "No ads anytime", horizontally scrolling).
+- Plans: 4 stacked cards (Yearly with **"BEST DEAL"** yellow ribbon, pre-selected, primary 2dp border, strike-through old price, "Free 3days then…"; Monthly; Weekly; Life time "Pay once purchase"), radius 12, selected 2dp brand border, check circle 32 at right.
 - Full-width primary pill "Continue"; footer links "Restore Purchase · Terms of Use · Privacy Policy" 10sp underlined.
 - The "50% OFF" sticker exists in purple, pink, red, green, orange (RI 5004:21054): recolour to the primary. RT keeps the paywall white in a black app.
 
@@ -75,7 +77,7 @@ Shared template in RI 5004:21054, RT 111:12162, CV 107:21268 — only hero art, 
 |---|---|---|---|
 | Adaptive banner 320x50 | Splash bottom (TM, SC) | 412x52 | "Nice job! This is test 320x50 test ad." |
 | Interstitial | after splash | full | announced by "This action can contain ads" |
-| Native Media_Big | Language, every OB page | 412x300, bottom 33% | header row (AdChoices i, icon, **"Ad"** badge, headline, body) + media 412x~176 + CTA pill 372x40 "Learn More" |
+| Native Media_Big | Language, every OB page | 412x300, bottom 33% | header row (AdChoices i, icon, **"Ad"** badge, headline, body) + media 412x~176 + CTA pill 372x52 "Learn More" |
 | Native full (onboarding / in-app) | between OB pages; in-app transitions | 412x917 | see 1.4 |
 | Native Medium / Small / Small_2 / Item / Item Tiny | lists, dialogs | 186, 110, 66, 288, 52 high | catalogued in TM SDK 1262:22054, RT 6:7000/6:7171, CV 107:20673 |
 | Native Colab Right/Left/Between | collapsible | 412x300 | collapse chevron in corner |
@@ -83,7 +85,7 @@ Shared template in RI 5004:21054, RT 111:12162, CV 107:21268 — only hero art, 
 | Colab Mini Banner | | 412x68 | |
 | Rewarded | unlock premium item | full | triggered by "Watch Ad to …" buttons, see 3.6 |
 
-Ad rules seen everywhere: the native **CTA and "Ad" badge take the app's primary** (TM red-orange `#FE4F3C`, TA lavender `#A874FC`, CV coral `#FF6078`, SC red `#E00000`, wireframe orange `#FF6414`). The ad header order can flip (SC: media first, text block second). The ad is a separate full-width white block; app content never overlaps it.
+Ad rules seen everywhere: the native **CTA and "Ad" badge take the app's primary** (TM red-orange `#FE4F3C`, TA lavender `#A875FC`, CV coral `#FF6078`, SC red `#E00000`, wireframe orange `#FF6616`). The ad header order can flip (SC: media first, text block second). The ad is a separate full-width white block; app content never overlaps it.
 
 ## 3. Core screen patterns
 
@@ -95,7 +97,7 @@ Ad rules seen everywhere: the native **CTA and "Ad" badge take the app's primary
 ### 3.2 Home layouts
 - **Content feed** (TM 1262:28912): hero banner 343x~190 (radius 12, "Try now" pill, pager dash) → outlined search pill → section header (icon + bold 16 + primary "See all ›") → horizontal tall phone-ratio cards (~120x212) → chip tabs (active = tint fill + primary text).
 - **Hub + shortcuts** (TA 1052:18556, RI 7014:12797): hero card with "Start/Try Now" pill, then 3–4 feature tiles (3D render top, name, one-line description), then a "Trending" grid.
-- **Section stack** (CV 86:10378): carousel banners each with its own gradient, then 4 horizontal rails with "More ›"; cards ~88x156 with heart top-left, premium diamond top-right, type glyph bottom-right.
+- **Section stack** (CV 86:10378): carousel banners each with its own gradient, then 4 horizontal rails with "More ›"; cards 140x249 r16 gap 8 bleeding right, heart top-left and VIP top-right as 28 circles at 12dp inset, type glyph 24 bottom-right.
 - **Category grid** (RT 28:6750): 2-col photo cards (164x220, name + "27 Tracks" + chevron on a dark strip), then rows with a gradient square icon.
 - **Slot board** (PS 2041:10982): enable-toggle card, hero illustration + gradient "Explore" button, 3-col grid of dashed-border slots (pet / "+" Choose / lock Unlock) with a small outlined pill under each.
 - **Single hero** (SC 158:15436): "Merry Christmas" lettering, 3D illustration, segmented Video call/Audio call/Message (or a carousel with arrows in green v1 137:9387), candy-stripe "Start ›" pill.
@@ -129,19 +131,19 @@ Skeleton cards (TM 1279:39305); 3D empty-state illustration + one line (TM searc
 ## 4. Per-topic visual worlds
 
 ### 4.1 Theme Mix / Theme Flow (TM 1:7)
-Topic: themes, icons, widgets, DIY. Light. Palette: primary red `#FF321F`/ink-red text `#FC3040`, CTA gradient red-orange `#FE4F3C`→`#FD4747`, logo gradient pink `#FF5A88`→violet `#F488F4`, bg white with faint pink-cream top wash, surface `#F6F6F7`, ink `#272538`, success `#14C96F`. Type: **Momo Trust Sans** T28…T11 (style guide 3:778); wordmarks in a pink/red brush script. Radius: card 12, chip 6, button pill. Icons: filled red glyphs in nav, 3D emoji in dialogs. Content: kawaii clay 3D theme packs. Signature: script wordmark + red crown; pastel iridescent splash.
+Topic: themes, icons, widgets, DIY. Light. Palette: primary `#FF3240` (style-guide page lists `#FF321F`; component library `#FF3E7B`), CTA gradient `#FE513A`→`#FC4649`, logo gradient pink `#FF5A88`→violet `#F488F4`, bg white with faint pink-cream top wash, surface `#F6F6F7`, ink `#12111C` (style-guide page `#272538`), success `#14C96F`. Type: **Momo Trust Sans** T28…T11 (style guide 3:778); wordmark in Lily Script One 28 with gradient `#FE3A82`→`#FC6846` (no Vietnamese glyphs). Radius: cards/hero/chips 8, sheets 12, rating 24, button pill. Icons: filled red glyphs in nav, 3D emoji in dialogs. Content: kawaii clay 3D theme packs. Signature: script wordmark + red crown; pastel iridescent splash.
 
 ### 4.2 Theme Art (TA 1:6)
-Same product rebranded. Light lavender. bg `#FCF4FC`, primary `#A874FC`, light tint `#F4ECFC`, ink `#101018`. Type: heavy slab/rounded display for screen titles ("Theme Widgets", "Icon Setup"), sans body. Radius: card 12–16, chip 8 (active filled purple, inactive outline), pill buttons. Icons: 3D glossy purple (gear, crown, collection tiles). Illustration: kawaii purple cat 3D renders. Signature: lavender everywhere, 3D purple header icons.
+Same product rebranded. Light lavender. bg `#FCF4FF`, primary `#A875FC`, light tint `#F4ECFC`, ink `#101018`. Type: heavy slab/rounded display for screen titles ("Theme Widgets", "Icon Setup"), sans body. Radius: card 12–16, chip 8 (active filled purple, inactive outline), pill buttons. Icons: 3D glossy purple (gear, crown, collection tiles). Illustration: kawaii purple cat 3D renders. Signature: lavender everywhere, 3D purple header icons.
 
 ### 4.3 Rolling Icon (RI 7011:12459)
-Light white + purple. primary `#A874FC`, banner `#9C68F8`, tint `#F4F0FC`, ink `#10101C`; neon content (LED borders, lightning). Type: chunky black display wordmark, geometric sans body. Radius: card 12, feature tile 12, pill buttons. Icons: outline lavender nav; 3D app-icon renders (rolling, heart, cube). Signature: flying 3D app icons on a purple hero; light and dark Language/OB templates (5002:13751 / 5002:58488).
+Light white + purple. primary `#A875FC`, banner `#9C68F8`, tint `#F4F0FC`, ink `#10101C`; neon content (LED borders, lightning). Type: chunky black display wordmark, geometric sans body. Radius: card 12, feature tile 12, pill buttons. Icons: outline lavender nav; 3D app-icon renders (rolling, heart, cube). Signature: flying 3D app icons on a purple hero; light and dark Language/OB templates (5002:13751 / 5002:58488).
 
 ### 4.4 Pet Shimeji (PS 1:5)
-Light cream. bg `#FFF8F2`, primary gradient `#FF6414`→`#FFB014`, OB title `#FF8448`, card tint `#FFE9DC`, dashed border `#FFB884`, accent magenta `#E050D0` (language checkbox), green success `#30CC7C`. Type: **pixel/8-bit monospace** headers ("Pet Shimeji", "Choose Pet"), sans body. Radius: small (tile 8, buttons 8, not pills), dashed slot tiles. Icons: pixel-art lock, paw, home. Illustration: chibi anime pets and stickers. Signature: pixel font + dashed slot grid + expanding gradient nav pill.
+Light cream. bg `#FFF8F2`, primary gradient `#FF4F15`→`#FFD117`, OB title `#FF8548`, card tint `#FFEBDF`, 2dp dashed `#FF4F15` slot border (tile border 1dp `#FFDAC4`), language checkbox gradient `#FF62B3`→`#B339FF`, success `#1EB724`. Type: **pixel/8-bit monospace** headers ("Pet Shimeji", "Choose Pet"), sans body. Radius: small (tiles and buttons 6, cards 12, dialog 20; not pills); arcade elevation (2dp white rim + hard 0 3 0 tinted shadow + inner gloss), dashed slot tiles. Icons: pixel-art lock, paw, home. Illustration: chibi anime pets and stickers. Signature: pixel font + dashed slot grid + expanding gradient nav pill.
 
 ### 4.5 Ringtone (RT 0:1)
-**Dark**. bg `#000000`, surface `#18181C`, nav bar `#101820`, primary gradient `#E0306C`→`#FC5098`, ink white, muted `#8C8C8C`, VIP gold. Type: neutral grotesk (Inter/SF-like), bold 18 titles. Radius: card 10, pill buttons and nav pill. Icons: filled white glyphs, pink gradient app glyph (note + bars). Content: seasonal photo-real category art (Autumn, Halloween, Christmas, Valentine, World Cup). Signature: waveform trimmer + pink gradient on black.
+**Dark**. bg `#000000`, surface `#1A1A1F`, nav bar `#121921` (top radius 24), primary gradient `#FF539B`→`#E1336D`, ink white, muted `#8F909A`, VIP gold. Type: neutral grotesk (Inter/SF-like), bold 18 titles. Radius: cards 12, chips/permission cards 16, dialogs 24, pills r40/44/100. Icons: filled white glyphs, pink gradient app glyph (note + bars). Content: seasonal photo-real category art (Autumn, Halloween, Christmas, Valentine, World Cup). Signature: waveform trimmer + pink gradient on black.
 
 ### 4.6 Charge Visuals (CV 0:1)
 Light, soft. bg white with pink header wash `#FCF0F4`, primary coral `#FF6078`, splash gradient `#FCECFC`→`#ECD4FC`→`#BCDCFC`, OB hero art dark night-sakura with neon pink ring. Type: neutral sans, medium weight. Radius: card 10, banner 12, pills. Icons: outline nav, colourful setting icons. Content: cute seasonal charging animations (Halloween cat, Snoopy). Signature: multi-gradient hero carousel + heart/diamond corner badges.
@@ -169,7 +171,7 @@ Must not change:
 
 ## 6. Anti-monotony rules
 
-1. Pick a world combination not used yet: {light pastel, light cream, light white, black, full-bleed saturated} × {red, lavender/purple, orange, pink-on-black, coral, Christmas red/green} × {script, slab, pixel, wide display, plain sans}. TA and RI already share lavender `#A874FC` with chunky display type; avoid a third purple app.
+1. Pick a world combination not used yet: {light pastel, light cream, light white, black, full-bleed saturated} × {red, lavender/purple, orange, pink-on-black, coral, Christmas red/green} × {script, slab, pixel, wide display, plain sans}. TA and RI already share lavender `#A875FC` with chunky display type; avoid a third purple app.
 2. The topic must show on the first frame: splash background + icon + wordmark face (TM, PS, SC do this; RI template and CV do not).
 3. Onboarding art shows the app's own screens or its core object in context, re-skinned for the topic, never a generic stock hero.
 4. Give each app one signature component: script crown header (TM), dashed slot grid (PS), waveform (RT), corner badges (CV), candy-stripe CTA + wreath avatars (SC).

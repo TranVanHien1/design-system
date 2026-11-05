@@ -22,10 +22,10 @@
   "palette": {
    "bg": "#FFFFFF",
    "surface": "#F6F6F7",
-   "primary": "#FF321F",
-   "accent": "#FC3040",
-   "ink": "#272538",
-   "muted": "#8E8E93 approx",
+   "primary": "#FF3240",
+   "accent": "#FE513A",
+   "ink": "#12111C",
+   "muted": "#787882",
    "extra": [
     "#FE4F3C (CTA gradient start)",
     "#FD4747 (CTA gradient end)",
@@ -35,14 +35,14 @@
     "#14C96F (success)",
     "pool from style guide: #FFC743 #2684FF #FF843E #3CDB83 #FF58A8 #A875FC #00BECA"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "White with a faint pink-cream wash at the top of screens; splash is a pastel iridescent (white/mint/pink) gradient",
   "typeCharacter": "Momo Trust Sans (T28..T11 scale, Regular/Medium/Bold) for UI; wordmarks ('Theme Mix', 'Theme Flow', 'Icons', 'Settings') in a pink/red brush script",
   "radius": {
-   "card": 12,
-   "button": 999,
-   "chip": 6
+   "card": 8,
+   "button": 100,
+   "chip": 8
   },
   "iconStyle": "Filled red glyphs in bottom nav (5 tabs), red crown for premium, 3D emoji in dialogs",
   "illustrationStyle": "Clay/kawaii 3D theme packs (bears, cherries, bows) shown in phone mock-ups; 3D empty-state props",
@@ -62,7 +62,15 @@
    "Native full_Onbroading after OB1 and after OB3",
    "Apply flow: 'Watch Ad to Save/Apply/Download' rewarded, native Media_Big under preview",
    "Unlock all icons (rewarded)"
-  ]
+  ],
+  "gradient": [
+   "#FE513A",
+   "#FC4649"
+  ],
+  "fonts": {
+   "text": "Momo Trust Sans",
+   "display": "Lily Script One (wordmark, no VI)"
+  }
  },
  {
   "id": "theme-art",
@@ -77,24 +85,24 @@
   ],
   "theme": "light",
   "palette": {
-   "bg": "#FCF4FC",
+   "bg": "#FCF4FF",
    "surface": "#FFFFFF",
-   "primary": "#A874FC",
+   "primary": "#A875FC",
    "accent": "#B084FC",
-   "ink": "#101018",
+   "ink": "#12111C",
    "muted": "#8C9098 approx",
    "extra": [
     "#F4ECFC (tint)",
     "#D0B0FC (card border)",
     "#FF6414 (orange placeholder skin of the wireframe master 1162:8586)"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "Flat lavender-white across all screens; onboarding images are lavender kawaii 3D collages fading to white",
   "typeCharacter": "Heavy chunky slab/rounded display for screen titles ('Theme Widgets', 'Icon Setup', 'Unique Control') approx; clean sans body",
   "radius": {
-   "card": 14,
-   "button": 999,
+   "card": 12,
+   "button": 100,
    "chip": 8
   },
   "iconStyle": "Glossy 3D purple icons (gear, crown, collection tiles); outline nav with purple active",
@@ -113,7 +121,11 @@
    "Language + OB: Native Media_Big bottom (lavender CTA)",
    "Wireframe master: Native full after OB1, OB2, OB3",
    "No-ad OB variants OBD2.1/OBD3.1 with swipe glyph"
-  ]
+  ],
+  "fonts": {
+   "text": "Momo Trust Sans",
+   "display": "Gorditas (no VI)"
+  }
  },
  {
   "id": "rolling-icon",
@@ -132,23 +144,23 @@
   "theme": "light",
   "palette": {
    "bg": "#FFFFFF",
-   "surface": "#F4F0FC",
-   "primary": "#A874FC",
+   "surface": "#F9F9F9",
+   "primary": "#A875FC",
    "accent": "#9C68F8",
-   "ink": "#10101C",
-   "muted": "#8C8C99 approx",
+   "ink": "#111111",
+   "muted": "#7B7B7B",
    "extra": [
     "#FCE498 (BEST DEAL ribbon)",
     "neon LED rainbow and electric violet content"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "White screens; purple gradient hero banners; dark-mode variant of the base flow on #000000",
   "typeCharacter": "Chunky black display wordmark ('Rolling Icon'), geometric sans body",
   "radius": {
    "card": 12,
-   "button": 999,
-   "chip": 999
+   "button": 100,
+   "chip": 8
   },
   "iconStyle": "Outline lavender nav (5 tabs Home/Icon/Wallpaper/Library/Setting), crown in lavender rounded square, glossy 3D app-icon renders",
   "illustrationStyle": "3D renders of app icons (flying, heart, Rubik cube, snake), 3D chibi monster heads for snake skins",
@@ -166,7 +178,11 @@
    "Ad areas left blank in the Design Common template",
    "Paywall 'App Name Pro' with 50% OFF sticker and countdown or Premium crown",
    "Wallpaper detail -> Set Wallpaper dialog (Home/Lock/Both)"
-  ]
+  ],
+  "fonts": {
+   "text": "Momo Trust Sans",
+   "display": "Gorditas (no VI)"
+  }
  },
  {
   "id": "pet-shimeji",
@@ -187,10 +203,10 @@
   "theme": "light",
   "palette": {
    "bg": "#FFF8F2",
-   "surface": "#FFE9DC",
-   "primary": "#FF6414",
+   "surface": "#FFEBDF",
+   "primary": "#FF8548",
    "accent": "#FFB014",
-   "ink": "#1E1E1E approx",
+   "ink": "#282A39",
    "muted": "#6B6B6B approx",
    "extra": [
     "#FF8448 (OB title)",
@@ -199,13 +215,13 @@
     "#30CC7C (success check, sliders)",
     "splash gradient #FCE8D8 -> #FCB8AC -> #FCD09C"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "Cream #FFF8F2; splash is a peach-pink-orange gradient with swooshes and sparkles",
   "typeCharacter": "Pixel / 8-bit monospace for headers and section titles ('Pet Shimeji', 'Choose Pet', 'Pet on Screen'); plain sans body",
   "radius": {
-   "card": 8,
-   "button": 8,
+   "card": 12,
+   "button": 6,
    "chip": 6
   },
   "iconStyle": "Pixel-art glyphs (lock, paw, home, settings hexagon); 3D mascot in dialogs",
@@ -224,7 +240,16 @@
    "OB bottom third drawn blank (ad slot)",
    "Video Reward dialog with 3D robot + 'Watch Video'",
    "Unlock pills on locked pets/stickers (rewarded)"
-  ]
+  ],
+  "gradient": [
+   "#FF4F15",
+   "#FFD117"
+  ],
+  "fonts": {
+   "text": "Inter / Momo Trust Sans",
+   "display": "Press Start 2P + Pixelify Sans (no VI)"
+  },
+  "elevation": "arcade: 2dp white rim + 0 3 0 tinted hard shadow + inset gloss"
  },
  {
   "id": "ringtone-music",
@@ -244,24 +269,24 @@
   "theme": "dark",
   "palette": {
    "bg": "#000000",
-   "surface": "#18181C",
-   "primary": "#FC5098",
+   "surface": "#1A1A1F",
+   "primary": "#FF539B",
    "accent": "#E0306C",
    "ink": "#FFFFFF",
-   "muted": "#8C8C8C",
+   "muted": "#8F909A",
    "extra": [
     "#101820 (bottom bar)",
     "#F4C03C (VIP diamond/crown gold)",
     "paywall stays white"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "Pure black; content imagery is photo-real seasonal scenes (Autumn, Halloween, Christmas, Valentine, World Cup)",
   "typeCharacter": "Neutral grotesk (Inter/SF-like), bold 18-20 titles, regular 12-14 body",
   "radius": {
-   "card": 10,
-   "button": 999,
-   "chip": 10
+   "card": 12,
+   "button": 100,
+   "chip": 16
   },
   "iconStyle": "Filled white glyphs; pink gradient squircle app glyph (note + bars); diamond VIP badges",
   "illustrationStyle": "Photo-real seasonal art; glossy pink 3D icons for result/permission",
@@ -279,7 +304,16 @@
    "Reward dialog 'Free Unlock With Ads' (outline) / 'Remove Ads' (filled)",
    "'Cool ringtones ahead! View a quick ad' Accept",
    "SDK Admob (Light) catalogue incl. 13 Native full variants"
-  ]
+  ],
+  "gradient": [
+   "#FF539B",
+   "#E1336D"
+  ],
+  "fonts": {
+   "text": "Roboto",
+   "display": "Roboto / Momo Trust Sans"
+  },
+  "nav": "#121921 72dp top r24, sliding gradient pill"
  },
  {
   "id": "charge-visuals",
@@ -309,14 +343,14 @@
     "#2EC46A approx (Applied Successfully green)",
     "banner gradients pink, blue, lilac"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "White with a pink header wash; splash lilac-pink-sky gradient; OB hero images are dark neon night-sakura scenes",
   "typeCharacter": "Neutral sans, medium weight titles (16-18), small 12 'More ›' links in primary",
   "radius": {
-   "card": 10,
-   "button": 999,
-   "chip": 999
+   "card": 16,
+   "button": 100,
+   "chip": 24
   },
   "iconStyle": "Outline nav (4 tabs Charging/Wallpaper/Gallery/Setting), colourful flat setting icons, corner badges (heart, diamond, type glyph)",
   "illustrationStyle": "Cute seasonal 2D/3D characters (Halloween cat, ghosts, Snoopy), neon pink charging ring",
@@ -335,7 +369,11 @@
    "Native full variants with countdown/sponsor/progress",
    "Preview 'Unlock' (rewarded)",
    "Paywall 'Unlock All Premium'"
-  ]
+  ],
+  "fonts": {
+   "text": "Roboto",
+   "display": "Momo Trust Sans; OB Next Poppins (no VI)"
+  }
  },
  {
   "id": "santa-call-red",
@@ -354,7 +392,7 @@
    "bg": "#B8081C",
    "surface": "#FFFFFF",
    "primary": "#E00000",
-   "accent": "#F4C03C",
+   "accent": "#59B157",
    "ink": "#FFFFFF",
    "muted": "#F8BCBC approx",
    "extra": [
@@ -362,14 +400,14 @@
     "#FDE9C0 approx (scroll-paper dialog)",
     "#6B1A1A approx (call ended bg)"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "Full-bleed deep red with snow particles and snowflakes",
   "typeCharacter": "Wide extra-bold display ('Santa Call', 'Video Calls with Santa'), hand-lettered 'Merry Christmas', quirky rounded body",
   "radius": {
-   "card": 999,
-   "button": 999,
-   "chip": 999
+   "card": 24,
+   "button": 100,
+   "chip": 100
   },
   "iconStyle": "3D Christmas props (gifts, sleigh, stockings), circular call buttons, characters in holly wreath frames",
   "illustrationStyle": "Plush 3D Santa and Christmas characters + photo-real Santa video frames",
@@ -387,7 +425,11 @@
    "Splash banner 320x50",
    "Language + OB: native ad with media first, red CTA",
    "No Native full page in this file"
-  ]
+  ],
+  "fonts": {
+   "text": "Gluten",
+   "display": "Dela Gothic One"
+  }
  },
  {
   "id": "santa-call-green",
@@ -405,21 +447,21 @@
    "bg": "#1A704C",
    "surface": "#0F5A38 approx",
    "primary": "#E00000",
-   "accent": "#F4C03C",
+   "accent": "#59B157",
    "ink": "#FFFFFF",
    "muted": "#A8D4BC approx",
    "extra": [
     "#2E6B10 approx (dark-green language rows)",
     "#FDE9C0 approx (scroll-paper dialog)"
    ],
-   "note": "Hexes sampled from screenshots (quantised to 4); values marked approx are visual estimates"
+   "note": "Corrected 2026-11-05 from Figma design context (deep study); see references/components.md."
   },
   "background": "Full-bleed Christmas green with holly, baubles, snowy house and gifts illustration on splash",
   "typeCharacter": "Same as red version",
   "radius": {
-   "card": 999,
-   "button": 999,
-   "chip": 999
+   "card": 24,
+   "button": 100,
+   "chip": 100
   },
   "iconStyle": "Same as red version",
   "illustrationStyle": "Same as red version; OB placeholders show stars and snowflakes only",
@@ -436,6 +478,10 @@
   "adSlots": [
    "Splash banner 320x50",
    "Language + OB: native ad, red CTA"
-  ]
+  ],
+  "fonts": {
+   "text": "Gluten",
+   "display": "Dela Gothic One"
+  }
  }
 ]
