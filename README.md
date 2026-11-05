@@ -5,6 +5,7 @@ Bộ skill thiết kế UI Android cho Claude Code.
 ## Skills
 | Skill | Làm gì |
 |---|---|
+| `android-adb-qa` | Lập kế hoạch và chạy QA thủ công app Android trên máy thật/giả lập qua adb, đo RAM/CPU nền, viết báo cáo (bug kèm bước tái hiện + file:line, đỉnh hiệu năng, bảng PASS/FAIL). `android-design` dùng `scripts/ui.py` (ghép ảnh, điều khiển UI) và `scripts/devstate.sh` (lưu/khôi phục cài đặt máy) cho bước kiểm tra thiết kế trên máy. |
 | `android-design` | Thiết kế, review, audit, polish UI Android (Jetpack Compose + Material 3). Đầu ra: flow HTML (`flow.html` live, agent đọc được), Figma (khi có file), hoặc code Compose. Giữ base flow cố định của team (Splash → Ngôn ngữ → 4 trang Onboarding), chọn hướng thiết kế bằng `deal.mjs`, sinh theme Compose + CSS token bằng `theme.mjs`, dựng/kiểm tra flow bằng `new-flow.mjs` / `build-flow.mjs`. |
 
 Gọi trong Claude Code: `/android-design [flow · figma · theme · critique · audit · polish …] [mục tiêu]`, hoặc nói tự nhiên ("thiết kế UI app android…", "dựng flow html…").
@@ -12,14 +13,15 @@ Gọi trong Claude Code: `/android-design [flow · figma · theme · critique ·
 ## Cài trên máy mới
 ```bash
 git clone https://github.com/TranVanHien1/design-system.git ~/design-system
-cd ~/design-system && ./install.sh      # symlink vào ~/.claude/skills/
+cd ~/design-system && ./install.sh      # symlink android-design + android-adb-qa vào ~/.claude/skills/ (bản cũ cất ở ~/.claude/skills-backup/)
 ```
 Cập nhật: `cd ~/design-system && git pull` (symlink nên không cần cài lại). Mở phiên Claude Code mới để nạp.
 
 ## Yêu cầu
 - Node.js ≥ 18 (script `deal.mjs`, `theme.mjs`, `flow/*.mjs`; không cần `npm install`, thư viện màu Material đã vendor sẵn).
 - Google Chrome/Chromium (chỉ cho `build-flow.mjs --shots` / `--images`).
-- Python 3 + Pillow (ghép ảnh kiểm tra, dùng `ui.py montage` của skill `android-adb-qa` nếu có).
+- Python 3 + Pillow (ghép ảnh kiểm tra, `android-adb-qa/scripts/ui.py montage`).
+- Android SDK platform-tools (`adb`) cho `android-adb-qa` và bước kiểm tra trên máy.
 - Figma MCP (connector claude.ai) cho phần đọc/dựng Figma.
 - Tạo ảnh minh họa: công cụ ngoài (ví dụ Antigravity `agy`), chưa nằm trong skill.
 
