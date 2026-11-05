@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// android-design · contrast — check colour pairs before they go into a Figma spec (glass, gradients, badges).
+// android-design · contrast — check colour pairs before they go into a Figma spec (any theme: tonal, translucent, gradient, image).
 // node contrast.mjs <fg> <bg> [more bg …] [--over <base>]   colours: #RRGGBB or rgba(r,g,b,a)
-//   --over <base>  composite translucent backgrounds (glass fills, scrims) over the screen base first.
+//   --over <base>  composite translucent backgrounds (translucent surfaces, scrims, overlays) over the screen base first.
 // Pass every gradient stop and every point of a halo the text can sit on; the worst ratio is the one that counts.
 // Thresholds: 4.5:1 body text, 3:1 large text (≥18sp, or ≥14sp bold) and UI marks (icons, borders, focus rings).
 const args = process.argv.slice(2);

@@ -17,7 +17,7 @@ const lum = (c) => { const f = (v) => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 
 const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
 const solid = (paints) => (Array.isArray(paints) ? paints.filter((p) => p.visible !== false && p.type === 'SOLID') : []);
 const insideInstance = (n) => { for (let p = n.parent; p; p = p.parent) if (p.type === 'INSTANCE') return true; return false; };
-function bgColor(n) { // nearest ancestor with an (almost) opaque solid fill; null when only glass / images / gradients are behind
+function bgColor(n) { // nearest ancestor with an (almost) opaque solid fill; null when only translucent layers / images / gradients are behind
   for (let p = n.parent; p && p.type !== 'PAGE'; p = p.parent) {
     if (!('fills' in p) || !Array.isArray(p.fills)) continue;
     const vis = p.fills.filter((f) => f.visible !== false);
@@ -53,7 +53,7 @@ function auditFrame(frame) {
       if (owned && n.textAutoResize === 'NONE' && n.textTruncation !== 'ENDING') add(S, 'S1 fixed-size text box (may clip)', n);
       const fill = solid(n.fills)[0], bg = bgColor(n);
       if (fill && bg) { const r = ratio(fill.color, bg), big = (n.fontSize || 14) >= 18 || ((n.fontSize || 14) >= 14 && /Bold/.test(n.fontName && n.fontName.style)); if (r < (big ? 3 : 4.5)) add(H, `H3 contrast < ${big ? 3 : 4.5}:1`, n); }
-      else if (fill) add(S, 'S2 text on glass/image/gradient — check contrast on the render', n);
+      else if (fill) add(S, 'S2 text on translucent/image/gradient bg — check contrast on the render', n);
     }
     if (owned && n !== frame && !/placeholder/i.test(n.name) && (unbound(n, 'fills') || unbound(n, 'strokes'))) add(H, 'H4 hard-coded colour (no variable/style)', n);
     if (owned && n.type === 'FRAME' && COMPONENT_NAMES.includes(n.name.split(/ [\/·] /)[0].trim())) add(H, 'H8 drawn copy of a component (use an instance)', n);

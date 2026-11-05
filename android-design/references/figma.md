@@ -2,7 +2,7 @@
 
 Turn a designed flow (HTML screens from [html-flow.md](html-flow.md)), a document, a brief or a written spec into editable Figma frames. Scope can be the whole project, one feature group, one feature, or a single node. Output is editable text, auto-layout frames, components and variables, never a pasted screenshot.
 
-Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass before the work is reported done. They come from the 2026-11-05 Khóa Kín builds: v1 from HTML, then a direct-to-Figma glass-dark redesign. The audit of that redesign found 23 of 31 component sets without a description, 9 sets with icons that could not be swapped, 32 unbound paints, and a theme grid drawn as loose frames although a Theme tile component existed.
+Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass before the work is reported done. The rules are style-agnostic: they hold for any theme (flat or tonal, elevated, translucent/glass, gradient, outline, neumorphic) in light or dark. They come from two builds of Khóa Kín on 2026-11-05: v1 from HTML, then a redesign straight into Figma. The audit of the redesign found 23 of 31 component sets without a description, 9 sets with icons that could not be swapped, 32 unbound paints, and a theme grid drawn as loose frames although a Theme tile component existed.
 
 ## Before any Figma call
 
@@ -14,7 +14,7 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
   - Pass `skillNames` on every `use_figma` call.
 - **Destination.** Use a file URL from the user, or a new file (`figma-create-new-file` skill, then `create_new_file`). Writing to a file is outward-facing: confirm the file and page once before the first write. Parse `node-id=12-345` → `12:345`.
 - **Plan limits.** Check the user's plan once (`whoami`) and plan for its limits:
-  - Starter allows **3 pages per file** and **1 mode per variable collection**. Light and dark therefore cannot share one collection: give each theme its own collection named after it (e.g. "Glass Dark"), and keep a theme's icons and styles separate as well.
+  - Starter allows **3 pages per file** and **1 mode per variable collection**. Light and dark therefore cannot share one collection: give each theme or mode its own collection named after it (e.g. "Brand Light", "Brand Dark"), and keep each theme's icons and styles separate as well. On paid plans use one collection with one mode per theme.
   - The MCP call budget is small. Count every Figma tool call and report the number.
   - Stop and report on any limit or rate error; never retry it in a loop.
 
@@ -24,12 +24,18 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
 - **Direct to Figma.** When the user says to skip HTML (e.g. "bỏ qua html, đến thẳng figma"), first write a spec to `figma-spec.md` in the project and build from it. The spec must cover:
   - **Tokens:**
     - every colour with its role
-    - surfaces (fill, blur, stroke, shadow)
     - radius and spacing scales
     - type ramp and font
-  - **Contrast:** check every text/background pair with `node <skill>/scripts/figma/contrast.mjs`. For glass, composite it with `--over <screen base>`. For gradients, pass **every stop**: the worst stop counts. Body text needs 4.5:1; large text and UI marks need 3:1.
+  - **Theme model** (whatever the style):
+    - **Surfaces:** how depth is shown, i.e. what separates screen, card, raised and overlay levels. It can be tonal fills, shadows, translucency and blur, gradients, outlines, or paired highlight/shade (neumorphic). Each level is a paint or effect style.
+    - **States:** how pressed, selected, focused and disabled look (overlay, tint, glow, outline or offset). One rule per state, applied to every component.
+    - **Accent:** where the primary colour may appear (actions, selection, status) and where it may not.
+  - **Contrast:** check every text/background pair with `node <skill>/scripts/figma/contrast.mjs` on the background the text actually sits on:
+    - Translucent layers (cards, scrims, overlays) are composited over the screen base with `--over <base>`.
+    - Gradients and images: pass **every stop or sampled point**; the worst one counts.
+    - Thresholds: body text 4.5:1; large text and UI marks 3:1.
     - A spec colour that fails is changed in the spec before the build; it is never "kept because it was specified".
-    - Example from the glass build: white on gradient stop `#5B8CFF` = 3.16:1 ✗, `#4573FF` = 4.08:1 ✗, `#3A66F5` = 4.77:1 ✓.
+    - Example: white on a button gradient whose light stop was `#5B8CFF` = 3.16:1 ✗; `#4573FF` = 4.08:1 ✗; `#3A66F5` = 4.77:1 ✓.
   - **Components:** each with its variants, properties and states (see §Component rules).
   - **Screens and states:** the list to build, with the content source (HTML project, analysis doc or brief).
   - **Placeholders:** the images that will come later, with their final file names.
@@ -54,9 +60,9 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
      - spacing 8/12/16/24 (the only steps)
      - radius
    - Text styles for the type ramp in the product font. Verify style names with `listAvailableFontsAsync`; never fall back to Inter silently.
-   - Effect and paint styles for surfaces (glass card, elevated sheet, glows, gradients).
+   - Paint and effect styles for every surface level and state in the theme model (e.g. card, raised, overlay, scrim, focus ring, pressed overlay).
 3. **Icons:** import the team set (Lucide, see [html-flow.md](html-flow.md) and `img/icons/`) as `icon/<name>` components with `createNodeFromSvg`. Each theme gets its own icon set whose stroke is **bound to that theme's `icon` colour variable**.
-   - A set shared with another theme, or with a hard-coded colour, turns dark again on every instance swap. That happened in the glass build: 97 icons had to be recoloured by hand.
+   - A set shared with another theme, or with a hard-coded colour, resets to its default colour on every instance swap. In the Khóa Kín redesign, 97 icons had to be recoloured by hand.
 4. **Components** on the Components page, laid out as documentation: section title, the set, and a variant grid by state.
 5. **Screens** from instances (see §Screen rules).
 6. **Images:**
@@ -88,7 +94,7 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
   - Auto layout vertical, built top-down: status bar, app bar, content, bottom bar, gesture bar.
 - **Instances first:** anything that exists as a component is used as an instance, never redrawn.
   - Repeated groups (theme tiles, app rows, settings rows, notification groups) are always instances.
-  - A container a component already covers (e.g. the glass card around settings rows) is an instance of that component.
+  - A container a component already covers (e.g. the card around a group of settings rows) is an instance of that component.
   - The audit flags frames named like a component (H8) and loose vectors (H6).
 - **Styles:** text uses text styles (H2), colours use variables or styles (H4). Raw colours are allowed only in placeholders and data art (app-tile brand colours), and their layers must be named to say so.
 - **Real content:** the product's language and copy, with real images where they exist.
@@ -100,7 +106,7 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
    - Hard findings (H1 missing font, H2 unstyled text, H3 contrast on opaque backgrounds, H4 hard-coded colour, H5 spacing off scale, H6 loose vectors, H7 shimmer left on, H8 drawn copy of a component) must be 0, or each one listed with its reason.
    - Component-set issues (no description, label or icon not exposed, unbound paints) must be 0.
 2. **Visual check:** one `get_screenshot` per page section at a `maxDimension` that keeps text legible (≈ 3000–4096). It covers every frame in one call; a sample of a few frames is not a check.
-   - Text on glass, images or gradients cannot be measured by the audit (S2). Judge it on these screenshots, and back it with `contrast.mjs` on the spec colours.
+   - Text on translucent layers, images or gradients cannot be measured by the audit (S2). Judge it on these screenshots, and back it with `contrast.mjs` on the spec colours.
 3. **Report:**
    - node ids of pages, sets and screens
    - component sets with their variant and property counts
@@ -113,7 +119,7 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
 
 - Size each `use_figma` script to be safe to retry: one page section or one group of components per call.
 - Give every build root a stable name and delete a same-named leftover at the start, so a failed run is cleaned up by the next one.
-- **Syntax-check every script locally before sending it.** A half-written script wasted a call in the glass build. Check it with:
+- **Syntax-check every script locally before sending it.** A half-written script wasted a call in the Khóa Kín redesign. Check it with:
 
   ```
   node -e "new (Object.getPrototypeOf(async function(){}).constructor)(require('fs').readFileSync('s.js','utf8'))"
