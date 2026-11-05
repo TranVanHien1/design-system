@@ -17,6 +17,9 @@ grep -rlE "Typography\(|Shapes\(" --include=*.kt . | head
 find . -path ./build -prune -o -type d \( -name components -o -name designsystem -o -name ui \) -print | head
 # hardcoded values (debt the design will inherit)
 grep -rEn "Color\(0x|\.sp\b" --include=*.kt . | grep -v "/theme/" | wc -l
+# team house style (base theme files, AppStrings, bounceClick, ads SDK) → references/house-style.md
+ls app/src/main/java/*/*/*/presentation/utils/theme/Typography.kt 2>/dev/null; grep -rlE "LocalAppStrings|fun Modifier.bounceClick|com.st1.sdk" --include=*.kt . | head -3
+ls docs/Agents.md CLAUDE.md docs/CLAUDE.md 2>/dev/null
 # product/design context and earlier reports
 ls PRODUCT.md DESIGN.md */PRODUCT.md */DESIGN.md docs/design 2>/dev/null
 # locales the app ships
@@ -33,6 +36,7 @@ Keep these fields (one line each) and refer back to them instead of re-reading:
 - **UI stack:** Compose (BOM, material3 version) / Views / mixed. Material3 ≥1.4 means expressive APIs (`MotionScheme`, `MaterialShapes`, `ButtonGroup`) are available; otherwise use the fallbacks the references give.
 - **Theme:** file paths of Theme/Color/Type/Shape; branded scheme or template purple; dynamic color on/off; dark theme present; extended colors present.
 - **Design system:** shared components package/module and what it holds.
+- **House style:** `team` (base theme files + `LocalAppStrings` + `bounceClick`; read the project's CLAUDE.md / docs/Agents.md) or `m3`. With `team`, [house-style.md](house-style.md) overrides the M3 code rules below.
 - **Architecture:** screen = stateless composable fed by `UiState`? ViewModel per feature? Navigation library and graph location.
 - **Locales:** shipped `values-*` (Vietnamese present? RTL locales present?).
 - **Context files:** PRODUCT.md, DESIGN.md (paths or "missing"); latest `docs/design/critique|audit` report.

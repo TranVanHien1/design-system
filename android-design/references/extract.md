@@ -8,6 +8,8 @@ anything used fewer than three times with the same intent. Premature abstraction
 
 ## Step 1: Find the system's home
 
+In a team project ([house-style.md](house-style.md)) share only small, ad-free components; large screens and sections stay copied per feature so each can carry its own ads.
+
 Locate where shared UI lives and learn its conventions before adding to it:
 
 - Multi-module: a `core/designsystem` (or `core/ui`) module with `theme/` and `component/` packages.

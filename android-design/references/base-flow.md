@@ -48,6 +48,15 @@ Templates in `assets/flow/base/` implement exactly this; full anatomy and per-ap
 
 Before choosing a direction, read `data/topic-worlds.json` and [reference-patterns.md](reference-patterns.md) §4–6: the shipped worlds are light pastel/red script (Theme Mix), lavender + chunky display (Theme Art, Rolling Icon), cream + pixel (Pet Shimeji), black + pink gradient (Ringtone), soft coral (Charge Visuals), saturated Christmas red/green (Santa Call). A new app takes a different {background × colour × display face × illustration family} combination, its topic visible on the splash, and one signature component of its own.
 
+## Handoff in a team project (SDK XML base flow)
+
+In the team's apps splash, language and onboarding are XML activities driven by the ads SDK (`SplashActivity`, `LanguageScreenActivity`/`LanguageView` + `item_language.xml`, `OnboardingView` + `onb_page.xml` with a 310dp bottom-ad spacer). The design therefore ships **assets and copy, not composables**:
+
+- **App icon**: adaptive icon (foreground vector or 432×432 webp + background colour) and the 120dp splash icon.
+- **4 onboarding images**: one per page for the hero area (412×468 design dp, subject above the bottom 100dp fade), exported as webp at 1080 px wide in `drawable-nodpi` (avoids the out-of-memory and blurry single-density issues seen in Theme Mix); name `onb_1…onb_4`.
+- **Copy**: 4 titles + 4 bodies as `AppStrings` fields (and the XML string ids the activity reads), with the Vietnamese and English text; title colour or gradient as a `Color.kt` token.
+- **Colours** for the activity backgrounds / indicator in `colors.xml` names the base already uses; never edit the SDK layouts' geometry.
+
 ## Checks before handing over
 
 - All 4 onboarding pages exist, same anatomy, different illustration and copy; the indicator matches the page.

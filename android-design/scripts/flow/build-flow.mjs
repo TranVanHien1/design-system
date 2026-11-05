@@ -6,6 +6,9 @@
 // the components by reading flow.html; nothing is rasterised. Images referenced by screens stay files next to it.
 //   --images   embed JPEG renders instead (self-contained file to send outside the project)
 //   --shots    also render every view to shots/<view>.jpg with headless Chrome, for a visual check
+//   --handoff  also measure every screen in Chrome and write handoff/<screen>.md + handoff/index.md: frame, components
+//              (data/compose-map.json), spacing, text styles → team T-tokens, colours → token names, aspect constants,
+//              radii, touch targets under 48dp, ad slots — the design → Compose sheet (references/house-style.md §5)
 //
 // node build-flow.mjs <project-dir> [--out flow.html] [--images] [--shots] [--only id,id] [--scale 1.3334] [--quality 86]
 //
@@ -34,7 +37,7 @@ const W = Number(opt('width', 360)), H = Number(opt('height', 800)), SCALE = Num
 const only = opt('only') ? new Set(opt('only').split(',')) : null;
 const out = path.resolve(dir, opt('out', 'flow.html'));
 const outDir = path.dirname(out);
-const IMAGES = flag('images'), SHOTS = flag('shots') || IMAGES;
+const IMAGES = flag('images'), HANDOFF = flag('handoff'), SHOTS = flag('shots') || IMAGES || HANDOFF;
 
 // ---------- validate ----------
 const ids = new Set(flow.screens.map((s) => s.id));
@@ -171,6 +174,34 @@ if (!IMAGES) {
 
 // ---------- chrome renders (only for --shots / --images) ----------
 const imgs = {};
+const measures = {};
+const MEASURE = `(() => {
+  const W = innerWidth, H = innerHeight, px = (v) => Math.round(parseFloat(v) * 10) / 10, cnt = (m, k) => (m[k] = (m[k] || 0) + 1);
+  const spacing = {}, text = {}, colors = {}, radius = {}, small = [], blocks = {}, classes = {}, ads = [];
+  const hex = (c) => { const m = /rgba?\\(([^)]+)\\)/.exec(c); if (!m) return null; const p = m[1].split(',').map(parseFloat); if (p.length > 3 && p[3] === 0) return null;
+    const h = '#' + p.slice(0, 3).map((x) => Math.round(x).toString(16).padStart(2, '0')).join('').toUpperCase(); return p.length > 3 && p[3] < 1 ? h + '@' + Math.round(p[3] * 100) : h; };
+  for (const el of document.querySelectorAll('body *')) {
+    const r = el.getBoundingClientRect(); if (r.width < 1 || r.height < 1 || r.bottom < 0 || r.top > H || r.right < 0 || r.left > W) continue;
+    const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || cs.display === 'none' || +cs.opacity === 0) continue;
+    for (const p of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft']) { const v = px(cs[p]); if (v > 0) cnt(spacing, v); }
+    if (/flex|grid/.test(cs.display) && el.children.length > 1) for (const p of ['rowGap', 'columnGap']) { const v = px(cs[p]); if (v > 0) cnt(spacing, v); }
+    const cls = (el.getAttribute('class') || '').split(/\\s+/).filter(Boolean); cls.forEach((c) => cnt(classes, c));
+    const first = cls.find((c) => !/^(on|fill|grow|row|col|between|center|when-on|s\\d+|ms|tnum|wide|tall|free|pro|c|l|r|t|h|s|d|nm|art|ic|end)$/.test(c));
+    const ownTxt = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
+    if (ownTxt && !cls.includes('ms') && !el.closest('.statusbar')) { const fam = cs.fontFamily.split(',')[0].replace(/["']/g, '');
+      const k = px(cs.fontSize) + '|' + cs.fontWeight + '|' + (cs.lineHeight === 'normal' ? 'normal' : px(cs.lineHeight)) + '|' + fam;
+      (text[k] ||= { n: 0, sample: ownTxt.slice(0, 28) }).n++; const c = hex(cs.color); if (c) cnt(colors, 'text ' + c); }
+    const bg = hex(cs.backgroundColor); if (bg) cnt(colors, 'fill ' + bg);
+    const br = cs.borderTopLeftRadius; if (br && br !== '0px') cnt(radius, br.endsWith('%') ? br : px(br) >= Math.min(r.width, r.height) / 2 - 0.5 ? 'pill' : px(br));
+    const ow = el.offsetWidth, oh = el.offsetHeight; // layout size, untransformed (rotated mock-ups keep their real ratio)
+    if (first && ow >= 40 && oh >= 40 && (el.querySelector(':scope > img, :scope > .art, :scope > .photo, :scope > .mini, :scope > .scene') || cs.backgroundImage !== 'none')) (blocks[first] ||= []).push([ow, oh]);
+    const tap = el.matches('button,[role=button],[role=tab],[role=checkbox],.icon-btn,.chipbtn,.cta,.cta56,.t-btn,.btn,.round,.more-ic,.textbtn,.ty,.navbar .item,.histchip,.switch,.pro-btn');
+    if (tap && (r.width < 48 || r.height < 48) && !el.closest('.ad')) small.push((first || el.tagName.toLowerCase()) + ' ' + Math.round(r.width) + 'x' + Math.round(r.height) + ' ' + JSON.stringify((el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 18)));
+    if (/^(ad|ad-|native|full-ad|banner-ad)/.test(first || '')) ads.push(first + ' ' + Math.round(r.width) + 'x' + Math.round(r.height) + ' at y' + Math.round(r.top));
+  }
+  return JSON.stringify({ W, H, spacing, text, colors, radius, small: [...new Set(small)].slice(0, 24), blocks, classes, ads: [...new Set(ads)],
+    theme: document.documentElement.dataset.theme || 'light', template: document.documentElement.dataset.spacing === 'template' });
+})()`;
 const warnings = [];
 let rendered = 0;
 if (SHOTS) {
@@ -210,6 +241,10 @@ if (SHOTS) {
       await S('Runtime.evaluate', { expression: 'Promise.all([document.fonts.ready, ...[...document.images].map(i => i.complete ? 0 : new Promise(r => i.onload = i.onerror = r))]).then(() => new Promise(r => setTimeout(r, 250)))', awaitPromise: true });
       const { result } = await S('Runtime.evaluate', { expression: 'JSON.stringify({ w: document.documentElement.scrollWidth, broken: [...document.images].filter(i => !i.naturalWidth).map(i => i.getAttribute("src")).slice(0,5), fonts: [...document.fonts].filter(f => f.status === "error").map(f => f.family).slice(0,5) })', returnByValue: true });
       const info = JSON.parse(result.value);
+      if (HANDOFF && flow.screens.some((s) => s.id === v.key)) {
+        const m = await S('Runtime.evaluate', { expression: MEASURE, returnByValue: true });
+        if (m.result?.value) measures[v.key] = JSON.parse(m.result.value);
+      }
       const { data } = await S('Page.captureScreenshot', { format: 'jpeg', quality: Q, clip: { x: 0, y: 0, width: vw, height: vh, scale: 1 } });
       fs.writeFileSync(shotFile, Buffer.from(data, 'base64'));
       imgs[v.key] = data; rendered++;
@@ -222,6 +257,82 @@ if (SHOTS) {
     await new Promise((r) => { if (chrome.exitCode !== null) return r(); chrome.once('exit', r); setTimeout(() => { chrome.kill('SIGKILL'); r(); }, 3000); });
     try { fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }); } catch { /* leftover temp profile is harmless */ }
   }
+}
+
+// ---------- handoff sheets (--handoff) ----------
+if (HANDOFF) {
+  const hd = path.join(dir, 'handoff'); fs.mkdirSync(hd, { recursive: true });
+  const cmap = JSON.parse(fs.readFileSync(path.join(SKILL, 'data', 'compose-map.json'), 'utf8'));
+  const css = (f) => (fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f), 'utf8') : '');
+  const tokCss = css('tokens.css'), appCss = css('app.css');
+  const blockOf = (src, sel) => { const m = new RegExp(sel.replace(/[[\]()=".]/g, '\\$&') + '\\s*\\{([^}]*)\\}').exec(src); return m ? m[1] : ''; };
+  const pascal = (s) => s.split('-').map((w) => (w ? w[0].toUpperCase() + w.slice(1) : '')).join('');
+  const tokName = (k) => (k.startsWith('md-') ? 'Md' + pascal(k.slice(3)) : k.startsWith('x-') ? pascal(k.slice(2)) : pascal(k));
+  const hexMap = (body, suffix) => { const o = {}; for (const m of body.matchAll(/--([\w-]+)\s*:\s*(#[0-9a-fA-F]{6})\b/g)) if (!/^t-/.test(m[1])) (o[m[2].toUpperCase()] ||= tokName(m[1]) + suffix); return o; };
+  const tokensFor = (theme) => ({ ...hexMap(blockOf(appCss, ':root'), ''), ...(theme === 'dark' ? hexMap(blockOf(tokCss, ':root[data-theme="dark"]'), 'Dark') : {}), ...hexMap(blockOf(tokCss, ':root'), '') });
+  const WK = { 800: 'EB', 900: 'EB', 700: 'B', 600: 'SB', 500: 'M', 400: 'R', 300: 'R' };
+  const SC = new Set([0, 8, 12, 16, 24]);
+  const rows = [];
+  for (const s of flow.screens) {
+    const m = measures[s.id]; if (!m) continue;
+    const states = (s.states || []).map((st) => st.name).join(', ') || '—';
+    const head = `# ${s.name} (\`${s.id}\`) — handoff\n\nFrame **${m.W}×${m.H}** · theme ${m.theme} · states: ${states}\n${(s.does || []).map((d) => `- ${d}`).join('\n')}\n`;
+    if (m.template) { fs.writeFileSync(path.join(hd, `${s.id}.md`), head + '\nTemplate screen (base flow / common): the code is the team template (SDK XML activity or shared composable). Deliver only the assets and copy (base-flow.md §handoff).\n'); rows.push([s, 'template', '', '', '']); continue; }
+    const comps = Object.keys(m.classes).filter((c) => cmap[c]).map((c) => `| \`.${c}\` ×${m.classes[c]} | ${cmap[c].compose} | ${cmap[c].params || cmap[c].note || ''} |`);
+    const sp = Object.entries(m.spacing).sort((a, b) => b[1] - a[1]);
+    const off = sp.filter(([v]) => !SC.has(+v) && +v > 2);
+    const toks = tokensFor(m.theme);
+    const texts = Object.entries(m.text).sort((a, b) => b[1].n - a[1].n).map(([k, v]) => {
+      const [size, w, lh, fam] = k.split('|'); const t = Number.isInteger(+size) ? `T${size}${WK[w] || w}` : `— (${size}px is not a whole sp)`;
+      const flag = lh === 'normal' ? 'line-height unset' : +lh <= +size ? 'line-height ≤ size: clips diacritics' : '';
+      return `| ${size}/${lh} · ${w} | ${fam} | \`${t}\` | ${v.n} | ${v.sample.replace(/\|/g, '/')} | ${flag} |`;
+    });
+    const cols = Object.entries(m.colors).sort((a, b) => b[1] - a[1]).slice(0, 18).map(([k, n]) => { const [use, val] = k.split(' '); const base = val.split('@')[0]; const t = toks[base];
+      return `| ${use} | ${val.includes('@') ? val.replace('@', ' α') + '%' : val} | ${t ? '`' + t + (val.includes('@') ? '.copy(alpha)' : '') + '`' : '**literal: add a token**'} | ${n} |`; });
+    const blk = Object.entries(m.blocks).filter(([, a]) => a.length >= 2).map(([c, a]) => {
+      const ratios = [...new Set(a.map(([w, h]) => (w / h).toFixed(3)))]; const [w, h] = a[0];
+      return `| \`.${c}\` | ${w}×${h} | ${ratios.length === 1 ? `\`aspectRatio(${w}f / ${h}f)\`` : `varies: ${ratios.slice(0, 4).join(', ')}`} | ${a.length} |`; });
+    const rad = Object.entries(m.radius).sort((a, b) => b[1] - a[1]).map(([v, n]) => `${v === 'pill' ? 'pill → CircleShape' : String(v).endsWith('%') ? v : v + 'dp'} ×${n}`).join(' · ');
+    const md = `${head}
+## Components (team base)
+| Flow | Compose | Params / note |
+|---|---|---|
+${comps.join('\n') || '| — | — | — |'}
+
+## Spacing (padding / margin / gap)
+${sp.map(([v, n]) => `${v}dp ×${n}`).join(' · ')}
+${off.length ? `\n**Off the 8·12·16·24 scale:** ${off.map(([v, n]) => `${v}dp ×${n}`).join(', ')} — snap by component type (layout.md).` : '\nAll on the 8·12·16·24 scale.'}
+
+## Text styles → tokens
+| Size/line · weight | Font | Token | Uses | Sample | Flag |
+|---|---|---|---|---|---|
+${texts.join('\n')}
+
+## Colours → tokens
+| Use | Value | Token | Uses |
+|---|---|---|---|
+${cols.join('\n')}
+
+## Repeated blocks → aspect constants
+| Class | Size (dp) | Compose | Count |
+|---|---|---|---|
+${blk.join('\n') || '| — | — | — | — |'}
+
+## Corner radii
+${rad || '—'}
+
+## Touch targets under 48dp (give each a 48dp hit area)
+${m.small.length ? m.small.map((x) => `- ${x}`).join('\n') : 'None.'}
+
+## Ad slots
+${m.ads.length ? m.ads.map((x) => `- ${x}`).join('\n') : 'None in this design (ads off); reserve SDK slots per house-style.md §3 when ads are on.'}
+`;
+    fs.writeFileSync(path.join(hd, `${s.id}.md`), md);
+    const lits = cols.filter((c) => c.includes('literal')).length;
+    rows.push([s, `${m.W}×${m.H}`, off.length, m.small.length, lits]);
+  }
+  fs.writeFileSync(path.join(hd, 'index.md'), `# ${flow.app} — design → Compose handoff\n\nGenerated by build-flow --handoff. One sheet per screen; the house rules are in the skill's references/house-style.md.\n\n| Screen | Frame | Off-scale spacing values | Targets < 48dp | Colour literals |\n|---|---|---|---|---|\n${rows.map(([s, f, o, t, l]) => `| [${s.name}](${s.id}.md) | ${f} | ${o} | ${t} | ${l} |`).join('\n')}\n`);
+  console.log(`handoff: ${rows.length} screen sheets → ${hd}`);
 }
 
 // ---------- assemble ----------

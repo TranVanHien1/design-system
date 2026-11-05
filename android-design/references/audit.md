@@ -30,6 +30,8 @@ from an emulator or hardware; scroll jank and gesture feel need hardware.
 
 ## Diagnostic scan
 
+First run the static check: `node <skill>/scripts/audit/compose-lint.mjs <module>` (fractional dp, spacing off the scale, colour / font-size literals, tappables under 48dp, `bounceClick` without semantics, unstable status-bar insets, hard-coded text, fixed boxes around text, `lineHeight = fontSize`). It detects the team house style and reports against it ([house-style.md](house-style.md)). Use its counts as evidence; the manual scan below covers what static checks cannot.
+
 Score each dimension 0–4.
 
 ### 1. Accessibility (TalkBack)

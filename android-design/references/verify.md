@@ -64,6 +64,15 @@ class HistoryStates : PreviewParameterProvider<HistoryUiState> {
 
 Only add a screenshot-testing dependency if the project lacks one and the user agrees; otherwise use the device. Feeding `UiState` variants through a `PreviewParameterProvider` is the cheapest way to see every state, and the providers double as fixtures for [harden.md](harden.md).
 
+## Team projects: design ↔ device, not by eye
+
+The team's apps have no previews and no screenshot tests, and their history is full of "fix UI" rounds that match Figma by eye. For every screen you design or change in a team project ([house-style.md](house-style.md)):
+
+1. **Previews per state.** Next to each `*Content` composable add one `@Preview(widthDp = <frame width>, heightDp = <frame height>, showBackground = true)` per `UiState` variant (loading, content, empty, error, locked…) fed with sample state, wrapped in the app theme and `CompositionLocalProvider(LocalAppStrings provides AppStrings())`. Add a `fontScale = 1.5f` preview and a Vietnamese-strings preview for screens with labels in fixed slots. Previews are cheap and survive refactors; they are the team's missing screenshot layer.
+2. **Device next to design.** Capture the screen on a device (`android-adb-qa` `ui.py shot`) and put it beside the flow shot of the same view: `python3 <adb-qa>/scripts/ui.py montage out.png shots/<view>.jpg device.png`. Differences in spacing, ratio, colour, icon or type are bugs with a file:line, not taste.
+3. **QA table per Figma node / flow view** (the Charge Visuals `docs/qa/report.md` format): view · device shot · match / mismatch · what differs · fix. Re-shoot after each fix.
+4. **Static check** before handing back: `node <skill>/scripts/audit/compose-lint.mjs <app module>` — no new errors in the files you touched.
+
 ## The look
 
 Read the images (the Read tool shows PNGs) and check, in one pass per batch:

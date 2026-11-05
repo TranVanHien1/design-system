@@ -31,6 +31,10 @@ Every app keeps the fixed base flow — Splash → Language → Onboarding ×4 �
 - **Base flow (splash, language, onboarding) is template work.** Keep `assets/flow/base/` as is and deliver only: the **app icon** shown on the splash, **4 onboarding illustrations** (one per page: the app's own screens or core object in context, with an image prompt each), and the **onboarding title + subtitle copy** for the 4 pages. Do not restyle the language list, splash layout or onboarding anatomy.
 - **Secondary screens such as the paywall are skipped for now** (no design, no flow cards) unless the user asks; when a flow needs them for a link, use the untouched `assets/flow/common/` template or a labelled placeholder card.
 
+## Team projects
+
+The team's apps share one Compose base (named `Color.kt` / `Typography.kt` tokens, `AppStrings`, `bounceClick`, custom-drawn kit, SDK-driven XML base flow). When discovery finds it, [house-style.md](references/house-style.md) overrides the M3 code rules; design rules still hold. Handoff tools: `scripts/handoff/team-theme.mjs` (theme files in the team's format), `build-flow.mjs --handoff` (per-screen sheet), `scripts/audit/compose-lint.mjs` (code check).
+
 ## Setup (once per session)
 
 1. Run the discovery in [references/context.md](references/context.md) and keep its note: modules, Compose/Material versions, theme files, design system, architecture, locales, PRODUCT.md/DESIGN.md, devices.
@@ -95,6 +99,9 @@ Paths are relative to this skill's directory (`<skill>`); run them from the user
 - `node <skill>/scripts/deal.mjs --brief "<brief>" [--kind id] [--brand "#hex"] [--theme light|dark] [--reroll N] [--any-script] [--json]` deals three directions (style + palette + type pair + shape + motion, with the M3 translation). `--list kinds|styles` lists the library.
 - `node <skill>/scripts/theme.mjs --direction "<style>+<palette>+<type>" | --seed "#hex" --package <pkg> --out <dir> [--brand "#hex"] [--fonts bundled|downloadable] [--name AppTheme] [--r-package <ns>] [--dry-run] [--force]` writes Color.kt, Theme.kt (light/dark × standard/medium/high contrast, ExtendedColors, opt-in dynamic color), Type.kt and Shape.kt, then prints key colours, WCAG checks and the font files to add. Uses Google's material-color-utilities (vendored).
 - `node <skill>/scripts/flow/new-flow.mjs --app "<Name>" --out <dir> --direction "<id>" [--dark-first] [--ads]` starts an HTML flow project (kit, tokens.css, base screens, flow.json); `node <skill>/scripts/flow/build-flow.mjs <dir> [--shots] [--only ids] [--images]` writes the project's `flow.html` with every screen/state embedded as live HTML (agent-readable; rebuild after each batch, append flows by extending `flow.json`); `--shots` also renders JPEGs for a visual check, `--images` makes a picture-only file to send outside. `theme.mjs … --css tokens.css` emits the same tokens as CSS variables.
+- `node <skill>/scripts/handoff/team-theme.mjs <flow-dir> --package <pkg> [--out dir] [--scheme light|dark|both] [--force]` writes the team's theme files (Color.kt with names matching the flow's CSS variables, Typography.kt T-tokens with real line heights, Font.kt .ttf, Dimens.kt spacing/radius, Theme.kt `BaseCodeTheme`) plus token-map.md; never overwrites without `--force`.
+- `node <skill>/scripts/flow/build-flow.mjs <dir> --handoff` writes a design → Compose sheet per screen in `handoff/` (components, spacing, tokens, aspect constants, small targets, ad slots).
+- `node <skill>/scripts/audit/compose-lint.mjs <module> [--all] [--json]` statically checks Compose code (spacing scale, fractional dp, literals, tap targets, semantics, insets, hard-coded text, line height) against the floor or the team house style.
 - `data/` holds the library the scripts read: 10 app styles (7 from Taste's study of real product screens, 3 Android-specific), 56 palettes, 55 type pairs flagged for Vietnamese coverage, 23 product kinds with English and Vietnamese keywords, 33 phone patterns.
 
 ## Project files

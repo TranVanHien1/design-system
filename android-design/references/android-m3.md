@@ -54,6 +54,9 @@ Would a fluent Android user trust this app, or trip on off-spec components? The 
 
 ## Color and theming
 
+In a team project (house style `team`, [house-style.md](house-style.md)) colors and type come from the project's named `Color.kt` / `Typography.kt` tokens instead of `MaterialTheme` roles; the intent of the rules below (no literals in feature code, contrast, one palette) still holds.
+
+
 - **Color roles only** in UI code: `MaterialTheme.colorScheme.primary`, `onSurfaceVariant`, `surfaceContainerLow`, … Raw `Color(0xFF…)` in a composable is a bug: it breaks dark theme, contrast levels and dynamic color.
 - **Surfaces step by tone, not shadow.** `surface` for the screen; `surfaceContainerLowest…Highest` for grouped content, sheets, cards and bars. Cards default to 0dp shadow elevation; elevation shadows are for things that float (FAB, menus, dragged items).
 - **Dark theme is a first-class scheme**, designed and verified, never an inversion. **High-contrast schemes** (Android 14+ contrast setting) ship too; `scripts/theme.mjs` generates all six.

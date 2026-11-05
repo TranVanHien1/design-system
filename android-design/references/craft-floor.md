@@ -14,6 +14,7 @@ Each line is a check on the built result, not an intention. Run them together in
   bold) and meaningful marks (field outlines, switch tracks, chart lines, icons that act) ≥3:1. Check
   both schemes plus one dynamic scheme from a real wallpaper. On a colored container, secondary text
   comes from its `on*` role, never a flat grey.
+- **Team project?** If the context note says house style `team`, apply [house-style.md](house-style.md): named `Color.kt` / `Typography.kt` tokens, `AppStrings`, `bounceClick`; the two bullets on color roles and type roles below then read "tokens from the theme files, never literals in feature code".
 - **Color roles, not literals.** Every color in a composable comes from `MaterialTheme.colorScheme`
   or the project's `ExtendedColors` local. A `Color(0xFF…)` outside the theme files is a second
   palette starting. Containers pair with their own `on*` role.
