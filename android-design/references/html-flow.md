@@ -12,7 +12,7 @@ Use it for a whole app from a document, a feature group, or a single feature. Wr
   tokens.css         generated: node <skill>/scripts/theme.mjs … --css tokens.css   (never hand-edit)
   kit.css, state.js  copied from <skill>/assets/flow/ (phone frame + M3 components + ?state= switching)
   team.css           the team's measured components (references/components.md): ads, nav, dialogs, paywall, buttons…
-  img/               illustrations, icons, avatars (the user generates or supplies them; see "Images")
+  img/               illustrations, icons, avatars (real data, supplied by the user, or generated on request from images.json; see "Images" and images.md)
   screens/*.html     one file per screen; states inside the same file via data-when, or separate files
   shots/             optional JPEG renders (--shots) for a visual check or Figma uploads
   flow.html          the deliverable (live HTML views; --images makes a self-contained picture version to send outside)
