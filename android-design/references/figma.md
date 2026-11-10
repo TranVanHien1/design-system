@@ -117,6 +117,13 @@ Rules marked **(gate)** are checked by `scripts/figma/audit.js` and must pass be
 
 ## Spending calls well
 
+- **Every Figma MCP tool call counts against the plan's limit**, reads included: `get_figma_skill`, `create_session`, `whoami`, `get_metadata`, `get_screenshot`, `upload_assets`, `use_figma`. The Starter seat stopped a build at its 11th call on 2026-11-10, after earlier builds that month, with: "You've reached the Figma MCP tool call limit on the Starter plan".
+- **Estimate the calls before starting** and compare the estimate with what is left; when the build will not fit, say so before the first write.
+  - Rough budget: 1 inspect + 1–2 foundations + 1 icons + 2–4 component batches + 1 per 3–4 screens + 1 audit per page + 1 screenshot per page + the skill reads.
+  - A 25-component, 15-screen app is about 25 calls.
+- **Read the Figma skills once per session.** Copy the text into the subagent's prompt or a local file, so a subagent does not spend 3 calls re-reading them.
+- **Keep a ledger in the project** (`figma-build/ledger.json` plus the scripts): node ids, the steps done, the next steps. A run stopped by the limit then resumes without re-reading the file.
+
 - Size each `use_figma` script to be safe to retry: one page section or one group of components per call.
 - Give every build root a stable name and delete a same-named leftover at the start, so a failed run is cleaned up by the next one.
 - **Syntax-check every script locally before sending it.** A half-written script wasted a call in the Khóa Kín redesign. Check it with:
